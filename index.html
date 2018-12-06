@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Noumenon </title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.52" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.955516233bcafa4d2a1c13cea63c7b50.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+      <link href="https://cicirori.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Noumenon" />
+      <link href="https://cicirori.github.io/index.xml" rel="feed" type="application/rss+xml" title="Noumenon" />
+    
+
+    <meta property="og:title" content="Noumenon" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cicirori.github.io/" />
+<meta property="og:updated_time" content="2018-09-25T19:29:16&#43;00:00"/>
+
+<meta itemprop="name" content="Noumenon">
+<meta itemprop="description" content="">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Noumenon"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://cicirori.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Noumenon
+    </a>
+    <div class="flex-l items-center">
+      
+      
+<div hidden>
+  <span id="new-window-0">Opens in a new window</span>
+  <span id="new-window-1">Opens an external site</span>
+  <span id="new-window-2">Opens an external site in a new window</span>
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Noumenon
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+    
+  </article>
+  
+  
+  
+  
+  
+  
+  
+    
+    
+
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      
+       
+          <h1 class="flex-none">
+            Recent Posts
+          </h1>
+        
+
+      
+
+      <section class="w-100 mw8">
+        
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/" class="color-inherit dim link">
+            设计分布式系统读书笔记（五）
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+           函数与事件驱动处理 我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。
+大多数时FaaS指无服务器（Serverless）计算，这么说也没什么错，但是广义的无服务计算和事件驱动FaaS并不是完全相同的概念。比如一个多用户容器（CaaS）是无服务器的，但是不是事件驱动的。一个开源的FaaS跑在你自己拥有管理的物理机上，这是事件驱动的但不是无服务器的。理解这两者的区别可以让你了解什么时候该使用事件驱动什么时候该使用无服务器，或者什么时候两者并用。
+什么时候FaaS行得通 就像别的分布式系统的开发工具一样，FaaS也被用来当做一个非常通用的工具，但事实是FaaS也有它擅长和不擅长的领域。强行把一个工具到处使用，容易使得最后的系统复杂且脆弱。尤其是FaaS是一个比较新兴的工具，我们对它还有很多不了解的地方。
+FaaS的优点 受益与FaaS最多的主要是开发者。它减少了从代码到服务的距离。FaaS使得不管你是在笔记本上还是通过浏览器，运行云上的代码总是那么简单。
+同样的，部署好的代码可以实现自我管理和规模伸缩。当服务面临的流量变大时，更多的服务实例被创建，如果一个函数在一台机器上因为各种原因运行失败时，它会自动在另一台机器上重启。
+最后，和容器一样，甚至比容器更粒度化。函数是无状态的，因此你建立在函数上的任何系统都是天生内在模块化与低耦合的。但是解耦既是优点又是缺点，下面我们会谈论这个。
+FaaS面临的挑战 如同上一段所描述的，构建一个FaaS服务迫使你把你的服务解耦。每个函数都是独立的，唯一的交流渠道是网络，每个函数实例不能有本地内存，所有的状态都要存在存储服务里。这样造成的解耦可以提高灵活性与速度。但是也会显著的把一个服务的操作变得十分复杂。
+尤其是，你很难对你的服务有一个全景式的了解，依此来决定各种函数之间的整合，了解哪些东西发生了错误。另外基于请求并且无服务器的函数的天性使得一些问题很难被检测。比如：
+考虑一下当一个请求抵达任意一个其中的函数，就开启了无限的循环，只能等待请求超时或者耗尽内存。这样的错误真的发生在你的代码中时，很难检测到。
+所以，现在当你使用FaaS是你必须要对你的系统进行详尽的监控，在错误造成更大影响之前发现它们。
+FaaS不适合后台处理量大的任务，比如视频转码，压缩日志文件等等，这些任务一次请求需要你长期的运行。
+FaaS也不太能满足需要大量数据的任务，因为FaaS需要把数据都调进内存，有很多任务，比如文档搜索的索引，需要的数据量相当巨大。即使用一个相对快的存储层，FaaS也很难提供一个令人满意的延迟。
+FaaS的应用 
+        </div>
+          <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/" class="color-inherit dim link">
+            设计分布式系统读书笔记(四)
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          分片服务 和副本服务不同的是，副本服务的每个副本都具有完整的功能，可以响应每一个请求，分片服务中每个分片只能服务请求的一个子集，请求由一个负载均衡节点或者叫根节点分配到对应的分片。两种模式的不同如下图所示
+复制模式通常用来构建无状态服务，分片模式用来构建有状态服务。
+分片缓存 分片缓存是位于用户请求和实际的前端实现之间的缓存。
+####　为什么你可能需要分片缓存
+对任何服务进行分片的主要原因是想要增加存储在这个服务的数据量。为了理解这一点我们看一个例子，假设我们有如下系统：每个缓存有10GB RAM 可用，并且可以提供100RPS（requests per second）。假设我们的服务一共有200GB可能返回的结果，需要1000RPS。很明显我们需要十个这样的cache来满足1000RPS，一个简单的实现方式是利用复制模式，就像之前讲的一样。但是这样的话每个我们只能达到5%的容量。如果我们利用一个10路的分片缓存，我们仍然能服务大概1000RPS，但是我们能达到50%的容量，这样缓存就被更好的利用了。
+缓存在你的架构中的角色 我们之前没有提过的是，缓存对你的应用性能，可靠性和稳定性的影响。简单来说，一个我们需要考虑的重要问题是，如果缓存故障，那么对你的用户和服务会产生什么影响。
+在复制模式中这可能是不问题但是在分片模式中情况就有了变化。因为一个特定的用户或者特定的请求总被映射到同一个分片，所以缓存会一直miss直到故障恢复。
+你的缓存性能由命中率（hit rate）决定，假设你有一个接受请求层一次具有1000RPS，超出这个范围的系统会开始返回HTTP 500 错误。如果你在服务之前放一个命中率50%的缓存，那么1000RPS会提升到2000RPS。其中一半请求会由缓存处理，剩下一半由后端处理。在这个例子下，如果你的缓存故障那么一半的用户请求都会失败，所以，尽量把请求控制在1500RPS而不是跑满，这样你可以提供一半的缓存故障下的稳定性。
+除了每单位时间能够处理的请求之外，延迟对于你的系统来说也是一个重要的指标。缓存通常能显著的降低延迟。
+###　分片，复制服务
+我们举得例子大多是缓存，但是除此之外别的服务也可以受益于分片。比如大规模网络游戏，这样的游戏服务对于单机来说太大了，但是游戏里离得远的角色之间不会有什么互动，所以可以把整个游戏世界分片在多台服务器上。分片函数可以利用玩家的位置。
+分散/聚集模式 和复制模式与分片模式一样，分散聚集模式也具有树形结构，由一个根结点分配请求。与之不同的是，分散聚集模式把请求同时分给所有的副本，每个副本做一部分工作，返回一个局部结果。由根节点合并计算结果。（有点类似map/reduce）。
+分布式文件搜索：
+        </div>
+          <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/" class="color-inherit dim link">
+            设计分布式系统读书笔记（三）
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          服务器模式 微服务 最近微服务变成了一个描述多节点分布式软件架构的流行词，微服务描述了一个系统由运行在不同进程上的组件组成，批次之间通过预定义的API进行交流。与微服务相对应的概念是宏系统，把所有的功能紧凑的放在一个应用中。
+微服务有各种各样的好处，大多数情况下，微服务兼具可靠性和灵活性。微服务把一个应用分解成小片，每个小片专注于提供一种服务。这种模式有利于减小开发团队大小，使得开发更加灵活有方向性。
+另外，API提供了不同团队、不同服务之间的解耦。每个团队的工作就是提供一个稳定可靠的API并利用其他团队提供的API进行自己服务的开发。这使得团队可以独立地规划自己的开发日程，保证了每个团队的迭代升级他们代码的能力。
+最后，微服务提供的解耦很好的保证了拓展性。因为每个组件被分解成了微服务，这些微服务可以独立的升级拓展。在一个大型应用中，所有服务都以同步的步调升级或以同样的方式升级是很少见的。有些系统是无状态的可以简单的横向拓展，但是有些应用具有状态需要分片或者其他的方式来升级。
+微服务当然也有缺点，它有两个主要的不足。一是因为微服务使得系统松散耦合，所以Debug的时候可能会变得异常困难，你很难简单的把一个单一的应用放进Debugger找出哪里出错了。除此之外，微服务难以设计和架构。一个微服务系统会使用多种服务间交流方式，多重不同的模式（同步、异步、消息传递等等），和多重不同的协作与控制模式。
+这些困难是分布式模式的动力来源，如果一个微服务架构由一个well-known的模式所指导构建，那么我们就有很多前人的经验可以使用。开发者也可以更好的Debug这些微服务。
+重复负载均衡服务 最简单也是最为人知的分布式模式是重复负载均衡服务（replicated load-balanced service）。
+无状态服务 无状态服务不要求我们保存状态，在最简单的无状态服务中，甚至每个单独的请求都能被路由到不一样的服务实例。
+无状态服务的例子包括静态内容服务器和从数量庞大的后端接受聚合请求的中间件系统。
+无状态系统提供了冗余和拓展，不管你的服务多小，你都需要至少两个副本来提供高可用服务。我们假设一个看似可用性很高的服务，它的在线率99.9%，这意味着一天有一分钟二十四秒的宕机时间，我们增加一个副本，我们就可以把宕机时间缩短到3.6秒。
+随着业务增长，服务容量需要拓展的时候，我们可以通过简单地横向添加副本来实现。
+实现负载均衡探针 健康检查总是一件重要的事情，我们利用它可以发现不能正常提供服务的容器并及时重启它。于此相对的具有就绪探针（readiness probe）可以让负载均衡知道那些容器可以正常的提供服务并将请求分发给它。一个后端服务需要与数据库通信加载插件或者从网络下载服务文件，在此期间它们可能是alive的但是并非准备就绪的。
+会话追踪服务 之前的例子针对无状态复制模式，但是这并非总是最佳的选择。很多时候我们系统一个特定用户的请求总是与一台特定的机器链接。比如我们可以借此保持更高的内存命中率。
+通常，会话追踪一般通过hash资源与IP地址来决定哪个服务器服务哪个请求。所以只要请求的资源不变，ip不变，所有的请求都会被发到同样的副本。基于IP的会话追踪通常在内部IP的情况下工作良好，但是在外部IP情况在因为有NAT的存在则不是那么乐观，在这种情况下，应用层追踪（比如cookies）更适用。
+应用层重复服务 上面的例子都工作在网络层，但是许多应用都使用HTTP通信。
+缓存层 缓存层存在于用户与后端服务之间，当两个用户请求同一个资源时，只有一个请求会被发往后端。
+部署缓存 缓存可以简单的利用挎斗模式来实现。
+实现非常简单，它有一些坏处，你的服务与缓存拓展是同步的。比如你设计了10G的缓存总量，那么十个1G的缓存并不如两个5G来的好用。后者的命中率会高于前者。
+因此我们有如下设计：
+SSL终端 varnish是不支持SSL的但是nginx可以所以我们可以把HTTPS流量通过nginx中转给varnish。
+        </div>
+          <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+      </section>
+
+      
+      <section class="w-100">
+        <h1 class="f3">More</h1>
+        
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/" class="link black dim">
+              设计分布式系统读书笔记（二）
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/%E8%BD%AC%E8%87%AAreddit-anki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/" class="link black dim">
+              [转自Reddit]Anki英文卡组搜集
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/" class="link black dim">
+              设计分布式系统读书笔记（一）
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/" class="link black dim">
+              关于三段论
+            </a>
+          </h2>
+        
+
+        
+        
+          <a href="/posts/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Posts</a>
+        
+        </section>
+      
+
+      </div>
+  
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://cicirori.github.io/" >
+    &copy; 2018 Noumenon
+  </a>
+    <div>
+<div hidden>
+  <span id="new-window-0">Opens in a new window</span>
+  <span id="new-window-1">Opens an external site</span>
+  <span id="new-window-2">Opens an external site in a new window</span>
+</div>
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
