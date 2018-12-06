@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Noumenon  | Manjaro安装配置踩坑</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.52" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.955516233bcafa4d2a1c13cea63c7b50.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Manjaro安装配置踩坑" />
+<meta property="og:description" content="其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.
+制作USB安装器 参考资料 : Manjaro 官方User Guide
+ 官网下载镜像 Linux下推荐通过命令行制作  插上用于制作安装盘的U盘 查看U盘盘符. sudo fdisk -l. 写入镜像: sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M  Windows推荐使用Rufus:  选择你要用于制作安装盘的U盘. 在Boot selection, 点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.   进入Live CD与安装 参考链接 :
+ https://gist.github.com/oguzkaganeren/502360965a9bda12e958de2d9b0c9dab https://gist.github.com/mauri870/5a54e415140875b9150ca31c491811f6 https://www.bountysource.com/issues/33991302-laptop-freezes-when-starting-x11-and-discrete-graphics-are-off  如果能正常进入的话可以忽略这一步, 但是有的机器会出现问题, 卡在命令行界面. 我们只要在内核启动参数添加 systemd.mask=mhwd-live.service 即可.
+如果进入Live CD出现问题那么需要一些操作才能顺利安装, 修改/lib/calamares/modules/mhwdcfg/main.py :
+def run(): &quot;&quot;&quot; Configure the hardware &quot;&quot;&quot; mhwd = MhwdController() # return mhwd.run() return None # 新添这行 并注释掉上一行  然后安装即可." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cicirori.github.io/posts/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/" /><meta property="article:published_time" content="2018-12-06T17:07:14&#43;08:00"/>
+<meta property="article:modified_time" content="2018-12-06T17:07:14&#43;08:00"/>
+
+<meta itemprop="name" content="Manjaro安装配置踩坑">
+<meta itemprop="description" content="其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.
+制作USB安装器 参考资料 : Manjaro 官方User Guide
+ 官网下载镜像 Linux下推荐通过命令行制作  插上用于制作安装盘的U盘 查看U盘盘符. sudo fdisk -l. 写入镜像: sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M  Windows推荐使用Rufus:  选择你要用于制作安装盘的U盘. 在Boot selection, 点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.   进入Live CD与安装 参考链接 :
+ https://gist.github.com/oguzkaganeren/502360965a9bda12e958de2d9b0c9dab https://gist.github.com/mauri870/5a54e415140875b9150ca31c491811f6 https://www.bountysource.com/issues/33991302-laptop-freezes-when-starting-x11-and-discrete-graphics-are-off  如果能正常进入的话可以忽略这一步, 但是有的机器会出现问题, 卡在命令行界面. 我们只要在内核启动参数添加 systemd.mask=mhwd-live.service 即可.
+如果进入Live CD出现问题那么需要一些操作才能顺利安装, 修改/lib/calamares/modules/mhwdcfg/main.py :
+def run(): &quot;&quot;&quot; Configure the hardware &quot;&quot;&quot; mhwd = MhwdController() # return mhwd.run() return None # 新添这行 并注释掉上一行  然后安装即可.">
+
+
+<meta itemprop="datePublished" content="2018-12-06T17:07:14&#43;08:00" />
+<meta itemprop="dateModified" content="2018-12-06T17:07:14&#43;08:00" />
+<meta itemprop="wordCount" content="424">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Manjaro安装配置踩坑"/>
+<meta name="twitter:description" content="其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.
+制作USB安装器 参考资料 : Manjaro 官方User Guide
+ 官网下载镜像 Linux下推荐通过命令行制作  插上用于制作安装盘的U盘 查看U盘盘符. sudo fdisk -l. 写入镜像: sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M  Windows推荐使用Rufus:  选择你要用于制作安装盘的U盘. 在Boot selection, 点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.   进入Live CD与安装 参考链接 :
+ https://gist.github.com/oguzkaganeren/502360965a9bda12e958de2d9b0c9dab https://gist.github.com/mauri870/5a54e415140875b9150ca31c491811f6 https://www.bountysource.com/issues/33991302-laptop-freezes-when-starting-x11-and-discrete-graphics-are-off  如果能正常进入的话可以忽略这一步, 但是有的机器会出现问题, 卡在命令行界面. 我们只要在内核启动参数添加 systemd.mask=mhwd-live.service 即可.
+如果进入Live CD出现问题那么需要一些操作才能顺利安装, 修改/lib/calamares/modules/mhwdcfg/main.py :
+def run(): &quot;&quot;&quot; Configure the hardware &quot;&quot;&quot; mhwd = MhwdController() # return mhwd.run() return None # 新添这行 并注释掉上一行  然后安装即可."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://cicirori.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Noumenon
+    </a>
+    <div class="flex-l items-center">
+      
+      
+<div hidden>
+  <span id="new-window-0">Opens in a new window</span>
+  <span id="new-window-1">Opens an external site</span>
+  <span id="new-window-2">Opens an external site in a new window</span>
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3 ph0-l">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Manjaro安装配置踩坑</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2018-12-06T17:07:14&#43;08:00">December 6, 2018</time>      
+      
+      
+    </header>
+
+    <main class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<p>其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.</p>
+
+<h2 id="制作usb安装器">制作USB安装器</h2>
+
+<p>参考资料 : Manjaro 官方User Guide</p>
+
+<ol>
+<li>官网下载镜像</li>
+<li>Linux下推荐通过命令行制作
+
+<ol>
+<li>插上用于制作安装盘的U盘</li>
+<li>查看U盘盘符. sudo fdisk -l.</li>
+<li>写入镜像:
+sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M</li>
+</ol></li>
+<li>Windows推荐使用Rufus:
+
+<ol>
+<li>选择你要用于制作安装盘的U盘.</li>
+<li>在Boot selection,  点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.</li>
+</ol></li>
+</ol>
+
+<h2 id="进入live-cd与安装">进入Live CD与安装</h2>
+
+<p>参考链接 :</p>
+
+<ul>
+<li><a href="https://gist.github.com/oguzkaganeren/502360965a9bda12e958de2d9b0c9dab">https://gist.github.com/oguzkaganeren/502360965a9bda12e958de2d9b0c9dab</a></li>
+<li><a href="https://gist.github.com/mauri870/5a54e415140875b9150ca31c491811f6">https://gist.github.com/mauri870/5a54e415140875b9150ca31c491811f6</a></li>
+<li><a href="https://www.bountysource.com/issues/33991302-laptop-freezes-when-starting-x11-and-discrete-graphics-are-off">https://www.bountysource.com/issues/33991302-laptop-freezes-when-starting-x11-and-discrete-graphics-are-off</a></li>
+</ul>
+
+<p>如果能正常进入的话可以忽略这一步, 但是有的机器会出现问题, 卡在命令行界面. 我们只要在内核启动参数添加 systemd.mask=mhwd-live.service 即可.</p>
+
+<p>如果进入Live CD出现问题那么需要一些操作才能顺利安装, 修改/lib/calamares/modules/mhwdcfg/main.py :</p>
+
+<pre><code class="language-python">def run():
+    &quot;&quot;&quot; Configure the hardware &quot;&quot;&quot;
+    
+    mhwd = MhwdController()
+    
+    # return mhwd.run() 
+    return None # 新添这行 并注释掉上一行
+</code></pre>
+
+<p>然后安装即可.</p>
+
+<p>顺利安装重启,不能成功进入系统需要添加内核启动参数 <code>nouveau.modeset=0 acpi_osi=! acpi_osi=&quot;Windows 2009&quot;</code>.</p>
+
+<h2 id="安装nvidia驱动-启用prime">安装Nvidia驱动 启用PRIME</h2>
+
+<p>出现过之前的问题的机器很大概率不能成功安装bumblebee, 我折腾了好久最后放弃了, 只用核显. 但是因为我的本视频输出端口和独显连接, 所以只用独显不能支持双屏. 然后找到了这个帖子, 成功用上独显: <a href="https://forum.manjaro.org/t/howto-set-up-prime-with-nvidia-proprietary-driver/40225">https://forum.manjaro.org/t/howto-set-up-prime-with-nvidia-proprietary-driver/40225</a> . 需要注意的不像Bumblebee默认使用核显, PRIME的主力是独显.</p>
+
+<ol>
+<li><p>移除Bumblebee.</p></li>
+
+<li><p>安装nvidia驱动 : sudo mhwd -i pci video-nvidia.</p></li>
+
+<li><p>修复mhwd生成的自动配置</p>
+
+<ol>
+<li><p>删除自动生成的 /etc/X11/xorg.conf.d/90-mhwd.conf</p></li>
+
+<li><p>新建 /etc/X11/xorg.conf.d/90-mhwd.conf, 内容如下:</p></li>
+</ol>
+
+<pre><code>  Section &quot;Module&quot;
+      Load &quot;modesetting&quot;
+  EndSection
+      
+  Section &quot;Device&quot;
+      Identifier &quot;nvidia&quot;
+      Driver &quot;nvidia&quot;
+      BusID &quot;PCI:1:0:0&quot;
+      Option &quot;AllowEmptyInitialConfiguration&quot;
+  EndSection
+</code></pre>
+
+<p>其中BusID是基于机器的, 但一般都是这个, 可以用<code>lspci | grep -E &quot;VGA|3D&quot;</code>来查看, 配置文件要求格式是 <code>PCI:#:#:#</code> , 而不是这个命令输出的<code>01:00.0</code>.</p>
+
+<ol>
+<li>重新设置黑名单</li>
+</ol>
+
+<p>PRIME依赖<code>nvidia-drm</code> , 但是mhwd默认的把他放进了黑名单. 并且我们也需要对一些模块屏蔽来保证<code>nvidia</code> 能运行.</p>
+
+<p>列出与mhwd相关的配置并删除.</p>
+
+<pre><code class="language-shell">  ls /etc/modprobe.d/mhwd*
+  sudo rm /etc/modprobe.d/mhwd-gpu.conf
+  sudo rm /etc/modprobe.d/mhwd-nvidia.conf
+</code></pre>
+
+<p>新建 <code>/etc/modprobe.d/nvidia.conf</code>:</p>
+
+<pre><code>  blacklist nouveau
+  blacklist nvidiafb
+  blacklist rivafb
+</code></pre>
+
+<ol>
+<li>启用<code>nvidia-drm.modeset</code></li>
+</ol>
+
+<p>新建文件 <code>/etc/modprobe.d/nvidia-drm.conf</code></p>
+
+<pre><code>  options nvidia_drm modeset=1
+</code></pre>
+
+<ol>
+<li>设置你的display manager 的输出源:</li>
+</ol>
+
+<p>我用的是LightDM, 只列出LightDM的操作, 其他DM可以去原贴翻一下</p>
+
+<ol>
+<li><p>新建文件<code>/usr/local/bin/optimus.sh</code></p>
+
+<pre><code class="language-sh"> #!/bin/sh
+         
+ xrandr --setprovideroutputsource modesetting NVIDIA-0
+ xrandr --auto
+</code></pre></li>
+
+<li><p>修改权限 sudo chmod a+rx  /usr/local/bin/optimus.sh</p></li>
+
+<li><p>修改 <code>/etc/lightdm/lightdm.conf</code> , 在<code>[Seat:*]</code>节添加:</p>
+
+<p><code>display-setup-script=/usr/local/bin/optimus.sh</code></p></li>
+
+<li><p>重启, 如果配置成功的话, 你可以成功登录并且运行<code>glxinfo | grep -i vendor</code> 输出如下:</p></li>
+</ol>
+
+<pre><code>  server glx vendor string: NVIDIA Corporation
+  client glx vendor string: NVIDIA Corporation
+  OpenGL vendor string: NVIDIA Corporation
+</code></pre>
+
+<ol>
+<li><p>参考链接:</p>
+
+<ul>
+<li><a href="https://forum.manjaro.org/t/howto-set-up-prime-with-nvidia-proprietary-driver/40225">https://forum.manjaro.org/t/howto-set-up-prime-with-nvidia-proprietary-driver/40225</a></li>
+<li><a href="https://devtalk.nvidia.com/default/topic/957814/linux/prime-and-prime-synchronization/">https://devtalk.nvidia.com/default/topic/957814/linux/prime-and-prime-synchronization/ 56</a></li>
+<li><a href="http://us.download.nvidia.com/XFree86/Linux-x86_64/390.25/README/randr14.html">http://us.download.nvidia.com/XFree86/Linux-x86_64/390.25/README/randr14.html</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/PRIME">https://wiki.archlinux.org/index.php/PRIME 1</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/NVIDIA_Optimus#Display_Managers">https://wiki.archlinux.org/index.php/NVIDIA_Optimus#Display_Managers</a></li>
+<li><a href="https://devtalk.nvidia.com/default/topic/957981/linux/prime-render-offloading-on-nvidia-optimus/">https://devtalk.nvidia.com/default/topic/957981/linux/prime-render-offloading-on-nvidia-optimus/ 1</a></li>
+</ul></li>
+</ol></li>
+</ol>
+
+<h2 id="防止画面撕裂">防止画面撕裂</h2>
+
+<p>独显 : NVIDIA X Server Settings 里启用 force full composition pipeline.</p>
+
+<p>核显: 更换窗口合成器为compton, 参考链接 : <a href="https://wiki.manjaro.org/index.php?title=Using_Compton_for_a_tear-free_experience_in_Xfce">https://wiki.manjaro.org/index.php?title=Using_Compton_for_a_tear-free_experience_in_Xfce</a></p>
+
+<h2 id="切换源镜像">切换源镜像</h2>
+
+<p>参考链接 : <a href="https://wiki.manjaro.org/Pacman-mirrors">https://wiki.manjaro.org/Pacman-mirrors</a></p>
+
+<p><code>sudo pacman-mirrors --country China,United_States &amp;&amp; sudo pacman -Syyu</code></p>
+
+<p>找到中美速度最快的五个源并升级系统.</p>
+
+<h2 id="archlinuxcn源">archlinuxcn源</h2>
+
+<p>参考链接 : <a href="https://github.com/archlinuxcn/repo">https://github.com/archlinuxcn/repo</a></p>
+
+<p>添加repo到 <code>/etc/pacman.conf</code>:</p>
+
+<p>官方源(大陆没有节点, 推荐使用下面的镜像) :</p>
+
+<pre><code>[archlinuxcn]
+Server = https://cdn.repo.archlinuxcn.org/$arch
+</code></pre>
+
+<p>镜像列表: <a href="https://github.com/archlinuxcn/mirrorlist-repo">https://github.com/archlinuxcn/mirrorlist-repo</a></p>
+
+<pre><code class="language-sh">## 浙江大学 (浙江杭州) (ipv4, ipv6, http, https)
+## Added: 2017-06-05
+[archlinuxcn]
+Server = https://mirrors.zju.edu.cn/archlinuxcn/$arch
+## 中国科学技术大学 (ipv4, ipv6, http, https)
+[archlinuxcn]
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+## 清华大学 (ipv4, ipv6, http, https)
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+## xTom (Hong Kong) (ipv4, ipv6, http, https)
+## Added: 2017-09-18
+## xTom Hong Kong Mirror
+[archlinuxcn]
+Server = https://mirror.xtom.com.hk/archlinuxcn/$arch
+## 上海大学开源镜像站 (ipv4, ipv6, http, https)
+## Added: 2018-05-13
+[archlinuxcn]
+Server = https://mirrors.shuosc.org/archlinuxcn/$arch
+## 网易 (ipv4, http, https)
+[archlinuxcn]
+Server = https://mirrors.163.com/archlinux-cn/$arch
+## 莞工 GNU/Linux 协会 开源软件镜像站 (ipv4, http, https)
+## Added: 2018-11-03
+[archlinuxcn]
+Server = https://mirrors.dgut.edu.cn/archlinuxcn/$arch
+## 重庆大学 (ipv4, https)
+[archlinuxcn]
+Server = https://mirrors.cqu.edu.cn/archlinuxcn/$arch
+## SJTUG 软件源镜像服务 (ipv4, https)
+## Added: 2018-05-21
+[archlinuxcn]
+Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/$arch
+## 腾讯云 (ipv4, https)
+## Added: 2018-11-23
+[archlinuxcn]
+Server = https://mirrors.cloud.tencent.com/archlinuxcn/$arch
+</code></pre>
+
+<p>添加PGPKeys :</p>
+
+<pre><code>sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring
+</code></pre>
+
+<h2 id="tim-微信-网易云-安装与缩放">TIM 微信 网易云 安装与缩放</h2>
+
+<p>参考链接 :</p>
+
+<ul>
+<li><a href="https://aur.archlinux.org/packages/deepin-wechat/">https://aur.archlinux.org/packages/deepin-wechat/</a></li>
+<li><a href="https://aur.archlinux.org/packages/deepin.com.qq.office/">https://aur.archlinux.org/packages/deepin.com.qq.office/</a> (实际上是TIM)</li>
+<li><a href="https://www.lulinux.com/archives/4642">https://www.lulinux.com/archives/4642</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/HiDPI#Qt_5">https://wiki.archlinux.org/index.php/HiDPI#Qt_5</a></li>
+</ul>
+
+<p>TIM和微信推荐安装AUR中的deepin版本, 网易云音乐archlinuxcn源有.</p>
+
+<p>高分屏存在缩放问题, deepin版本的应用调winecfg需要使用如下命令:</p>
+
+<p><code>env WINEPREFIX=&quot;$HOME/.deepinwine/Deepin-TIM&quot; winecfg</code></p>
+
+<p><code>env WINEPREFIX=&quot;$HOME/.deepinwine/Deepin-WeChat&quot; winecfg</code></p>
+
+<p>里面调DPI就可以, 调之前先退出应用.</p>
+
+<p>网易云音乐缩放需要添加执行参数:</p>
+
+<p><code>netease-cloud-music --force-device-scale-factor=1.25 (这里换成你需要的缩放级别)</code></p>
+
+<p>另外还有一种修改Qt5环境变量的方法, 我之前都是需要两个都改, 更新过一次之后就只需要上面的Chromium参数了. 如果上面的方法不work的话可以试这种办法.</p>
+
+<p><code>QT_SCALE_FACTOR=1.25 netease-cloud-music --force-device-scale-factor=1.25</code></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+        
+      </div>
+    </main>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://cicirori.github.io/" >
+    &copy; 2018 Noumenon
+  </a>
+    <div>
+<div hidden>
+  <span id="new-window-0">Opens in a new window</span>
+  <span id="new-window-1">Opens an external site</span>
+  <span id="new-window-2">Opens an external site in a new window</span>
+</div>
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

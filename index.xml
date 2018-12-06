@@ -6,10 +6,24 @@
     <description>Recent content on Noumenon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Sep 2018 19:29:16 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Dec 2018 17:07:14 +0800</lastBuildDate>
     
 	<atom:link href="https://cicirori.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Manjaro安装配置踩坑</title>
+      <link>https://cicirori.github.io/posts/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</link>
+      <pubDate>Thu, 06 Dec 2018 17:07:14 +0800</pubDate>
+      
+      <guid>https://cicirori.github.io/posts/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</guid>
+      <description>其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.
+制作USB安装器 参考资料 : Manjaro 官方User Guide
+ 官网下载镜像 Linux下推荐通过命令行制作  插上用于制作安装盘的U盘 查看U盘盘符. sudo fdisk -l. 写入镜像: sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M  Windows推荐使用Rufus:  选择你要用于制作安装盘的U盘. 在Boot selection, 点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.   进入Live CD与安装 参考链接 :
+ https://gist.github.com/oguzkaganeren/502360965a9bda12e958de2d9b0c9dab https://gist.github.com/mauri870/5a54e415140875b9150ca31c491811f6 https://www.bountysource.com/issues/33991302-laptop-freezes-when-starting-x11-and-discrete-graphics-are-off  如果能正常进入的话可以忽略这一步, 但是有的机器会出现问题, 卡在命令行界面. 我们只要在内核启动参数添加 systemd.mask=mhwd-live.service 即可.
+如果进入Live CD出现问题那么需要一些操作才能顺利安装, 修改/lib/calamares/modules/mhwdcfg/main.py :
+def run(): &amp;quot;&amp;quot;&amp;quot; Configure the hardware &amp;quot;&amp;quot;&amp;quot; mhwd = MhwdController() # return mhwd.run() return None # 新添这行 并注释掉上一行  然后安装即可.</description>
+    </item>
     
     <item>
       <title>设计分布式系统读书笔记（五）</title>
