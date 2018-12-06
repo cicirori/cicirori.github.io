@@ -35,7 +35,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cicirori.github.io/" />
-<meta property="og:updated_time" content="2018-12-06T17:07:14&#43;08:00"/>
+<meta property="og:updated_time" content="2018-12-06T17:51:28&#43;08:00"/>
 
 <meta itemprop="name" content="Noumenon">
 <meta itemprop="description" content="">
@@ -124,6 +124,30 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/test/" class="color-inherit dim link">
+            Test
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          
+        </div>
+          <a href="/posts/test/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/posts/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/" class="color-inherit dim link">
             Manjaro安装配置踩坑
             </a>
@@ -181,48 +205,18 @@ FaaS的应用
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/" class="color-inherit dim link">
-            设计分布式系统读书笔记(四)
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          分片服务 和副本服务不同的是，副本服务的每个副本都具有完整的功能，可以响应每一个请求，分片服务中每个分片只能服务请求的一个子集，请求由一个负载均衡节点或者叫根节点分配到对应的分片。两种模式的不同如下图所示
-复制模式通常用来构建无状态服务，分片模式用来构建有状态服务。
-分片缓存 分片缓存是位于用户请求和实际的前端实现之间的缓存。
-####　为什么你可能需要分片缓存
-对任何服务进行分片的主要原因是想要增加存储在这个服务的数据量。为了理解这一点我们看一个例子，假设我们有如下系统：每个缓存有10GB RAM 可用，并且可以提供100RPS（requests per second）。假设我们的服务一共有200GB可能返回的结果，需要1000RPS。很明显我们需要十个这样的cache来满足1000RPS，一个简单的实现方式是利用复制模式，就像之前讲的一样。但是这样的话每个我们只能达到5%的容量。如果我们利用一个10路的分片缓存，我们仍然能服务大概1000RPS，但是我们能达到50%的容量，这样缓存就被更好的利用了。
-缓存在你的架构中的角色 我们之前没有提过的是，缓存对你的应用性能，可靠性和稳定性的影响。简单来说，一个我们需要考虑的重要问题是，如果缓存故障，那么对你的用户和服务会产生什么影响。
-在复制模式中这可能是不问题但是在分片模式中情况就有了变化。因为一个特定的用户或者特定的请求总被映射到同一个分片，所以缓存会一直miss直到故障恢复。
-你的缓存性能由命中率（hit rate）决定，假设你有一个接受请求层一次具有1000RPS，超出这个范围的系统会开始返回HTTP 500 错误。如果你在服务之前放一个命中率50%的缓存，那么1000RPS会提升到2000RPS。其中一半请求会由缓存处理，剩下一半由后端处理。在这个例子下，如果你的缓存故障那么一半的用户请求都会失败，所以，尽量把请求控制在1500RPS而不是跑满，这样你可以提供一半的缓存故障下的稳定性。
-除了每单位时间能够处理的请求之外，延迟对于你的系统来说也是一个重要的指标。缓存通常能显著的降低延迟。
-###　分片，复制服务
-我们举得例子大多是缓存，但是除此之外别的服务也可以受益于分片。比如大规模网络游戏，这样的游戏服务对于单机来说太大了，但是游戏里离得远的角色之间不会有什么互动，所以可以把整个游戏世界分片在多台服务器上。分片函数可以利用玩家的位置。
-分散/聚集模式 和复制模式与分片模式一样，分散聚集模式也具有树形结构，由一个根结点分配请求。与之不同的是，分散聚集模式把请求同时分给所有的副本，每个副本做一部分工作，返回一个局部结果。由根节点合并计算结果。（有点类似map/reduce）。
-分布式文件搜索：
-        </div>
-          <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/" class="link black dim">
+              设计分布式系统读书笔记(四)
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/" class="link black dim">
@@ -239,12 +233,6 @@ FaaS的应用
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/%E8%BD%AC%E8%87%AAreddit-anki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/" class="link black dim">
               [转自Reddit]Anki英文卡组搜集
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/" class="link black dim">
-              设计分布式系统读书笔记（一）
             </a>
           </h2>
         
