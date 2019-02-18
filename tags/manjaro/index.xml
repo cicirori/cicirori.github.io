@@ -31,9 +31,9 @@
 
 &lt;ol&gt;
 &lt;li&gt;插上用于制作安装盘的U盘&lt;/li&gt;
-&lt;li&gt;查看U盘盘符. sudo fdisk -l.&lt;/li&gt;
+&lt;li&gt;查看U盘盘符. &lt;code&gt;sudo fdisk -l&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;写入镜像:
-sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M&lt;/li&gt;
+&lt;code&gt;sudo dd if=manjaro-*.iso of=/dev/(替换成你查到的盘符) bs=4M&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;&lt;/li&gt;
 &lt;li&gt;Windows推荐使用Rufus:
 

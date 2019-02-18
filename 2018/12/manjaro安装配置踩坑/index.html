@@ -24,7 +24,7 @@ Linux下推荐通过命令行制作
 插上用于制作安装盘的U盘
 查看U盘盘符. sudo fdisk -l.
 写入镜像:
-sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M
+sudo dd if=manjaro-*.iso of=/dev/(替换成你查到的盘符) bs=4M
 
 Windows推荐使用Rufus:
 
@@ -51,7 +51,7 @@ Linux下推荐通过命令行制作
 插上用于制作安装盘的U盘
 查看U盘盘符. sudo fdisk -l.
 写入镜像:
-sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M
+sudo dd if=manjaro-*.iso of=/dev/(替换成你查到的盘符) bs=4M
 
 Windows推荐使用Rufus:
 
@@ -82,7 +82,7 @@ Linux下推荐通过命令行制作
 插上用于制作安装盘的U盘
 查看U盘盘符. sudo fdisk -l.
 写入镜像:
-sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M
+sudo dd if=manjaro-*.iso of=/dev/(替换成你查到的盘符) bs=4M
 
 Windows推荐使用Rufus:
 
@@ -107,7 +107,7 @@ Linux下推荐通过命令行制作
 插上用于制作安装盘的U盘
 查看U盘盘符. sudo fdisk -l.
 写入镜像:
-sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M
+sudo dd if=manjaro-*.iso of=/dev/(替换成你查到的盘符) bs=4M
 
 Windows推荐使用Rufus:
 
@@ -366,9 +366,9 @@ if (!doNotTrack) {
 
 <ol>
 <li>插上用于制作安装盘的U盘</li>
-<li>查看U盘盘符. sudo fdisk -l.</li>
+<li>查看U盘盘符. <code>sudo fdisk -l</code>.</li>
 <li>写入镜像:
-sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M</li>
+<code>sudo dd if=manjaro-*.iso of=/dev/(替换成你查到的盘符) bs=4M</code></li>
 </ol></li>
 <li>Windows推荐使用Rufus:
 
@@ -388,9 +388,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
 <li><a href="https://www.bountysource.com/issues/33991302-laptop-freezes-when-starting-x11-and-discrete-graphics-are-off">https://www.bountysource.com/issues/33991302-laptop-freezes-when-starting-x11-and-discrete-graphics-are-off</a></li>
 </ul>
 
-<p>如果能正常进入的话可以忽略这一步, 但是有的机器会出现问题, 卡在命令行界面. 我们只要在内核启动参数添加 systemd.mask=mhwd-live.service 即可.</p>
+<p>如果能正常进入的话可以忽略这一步, 但是有的机器会出现问题, 卡在命令行界面. 我们只要在内核启动参数添加 <code>systemd.mask=mhwd-live.service</code> 即可.</p>
 
-<p>如果进入Live CD出现问题那么需要一些操作才能顺利安装, 修改/lib/calamares/modules/mhwdcfg/main.py :</p>
+<p>如果进入Live CD出现问题那么需要一些操作才能顺利安装, 修改<code>/lib/calamares/modules/mhwdcfg/main.py</code> :</p>
 
 <pre><code class="language-python">def run():
     &quot;&quot;&quot; Configure the hardware &quot;&quot;&quot;
@@ -877,9 +877,9 @@ Server = https://mirrors.cloud.tencent.com/archlinuxcn/$arch
 
 <ol>
 <li>插上用于制作安装盘的U盘</li>
-<li>查看U盘盘符. sudo fdisk -l.</li>
+<li>查看U盘盘符. <code>sudo fdisk -l</code>.</li>
 <li>写入镜像:
-sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M</li>
+<code>sudo dd if=manjaro-*.iso of=/dev/(替换成你查到的盘符) bs=4M</code></li>
 </ol></li>
 <li>Windows推荐使用Rufus:
 
