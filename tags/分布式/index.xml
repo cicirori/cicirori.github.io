@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>分布式 on Noumenon</title>
+    <link>https://cicirori.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</link>
+    <description>Recent content in 分布式 on Noumenon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 25 Sep 2018 19:29:16 +0000</lastBuildDate>
+    
+	<atom:link href="https://cicirori.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>设计分布式系统读书笔记（五）</title>
+      <link>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/</link>
+      <pubDate>Tue, 25 Sep 2018 19:29:16 +0000</pubDate>
+      
+      <guid>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/</guid>
+      <description>&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;函数与事件驱动处理&#34;&gt;函数与事件驱动处理&lt;/h1&gt;
+
+&lt;p&gt;我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。&lt;/p&gt;
+
+&lt;p&gt;大多数时FaaS指无服务器（Serverless）计算，这么说也没什么错，但是广义的无服务计算和事件驱动FaaS并不是完全相同的概念。比如一个多用户容器（CaaS）是无服务器的，但是不是事件驱动的。一个开源的FaaS跑在你自己拥有管理的物理机上，这是事件驱动的但不是无服务器的。理解这两者的区别可以让你了解什么时候该使用事件驱动什么时候该使用无服务器，或者什么时候两者并用。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>设计分布式系统读书笔记(四)</title>
+      <link>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/</link>
+      <pubDate>Mon, 17 Sep 2018 19:02:46 +0000</pubDate>
+      
+      <guid>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/</guid>
+      <description>&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;服务器模式&#34;&gt;服务器模式&lt;/h1&gt;
+
+&lt;h2 id=&#34;分片服务&#34;&gt;分片服务&lt;/h2&gt;
+
+&lt;p&gt;和副本服务不同的是，副本服务的每个副本都具有完整的功能，可以响应每一个请求，分片服务中每个分片只能服务请求的一个子集，请求由一个负载均衡节点或者叫根节点分配到对应的分片。两种模式的不同如下图所示&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180917_191805.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;复制模式通常用来构建无状态服务，分片模式用来构建有状态服务。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>设计分布式系统读书笔记（三）</title>
+      <link>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/</link>
+      <pubDate>Thu, 13 Sep 2018 11:32:52 +0000</pubDate>
+      
+      <guid>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/</guid>
+      <description>&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;服务器模式&#34;&gt;服务器模式&lt;/h1&gt;
+
+&lt;h2 id=&#34;微服务&#34;&gt;微服务&lt;/h2&gt;
+
+&lt;p&gt;最近微服务变成了一个描述多节点分布式软件架构的流行词，微服务描述了一个系统由运行在不同进程上的组件组成，批次之间通过预定义的API进行交流。与微服务相对应的概念是宏系统，把所有的功能紧凑的放在一个应用中。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180913_102535.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;微服务有各种各样的好处，大多数情况下，微服务兼具可靠性和灵活性。微服务把一个应用分解成小片，每个小片专注于提供一种服务。这种模式有利于减小开发团队大小，使得开发更加灵活有方向性。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>设计分布式系统读书笔记（二）</title>
+      <link>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/</link>
+      <pubDate>Wed, 12 Sep 2018 20:36:10 +0000</pubDate>
+      
+      <guid>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/</guid>
+      <description>&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;大使模式&#34;&gt;大使模式&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_194022.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上图显示了一个典型的大使模式架构。大使模式的价值在于两点，首先构建一个模块化可复用的容器本身就具有价值，其次一个大使容器可以供多个应用容器使用，这种复用加快了开发进度也利于保证代码质量。我们接下来会提供大使模式的几个例子。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>设计分布式系统读书笔记（一）</title>
+      <link>https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/</link>
+      <pubDate>Thu, 23 Aug 2018 09:09:45 +0000</pubDate>
+      
+      <guid>https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/</guid>
+      <description>&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+
+&lt;h2 id=&#34;软件开发模式简史&#34;&gt;软件开发模式简史&lt;/h2&gt;
+
+&lt;h3 id=&#34;算法编程的形式化&#34;&gt;算法编程的形式化&lt;/h3&gt;
+
+&lt;p&gt;1962年，计算机编程的艺术一书横空出世，揭开了计算机科学发展的新篇章。本书谈论了算法本身，而不是面向某个特定程序的code。&lt;/p&gt;
+
+&lt;h3 id=&#34;oop&#34;&gt;OOP&lt;/h3&gt;
+
+&lt;p&gt;随着计算机软件变得复杂，开发软件的人员逐渐增多。为了解决这个问题，OOP思想出现了。&lt;/p&gt;
+
+&lt;h3 id=&#34;开源软件的崛起&#34;&gt;开源软件的崛起&lt;/h3&gt;
+
+&lt;p&gt;可能开源软件和分布式系统在开发模式上只有很小的相关，但是值得注意的是，现在所有的container技术都是由开源社区作为主要推动力的。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

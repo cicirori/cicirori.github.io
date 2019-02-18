@@ -19,7 +19,9 @@
       <guid>https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</guid>
       <description>&lt;p&gt;其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.&lt;/p&gt;
 
-&lt;h2 id=&#34;制作usb安装器&#34;&gt;制作USB安装器&lt;/h2&gt;
+&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;制作usb安装器&#34;&gt;制作USB安装器&lt;/h1&gt;
 
 &lt;p&gt;参考资料 : Manjaro 官方User Guide&lt;/p&gt;
 
@@ -48,7 +50,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
       <pubDate>Tue, 25 Sep 2018 19:29:16 +0000</pubDate>
       
       <guid>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/</guid>
-      <description>&lt;h2 id=&#34;函数与事件驱动处理&#34;&gt;函数与事件驱动处理&lt;/h2&gt;
+      <description>&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;函数与事件驱动处理&#34;&gt;函数与事件驱动处理&lt;/h1&gt;
 
 &lt;p&gt;我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。&lt;/p&gt;
 
@@ -61,7 +65,11 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
       <pubDate>Mon, 17 Sep 2018 19:02:46 +0000</pubDate>
       
       <guid>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/</guid>
-      <description>&lt;h2 id=&#34;分片服务&#34;&gt;分片服务&lt;/h2&gt;
+      <description>&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;服务器模式&#34;&gt;服务器模式&lt;/h1&gt;
+
+&lt;h2 id=&#34;分片服务&#34;&gt;分片服务&lt;/h2&gt;
 
 &lt;p&gt;和副本服务不同的是，副本服务的每个副本都具有完整的功能，可以响应每一个请求，分片服务中每个分片只能服务请求的一个子集，请求由一个负载均衡节点或者叫根节点分配到对应的分片。两种模式的不同如下图所示&lt;/p&gt;
 
@@ -76,7 +84,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
       <pubDate>Thu, 13 Sep 2018 11:32:52 +0000</pubDate>
       
       <guid>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/</guid>
-      <description>&lt;h1 id=&#34;服务器模式&#34;&gt;服务器模式&lt;/h1&gt;
+      <description>&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;服务器模式&#34;&gt;服务器模式&lt;/h1&gt;
 
 &lt;h2 id=&#34;微服务&#34;&gt;微服务&lt;/h2&gt;
 
@@ -93,7 +103,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
       <pubDate>Wed, 12 Sep 2018 20:36:10 +0000</pubDate>
       
       <guid>https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/</guid>
-      <description>&lt;p&gt;## 大使模式&lt;/p&gt;
+      <description>&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;大使模式&#34;&gt;大使模式&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_194022.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -108,9 +120,11 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
       <guid>https://cicirori.github.io/2018/08/%E8%BD%AC%E8%87%AAredditanki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/Anki/comments/6z57zk/anki_decks_collection_mostly_englishenglish/&#34;&gt;https://www.reddit.com/r/Anki/comments/6z57zk/anki_decks_collection_mostly_englishenglish/&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;decks&#34;&gt;Decks&lt;/h2&gt;
+&lt;!-- toc --&gt;
 
-&lt;h4 id=&#34;podcasts&#34;&gt;Podcasts&lt;/h4&gt;
+&lt;h1 id=&#34;decks&#34;&gt;Decks&lt;/h1&gt;
+
+&lt;h2 id=&#34;podcasts&#34;&gt;Podcasts&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://ankiweb.net/shared/info/38858607&#34;&gt;The English We Speak&lt;/a&gt; (345 notes)&lt;/li&gt;
@@ -124,7 +138,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
       <pubDate>Thu, 23 Aug 2018 09:09:45 +0000</pubDate>
       
       <guid>https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;!-- toc --&gt;
+
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 
 &lt;h2 id=&#34;软件开发模式简史&#34;&gt;软件开发模式简史&lt;/h2&gt;
 
@@ -162,15 +178,17 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
       <pubDate>Sun, 18 Mar 2018 20:11:30 +0000</pubDate>
       
       <guid>https://cicirori.github.io/2018/03/%E5%88%A9%E7%94%A8gcp%E8%B4%9F%E8%BD%BD%E5%B9%B3%E8%A1%A1%E5%AE%9E%E7%8E%B0ipv6%E7%9A%84shadowsocks/</guid>
-      <description>&lt;h2 id=&#34;shadowsocks&#34;&gt;Shadowsocks&lt;/h2&gt;
+      <description>&lt;!-- toc --&gt;
 
-&lt;p&gt;端口设置为GCP TCP负载平衡支持的端口 比如5222&lt;/p&gt;
+&lt;h1 id=&#34;shadowsocks-配置&#34;&gt;Shadowsocks 配置&lt;/h1&gt;
 
-&lt;h2 id=&#34;gcp的负载平衡&#34;&gt;GCP的负载平衡&lt;/h2&gt;
+&lt;p&gt;端口设置为GCP TCP负载平衡支持的端口, 比如5222.&lt;/p&gt;
 
-&lt;p&gt;先建立一个实例组 把要用的VM加进去&lt;/p&gt;
+&lt;h1 id=&#34;gcp的负载平衡&#34;&gt;GCP的负载平衡&lt;/h1&gt;
 
-&lt;p&gt;使用TCP负载均衡-从互联网到我的VM-多个区域(单个区域貌似会有点问题)-然后基本的配置都是默认 前端IP选择v6就可以&lt;/p&gt;</description>
+&lt;p&gt;先建立一个实例组, 把要用的VM加进去.&lt;/p&gt;
+
+&lt;p&gt;使用TCP负载均衡-从互联网到我的VM-多个区域(单个区域貌似会有点问题), 然后基本的配置都是默认, 前端IP选择v6就可以.&lt;/p&gt;</description>
     </item>
     
   </channel>

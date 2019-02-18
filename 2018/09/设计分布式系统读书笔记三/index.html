@@ -8,7 +8,9 @@
 <meta name="generator" content="Hugo 0.53 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="cicirori">
 <meta name="keywords" content="">
-<meta name="description" content="服务器模式
+<meta name="description" content="
+
+服务器模式
 
 微服务
 
@@ -19,7 +21,9 @@
 微服务有各种各样的好处，大多数情况下，微服务兼具可靠性和灵活性。微服务把一个应用分解成小片，每个小片专注于提供一种服务。这种模式有利于减小开发团队大小，使得开发更加灵活有方向性。">
 
 
-<meta property="og:description" content="服务器模式
+<meta property="og:description" content="
+
+服务器模式
 
 微服务
 
@@ -34,7 +38,9 @@
 <meta property="og:url" content="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/">
 <meta property="twitter:url" content="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/">
 <meta property="og:site_name" content="Noumenon">
-<meta property="og:description" content="服务器模式
+<meta property="og:description" content="
+
+服务器模式
 
 微服务
 
@@ -43,7 +49,9 @@
 
 
 微服务有各种各样的好处，大多数情况下，微服务兼具可靠性和灵活性。微服务把一个应用分解成小片，每个小片专注于提供一种服务。这种模式有利于减小开发团队大小，使得开发更加灵活有方向性。">
-<meta name="twitter:description" content="服务器模式
+<meta name="twitter:description" content="
+
+服务器模式
 
 微服务
 
@@ -62,6 +70,14 @@
   
   
   
+    
+      <meta property="article:section" content="Blog">
+    
+  
+  
+    
+      <meta property="article:tag" content="分布式">
+    
   
 
 
@@ -83,7 +99,7 @@
 
     <title>设计分布式系统读书笔记（三）</title>
 
-    <link rel="icon" href="https://cicirori.github.io/favicon.png">
+    <link rel="icon" href="https://cicirori.github.io/img/favicon-96x96.png">
     
 
     
@@ -102,13 +118,26 @@
 
     
       
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-134593056-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     
     
   </head>
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="5">
+      <header id="header" data-behavior="2">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://cicirori.github.io/">Noumenon</a>
@@ -128,7 +157,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="5">
+      <nav id="sidebar" data-behavior="2">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -183,16 +212,6 @@
     </a>
   </li>
 
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://cicirori.github.io/#about">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-      
-      <span class="sidebar-button-desc">关于</span>
-    </a>
-  </li>
-
 
     </ul>
     <ul class="sidebar-buttons">
@@ -228,7 +247,7 @@
 
       
 
-      <div id="main" data-behavior="5"
+      <div id="main" data-behavior="2"
         class="
                hasCoverMetaIn
                ">
@@ -251,13 +270,42 @@
       </time>
     
     
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://cicirori.github.io/categories/blog">Blog</a>
+    
+  
+
   </div>
 
 </div>
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="服务器模式">服务器模式</h1>
+              <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#服务器模式">服务器模式</a>
+<ul>
+<li><a href="#微服务">微服务</a></li>
+<li><a href="#重复负载均衡服务">重复负载均衡服务</a>
+<ul>
+<li><a href="#无状态服务">无状态服务</a></li>
+<li><a href="#实现负载均衡探针">实现负载均衡探针</a></li>
+<li><a href="#会话追踪服务">会话追踪服务</a></li>
+</ul></li>
+<li><a href="#应用层重复服务">应用层重复服务</a>
+<ul>
+<li><a href="#缓存层">缓存层</a></li>
+<li><a href="#部署缓存">部署缓存</a></li>
+<li><a href="#ssl终端">SSL终端</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="服务器模式">服务器模式</h1>
 
 <h2 id="微服务">微服务</h2>
 
@@ -338,6 +386,16 @@
           <div id="post-footer" class="post-footer main-content-wrap">
             
               
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://cicirori.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>
+
+                  </div>
+                
+              
             
             <div class="post-actions-wrap">
   
@@ -399,7 +457,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -424,7 +482,7 @@
 </footer>
 
       </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
         <div class="post-actions-wrap">
   
       <nav >
@@ -485,7 +543,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -495,7 +553,7 @@
 </div>
 
       </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+      <div id="share-options-bar" class="share-options-bar" data-behavior="2">
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
@@ -583,7 +641,9 @@
               </span>
               <div class="media-content hide-xs font-merryweather"><p>其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.</p>
 
-<h2 id="制作usb安装器">制作USB安装器</h2>
+<!-- toc -->
+
+<h1 id="制作usb安装器">制作USB安装器</h1>
 
 <p>参考资料 : Manjaro 官方User Guide</p>
 
@@ -620,7 +680,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Sep 9, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h2 id="函数与事件驱动处理">函数与事件驱动处理</h2>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
+
+<h1 id="函数与事件驱动处理">函数与事件驱动处理</h1>
 
 <p>我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。</p>
 
@@ -641,7 +703,11 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Sep 9, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h2 id="分片服务">分片服务</h2>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
+
+<h1 id="服务器模式">服务器模式</h1>
+
+<h2 id="分片服务">分片服务</h2>
 
 <p>和副本服务不同的是，副本服务的每个副本都具有完整的功能，可以响应每一个请求，分片服务中每个分片只能服务请求的一个子集，请求由一个负载均衡节点或者叫根节点分配到对应的分片。两种模式的不同如下图所示</p>
 
@@ -664,7 +730,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Sep 9, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h1 id="服务器模式">服务器模式</h1>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
+
+<h1 id="服务器模式">服务器模式</h1>
 
 <h2 id="微服务">微服务</h2>
 
@@ -689,7 +757,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Sep 9, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>## 大使模式</p>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
+
+<h1 id="大使模式">大使模式</h1>
 
 <p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_194022.png" alt="" /></p>
 
@@ -712,9 +782,11 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
               </span>
               <div class="media-content hide-xs font-merryweather"><p><a href="https://www.reddit.com/r/Anki/comments/6z57zk/anki_decks_collection_mostly_englishenglish/">https://www.reddit.com/r/Anki/comments/6z57zk/anki_decks_collection_mostly_englishenglish/</a></p>
 
-<h2 id="decks">Decks</h2>
+<!-- toc -->
 
-<h4 id="podcasts">Podcasts</h4>
+<h1 id="decks">Decks</h1>
+
+<h2 id="podcasts">Podcasts</h2>
 
 <ul>
 <li><a href="https://ankiweb.net/shared/info/38858607">The English We Speak</a> (345 notes)</li>
@@ -736,7 +808,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Aug 8, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h1 id="introduction">Introduction</h1>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
+
+<h1 id="introduction">Introduction</h1>
 
 <h2 id="软件开发模式简史">软件开发模式简史</h2>
 
@@ -790,15 +864,17 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Mar 3, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h2 id="shadowsocks">Shadowsocks</h2>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
 
-<p>端口设置为GCP TCP负载平衡支持的端口 比如5222</p>
+<h1 id="shadowsocks-配置">Shadowsocks 配置</h1>
 
-<h2 id="gcp的负载平衡">GCP的负载平衡</h2>
+<p>端口设置为GCP TCP负载平衡支持的端口, 比如5222.</p>
 
-<p>先建立一个实例组 把要用的VM加进去</p>
+<h1 id="gcp的负载平衡">GCP的负载平衡</h1>
 
-<p>使用TCP负载均衡-从互联网到我的VM-多个区域(单个区域貌似会有点问题)-然后基本的配置都是默认 前端IP选择v6就可以</p></div>
+<p>先建立一个实例组, 把要用的VM加进去.</p>
+
+<p>使用TCP负载均衡-从互联网到我的VM-多个区域(单个区域貌似会有点问题), 然后基本的配置都是默认, 前端IP选择v6就可以.</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>

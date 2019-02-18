@@ -8,14 +8,18 @@
 <meta name="generator" content="Hugo 0.53 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="cicirori">
 <meta name="keywords" content="">
-<meta name="description" content="函数与事件驱动处理
+<meta name="description" content="
+
+函数与事件驱动处理
 
 我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。
 
 大多数时FaaS指无服务器（Serverless）计算，这么说也没什么错，但是广义的无服务计算和事件驱动FaaS并不是完全相同的概念。比如一个多用户容器（CaaS）是无服务器的，但是不是事件驱动的。一个开源的FaaS跑在你自己拥有管理的物理机上，这是事件驱动的但不是无服务器的。理解这两者的区别可以让你了解什么时候该使用事件驱动什么时候该使用无服务器，或者什么时候两者并用。">
 
 
-<meta property="og:description" content="函数与事件驱动处理
+<meta property="og:description" content="
+
+函数与事件驱动处理
 
 我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。
 
@@ -26,12 +30,16 @@
 <meta property="og:url" content="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/">
 <meta property="twitter:url" content="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/">
 <meta property="og:site_name" content="Noumenon">
-<meta property="og:description" content="函数与事件驱动处理
+<meta property="og:description" content="
+
+函数与事件驱动处理
 
 我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。
 
 大多数时FaaS指无服务器（Serverless）计算，这么说也没什么错，但是广义的无服务计算和事件驱动FaaS并不是完全相同的概念。比如一个多用户容器（CaaS）是无服务器的，但是不是事件驱动的。一个开源的FaaS跑在你自己拥有管理的物理机上，这是事件驱动的但不是无服务器的。理解这两者的区别可以让你了解什么时候该使用事件驱动什么时候该使用无服务器，或者什么时候两者并用。">
-<meta name="twitter:description" content="函数与事件驱动处理
+<meta name="twitter:description" content="
+
+函数与事件驱动处理
 
 我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。
 
@@ -46,6 +54,14 @@
   
   
   
+    
+      <meta property="article:section" content="Blog">
+    
+  
+  
+    
+      <meta property="article:tag" content="分布式">
+    
   
 
 
@@ -67,7 +83,7 @@
 
     <title>设计分布式系统读书笔记（五）</title>
 
-    <link rel="icon" href="https://cicirori.github.io/favicon.png">
+    <link rel="icon" href="https://cicirori.github.io/img/favicon-96x96.png">
     
 
     
@@ -86,13 +102,26 @@
 
     
       
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-134593056-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     
     
   </head>
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="5">
+      <header id="header" data-behavior="2">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://cicirori.github.io/">Noumenon</a>
@@ -112,7 +141,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="5">
+      <nav id="sidebar" data-behavior="2">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -167,16 +196,6 @@
     </a>
   </li>
 
-  <li class="sidebar-button">
-    
-      <a class="sidebar-button-link " href="https://cicirori.github.io/#about">
-    
-      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-      
-      <span class="sidebar-button-desc">关于</span>
-    </a>
-  </li>
-
 
     </ul>
     <ul class="sidebar-buttons">
@@ -212,7 +231,7 @@
 
       
 
-      <div id="main" data-behavior="5"
+      <div id="main" data-behavior="2"
         class="
                hasCoverMetaIn
                ">
@@ -235,23 +254,43 @@
       </time>
     
     
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://cicirori.github.io/categories/blog">Blog</a>
+    
+  
+
   </div>
 
 </div>
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h2 id="函数与事件驱动处理">函数与事件驱动处理</h2>
+              <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#函数与事件驱动处理">函数与事件驱动处理</a>
+<ul>
+<li><a href="#什么时候适用faas">什么时候适用FaaS</a></li>
+<li><a href="#faas的优点">FaaS的优点</a></li>
+<li><a href="#faas面临的挑战">FaaS面临的挑战</a></li>
+<li><a href="#faas的应用">FaaS的应用</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="函数与事件驱动处理">函数与事件驱动处理</h1>
 
 <p>我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。</p>
 
 <p>大多数时FaaS指无服务器（Serverless）计算，这么说也没什么错，但是广义的无服务计算和事件驱动FaaS并不是完全相同的概念。比如一个多用户容器（CaaS）是无服务器的，但是不是事件驱动的。一个开源的FaaS跑在你自己拥有管理的物理机上，这是事件驱动的但不是无服务器的。理解这两者的区别可以让你了解什么时候该使用事件驱动什么时候该使用无服务器，或者什么时候两者并用。</p>
 
-<h3 id="什么时候faas行得通">什么时候FaaS行得通</h3>
+<h2 id="什么时候适用faas">什么时候适用FaaS</h2>
 
 <p>就像别的分布式系统的开发工具一样，FaaS也被用来当做一个非常通用的工具，但事实是FaaS也有它擅长和不擅长的领域。强行把一个工具到处使用，容易使得最后的系统复杂且脆弱。尤其是FaaS是一个比较新兴的工具，我们对它还有很多不了解的地方。</p>
 
-<h3 id="faas的优点">FaaS的优点</h3>
+<h2 id="faas的优点">FaaS的优点</h2>
 
 <p>受益与FaaS最多的主要是开发者。它减少了从代码到服务的距离。FaaS使得不管你是在笔记本上还是通过浏览器，运行云上的代码总是那么简单。</p>
 
@@ -259,7 +298,7 @@
 
 <p>最后，和容器一样，甚至比容器更粒度化。函数是无状态的，因此你建立在函数上的任何系统都是天生内在模块化与低耦合的。但是解耦既是优点又是缺点，下面我们会谈论这个。</p>
 
-<h3 id="faas面临的挑战">FaaS面临的挑战</h3>
+<h2 id="faas面临的挑战">FaaS面临的挑战</h2>
 
 <p>如同上一段所描述的，构建一个FaaS服务迫使你把你的服务解耦。每个函数都是独立的，唯一的交流渠道是网络，每个函数实例不能有本地内存，所有的状态都要存在存储服务里。这样造成的解耦可以提高灵活性与速度。但是也会显著的把一个服务的操作变得十分复杂。</p>
 
@@ -275,7 +314,7 @@
 
 <p>FaaS也不太能满足需要大量数据的任务，因为FaaS需要把数据都调进内存，有很多任务，比如文档搜索的索引，需要的数据量相当巨大。即使用一个相对快的存储层，FaaS也很难提供一个令人满意的延迟。</p>
 
-<h3 id="faas的应用">FaaS的应用</h3>
+<h2 id="faas的应用">FaaS的应用</h2>
 
 <p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180925_201238.png" alt="" /></p>
               
@@ -283,6 +322,16 @@
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
             
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://cicirori.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>
+
+                  </div>
+                
               
             
             <div class="post-actions-wrap">
@@ -345,7 +394,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -370,7 +419,7 @@
 </footer>
 
       </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
         <div class="post-actions-wrap">
   
       <nav >
@@ -431,7 +480,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -441,7 +490,7 @@
 </div>
 
       </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+      <div id="share-options-bar" class="share-options-bar" data-behavior="2">
   <i id="btn-close-shareoptions" class="fa fa-close"></i>
   <ul class="share-options">
     
@@ -529,7 +578,9 @@
               </span>
               <div class="media-content hide-xs font-merryweather"><p>其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.</p>
 
-<h2 id="制作usb安装器">制作USB安装器</h2>
+<!-- toc -->
+
+<h1 id="制作usb安装器">制作USB安装器</h1>
 
 <p>参考资料 : Manjaro 官方User Guide</p>
 
@@ -566,7 +617,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Sep 9, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h2 id="函数与事件驱动处理">函数与事件驱动处理</h2>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
+
+<h1 id="函数与事件驱动处理">函数与事件驱动处理</h1>
 
 <p>我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。</p>
 
@@ -587,7 +640,11 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Sep 9, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h2 id="分片服务">分片服务</h2>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
+
+<h1 id="服务器模式">服务器模式</h1>
+
+<h2 id="分片服务">分片服务</h2>
 
 <p>和副本服务不同的是，副本服务的每个副本都具有完整的功能，可以响应每一个请求，分片服务中每个分片只能服务请求的一个子集，请求由一个负载均衡节点或者叫根节点分配到对应的分片。两种模式的不同如下图所示</p>
 
@@ -610,7 +667,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Sep 9, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h1 id="服务器模式">服务器模式</h1>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
+
+<h1 id="服务器模式">服务器模式</h1>
 
 <h2 id="微服务">微服务</h2>
 
@@ -635,7 +694,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Sep 9, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p>## 大使模式</p>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
+
+<h1 id="大使模式">大使模式</h1>
 
 <p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_194022.png" alt="" /></p>
 
@@ -658,9 +719,11 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
               </span>
               <div class="media-content hide-xs font-merryweather"><p><a href="https://www.reddit.com/r/Anki/comments/6z57zk/anki_decks_collection_mostly_englishenglish/">https://www.reddit.com/r/Anki/comments/6z57zk/anki_decks_collection_mostly_englishenglish/</a></p>
 
-<h2 id="decks">Decks</h2>
+<!-- toc -->
 
-<h4 id="podcasts">Podcasts</h4>
+<h1 id="decks">Decks</h1>
+
+<h2 id="podcasts">Podcasts</h2>
 
 <ul>
 <li><a href="https://ankiweb.net/shared/info/38858607">The English We Speak</a> (345 notes)</li>
@@ -682,7 +745,9 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Aug 8, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h1 id="introduction">Introduction</h1>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
+
+<h1 id="introduction">Introduction</h1>
 
 <h2 id="软件开发模式简史">软件开发模式简史</h2>
 
@@ -736,15 +801,17 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
                   Mar 3, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><h2 id="shadowsocks">Shadowsocks</h2>
+              <div class="media-content hide-xs font-merryweather"><!-- toc -->
 
-<p>端口设置为GCP TCP负载平衡支持的端口 比如5222</p>
+<h1 id="shadowsocks-配置">Shadowsocks 配置</h1>
 
-<h2 id="gcp的负载平衡">GCP的负载平衡</h2>
+<p>端口设置为GCP TCP负载平衡支持的端口, 比如5222.</p>
 
-<p>先建立一个实例组 把要用的VM加进去</p>
+<h1 id="gcp的负载平衡">GCP的负载平衡</h1>
 
-<p>使用TCP负载均衡-从互联网到我的VM-多个区域(单个区域貌似会有点问题)-然后基本的配置都是默认 前端IP选择v6就可以</p></div>
+<p>先建立一个实例组, 把要用的VM加进去.</p>
+
+<p>使用TCP负载均衡-从互联网到我的VM-多个区域(单个区域貌似会有点问题), 然后基本的配置都是默认, 前端IP选择v6就可以.</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
