@@ -8,19 +8,117 @@
 <meta name="generator" content="Hugo 0.53 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Yinghui Liu">
 <meta name="keywords" content="">
-<meta name="description" content="Hugo tranquilpeak theme demo">
+<meta name="description" content="其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.
+
+制作USB安装器
+
+参考资料 : Manjaro 官方User Guide
 
 
-<meta property="og:description" content="Hugo tranquilpeak theme demo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Noumenon">
-<meta name="twitter:title" content="Noumenon">
-<meta property="og:url" content="https://cicirori.github.io/">
-<meta property="twitter:url" content="https://cicirori.github.io/">
+官网下载镜像
+Linux下推荐通过命令行制作
+
+
+插上用于制作安装盘的U盘
+查看U盘盘符. sudo fdisk -l.
+写入镜像:
+sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M
+
+Windows推荐使用Rufus:
+
+
+选择你要用于制作安装盘的U盘.
+在Boot selection,  点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.
+
+">
+
+
+<meta property="og:description" content="其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.
+
+制作USB安装器
+
+参考资料 : Manjaro 官方User Guide
+
+
+官网下载镜像
+Linux下推荐通过命令行制作
+
+
+插上用于制作安装盘的U盘
+查看U盘盘符. sudo fdisk -l.
+写入镜像:
+sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M
+
+Windows推荐使用Rufus:
+
+
+选择你要用于制作安装盘的U盘.
+在Boot selection,  点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.
+
+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manjaro安装配置踩坑">
+<meta name="twitter:title" content="Manjaro安装配置踩坑">
+<meta property="og:url" content="https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
+<meta property="twitter:url" content="https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
 <meta property="og:site_name" content="Noumenon">
-<meta property="og:description" content="Hugo tranquilpeak theme demo">
-<meta name="twitter:description" content="Hugo tranquilpeak theme demo">
+<meta property="og:description" content="其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.
+
+制作USB安装器
+
+参考资料 : Manjaro 官方User Guide
+
+
+官网下载镜像
+Linux下推荐通过命令行制作
+
+
+插上用于制作安装盘的U盘
+查看U盘盘符. sudo fdisk -l.
+写入镜像:
+sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M
+
+Windows推荐使用Rufus:
+
+
+选择你要用于制作安装盘的U盘.
+在Boot selection,  点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.
+
+">
+<meta name="twitter:description" content="其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.
+
+制作USB安装器
+
+参考资料 : Manjaro 官方User Guide
+
+
+官网下载镜像
+Linux下推荐通过命令行制作
+
+
+插上用于制作安装盘的U盘
+查看U盘盘符. sudo fdisk -l.
+写入镜像:
+sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M
+
+Windows推荐使用Rufus:
+
+
+选择你要用于制作安装盘的U盘.
+在Boot selection,  点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.
+
+">
 <meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2018-12-06T17:07:14">
+  
+  
+    <meta property="article:modified_time" content="2018-12-06T17:07:14">
+  
+  
+  
+  
 
 
 <meta name="twitter:card" content="summary">
@@ -39,16 +137,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/ae723617c5cb9abcd2b4505a2ffdd322?s=640">
 
 
-    <title>Noumenon</title>
+    <title>Manjaro安装配置踩坑</title>
 
     <link rel="icon" href="https://cicirori.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://cicirori.github.io/index.xml">
-    
 
     
 
-    <link rel="canonical" href="https://cicirori.github.io/">
+    <link rel="canonical" href="https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,7 +164,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="2">
+      <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://cicirori.github.io/">Noumenon</a>
@@ -88,7 +184,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="2">
+      <nav id="sidebar" data-behavior="5">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -188,35 +284,20 @@
 
       
 
-      <div id="main" data-behavior="2"
+      <div id="main" data-behavior="5"
         class="
                hasCoverMetaIn
                ">
-        <section class="postShorten-group main-content-wrap">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-            
+            <div class="post-header main-content-wrap text-left">
   
-    
-      
-        
-      
-    
+    <h1 class="post-title" itemprop="headline">
+      Manjaro安装配置踩坑
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
-          Manjaro安装配置踩坑
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
       <time itemprop="datePublished" datetime="2018-12-06T17:07:14&#43;08:00">
@@ -228,10 +309,11 @@
     
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.</p>
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.</p>
 
 <h2 id="制作usb安装器">制作USB安装器</h2>
 
@@ -254,370 +336,322 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
 <li>在Boot selection,  点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.</li>
 </ol></li>
 </ol>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
 
-          
-            
-  
-    
-      
-        
-      
-    
-  
+<h2 id="进入live-cd与安装">进入Live CD与安装</h2>
 
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/">
-          设计分布式系统读书笔记（五）
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-09-25T19:29:16Z">
-        
-  九月 25, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <h2 id="函数与事件驱动处理">函数与事件驱动处理</h2>
-
-<p>我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。</p>
-
-<p>大多数时FaaS指无服务器（Serverless）计算，这么说也没什么错，但是广义的无服务计算和事件驱动FaaS并不是完全相同的概念。比如一个多用户容器（CaaS）是无服务器的，但是不是事件驱动的。一个开源的FaaS跑在你自己拥有管理的物理机上，这是事件驱动的但不是无服务器的。理解这两者的区别可以让你了解什么时候该使用事件驱动什么时候该使用无服务器，或者什么时候两者并用。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/">
-          设计分布式系统读书笔记(四)
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-09-17T19:02:46Z">
-        
-  九月 17, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <h2 id="分片服务">分片服务</h2>
-
-<p>和副本服务不同的是，副本服务的每个副本都具有完整的功能，可以响应每一个请求，分片服务中每个分片只能服务请求的一个子集，请求由一个负载均衡节点或者叫根节点分配到对应的分片。两种模式的不同如下图所示</p>
-
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180917_191805.png" alt="" /></p>
-
-<p>复制模式通常用来构建无状态服务，分片模式用来构建有状态服务。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/">
-          设计分布式系统读书笔记（三）
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-09-13T11:32:52Z">
-        
-  九月 13, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <h1 id="服务器模式">服务器模式</h1>
-
-<h2 id="微服务">微服务</h2>
-
-<p>最近微服务变成了一个描述多节点分布式软件架构的流行词，微服务描述了一个系统由运行在不同进程上的组件组成，批次之间通过预定义的API进行交流。与微服务相对应的概念是宏系统，把所有的功能紧凑的放在一个应用中。</p>
-
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180913_102535.png" alt="" /></p>
-
-<p>微服务有各种各样的好处，大多数情况下，微服务兼具可靠性和灵活性。微服务把一个应用分解成小片，每个小片专注于提供一种服务。这种模式有利于减小开发团队大小，使得开发更加灵活有方向性。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-          设计分布式系统读书笔记（二）
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-09-12T20:36:10Z">
-        
-  九月 12, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>## 大使模式</p>
-
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_194022.png" alt="" /></p>
-
-<p>上图显示了一个典型的大使模式架构。大使模式的价值在于两点，首先构建一个模块化可复用的容器本身就具有价值，其次一个大使容器可以供多个应用容器使用，这种复用加快了开发进度也利于保证代码质量。我们接下来会提供大使模式的几个例子。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/08/%E8%BD%AC%E8%87%AAredditanki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/">
-          [转自Reddit]Anki英文卡组搜集
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-08-23T13:44:13Z">
-        
-  八月 23, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p><a href="https://www.reddit.com/r/Anki/comments/6z57zk/anki_decks_collection_mostly_englishenglish/">https://www.reddit.com/r/Anki/comments/6z57zk/anki_decks_collection_mostly_englishenglish/</a></p>
-
-<h2 id="decks">Decks</h2>
-
-<h4 id="podcasts">Podcasts</h4>
+<p>参考链接 :</p>
 
 <ul>
-<li><a href="https://ankiweb.net/shared/info/38858607">The English We Speak</a> (345 notes)</li>
-<li><a href="https://ankiweb.net/shared/info/1106074514">6 Minute English</a> (153 notes)</li>
+<li><a href="https://gist.github.com/oguzkaganeren/502360965a9bda12e958de2d9b0c9dab">https://gist.github.com/oguzkaganeren/502360965a9bda12e958de2d9b0c9dab</a></li>
+<li><a href="https://gist.github.com/mauri870/5a54e415140875b9150ca31c491811f6">https://gist.github.com/mauri870/5a54e415140875b9150ca31c491811f6</a></li>
+<li><a href="https://www.bountysource.com/issues/33991302-laptop-freezes-when-starting-x11-and-discrete-graphics-are-off">https://www.bountysource.com/issues/33991302-laptop-freezes-when-starting-x11-and-discrete-graphics-are-off</a></li>
 </ul>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/08/%E8%BD%AC%E8%87%AAredditanki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
 
-          
+<p>如果能正常进入的话可以忽略这一步, 但是有的机器会出现问题, 卡在命令行界面. 我们只要在内核启动参数添加 systemd.mask=mhwd-live.service 即可.</p>
+
+<p>如果进入Live CD出现问题那么需要一些操作才能顺利安装, 修改/lib/calamares/modules/mhwdcfg/main.py :</p>
+
+<pre><code class="language-python">def run():
+    &quot;&quot;&quot; Configure the hardware &quot;&quot;&quot;
+    
+    mhwd = MhwdController()
+    
+    # return mhwd.run() 
+    return None # 新添这行 并注释掉上一行
+</code></pre>
+
+<p>然后安装即可.</p>
+
+<p>顺利安装重启,不能成功进入系统需要添加内核启动参数 <code>nouveau.modeset=0 acpi_osi=! acpi_osi=&quot;Windows 2009&quot;</code>.</p>
+
+<h2 id="安装nvidia驱动-启用prime">安装Nvidia驱动 启用PRIME</h2>
+
+<p>出现过之前的问题的机器很大概率不能成功安装bumblebee, 我折腾了好久最后放弃了, 只用核显. 但是因为我的本视频输出端口和独显连接, 所以只用独显不能支持双屏. 然后找到了这个帖子, 成功用上独显: <a href="https://forum.manjaro.org/t/howto-set-up-prime-with-nvidia-proprietary-driver/40225">https://forum.manjaro.org/t/howto-set-up-prime-with-nvidia-proprietary-driver/40225</a> . 需要注意的不像Bumblebee默认使用核显, PRIME的主力是独显.</p>
+
+<ol>
+<li><p>移除Bumblebee.</p></li>
+
+<li><p>安装nvidia驱动 : sudo mhwd -i pci video-nvidia.</p></li>
+
+<li><p>修复mhwd生成的自动配置</p>
+
+<ol>
+<li><p>删除自动生成的 /etc/X11/xorg.conf.d/90-mhwd.conf</p></li>
+
+<li><p>新建 /etc/X11/xorg.conf.d/90-mhwd.conf, 内容如下:</p></li>
+</ol>
+
+<pre><code>  Section &quot;Module&quot;
+      Load &quot;modesetting&quot;
+  EndSection
+      
+  Section &quot;Device&quot;
+      Identifier &quot;nvidia&quot;
+      Driver &quot;nvidia&quot;
+      BusID &quot;PCI:1:0:0&quot;
+      Option &quot;AllowEmptyInitialConfiguration&quot;
+  EndSection
+</code></pre>
+
+<p>其中BusID是基于机器的, 但一般都是这个, 可以用<code>lspci | grep -E &quot;VGA|3D&quot;</code>来查看, 配置文件要求格式是 <code>PCI:#:#:#</code> , 而不是这个命令输出的<code>01:00.0</code>.</p>
+
+<ol>
+<li>重新设置黑名单</li>
+</ol>
+
+<p>PRIME依赖<code>nvidia-drm</code> , 但是mhwd默认的把他放进了黑名单. 并且我们也需要对一些模块屏蔽来保证<code>nvidia</code> 能运行.</p>
+
+<p>列出与mhwd相关的配置并删除.</p>
+
+<pre><code class="language-shell">  ls /etc/modprobe.d/mhwd*
+  sudo rm /etc/modprobe.d/mhwd-gpu.conf
+  sudo rm /etc/modprobe.d/mhwd-nvidia.conf
+</code></pre>
+
+<p>新建 <code>/etc/modprobe.d/nvidia.conf</code>:</p>
+
+<pre><code>  blacklist nouveau
+  blacklist nvidiafb
+  blacklist rivafb
+</code></pre>
+
+<ol>
+<li>启用<code>nvidia-drm.modeset</code></li>
+</ol>
+
+<p>新建文件 <code>/etc/modprobe.d/nvidia-drm.conf</code></p>
+
+<pre><code>  options nvidia_drm modeset=1
+</code></pre>
+
+<ol>
+<li>设置你的display manager 的输出源:</li>
+</ol>
+
+<p>我用的是LightDM, 只列出LightDM的操作, 其他DM可以去原贴翻一下</p>
+
+<ol>
+<li><p>新建文件<code>/usr/local/bin/optimus.sh</code></p>
+
+<pre><code class="language-sh"> #!/bin/sh
+         
+ xrandr --setprovideroutputsource modesetting NVIDIA-0
+ xrandr --auto
+</code></pre></li>
+
+<li><p>修改权限 sudo chmod a+rx  /usr/local/bin/optimus.sh</p></li>
+
+<li><p>修改 <code>/etc/lightdm/lightdm.conf</code> , 在<code>[Seat:*]</code>节添加:</p>
+
+<p><code>display-setup-script=/usr/local/bin/optimus.sh</code></p></li>
+
+<li><p>重启, 如果配置成功的话, 你可以成功登录并且运行<code>glxinfo | grep -i vendor</code> 输出如下:</p></li>
+</ol>
+
+<pre><code>  server glx vendor string: NVIDIA Corporation
+  client glx vendor string: NVIDIA Corporation
+  OpenGL vendor string: NVIDIA Corporation
+</code></pre>
+
+<ol>
+<li><p>参考链接:</p>
+
+<ul>
+<li><a href="https://forum.manjaro.org/t/howto-set-up-prime-with-nvidia-proprietary-driver/40225">https://forum.manjaro.org/t/howto-set-up-prime-with-nvidia-proprietary-driver/40225</a></li>
+<li><a href="https://devtalk.nvidia.com/default/topic/957814/linux/prime-and-prime-synchronization/">https://devtalk.nvidia.com/default/topic/957814/linux/prime-and-prime-synchronization/ 56</a></li>
+<li><a href="http://us.download.nvidia.com/XFree86/Linux-x86_64/390.25/README/randr14.html">http://us.download.nvidia.com/XFree86/Linux-x86_64/390.25/README/randr14.html</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/PRIME">https://wiki.archlinux.org/index.php/PRIME 1</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/NVIDIA_Optimus#Display_Managers">https://wiki.archlinux.org/index.php/NVIDIA_Optimus#Display_Managers</a></li>
+<li><a href="https://devtalk.nvidia.com/default/topic/957981/linux/prime-render-offloading-on-nvidia-optimus/">https://devtalk.nvidia.com/default/topic/957981/linux/prime-render-offloading-on-nvidia-optimus/ 1</a></li>
+</ul></li>
+</ol></li>
+</ol>
+
+<h2 id="防止画面撕裂">防止画面撕裂</h2>
+
+<p>独显 : NVIDIA X Server Settings 里启用 force full composition pipeline.</p>
+
+<p>核显: 更换窗口合成器为compton, 参考链接 : <a href="https://wiki.manjaro.org/index.php?title=Using_Compton_for_a_tear-free_experience_in_Xfce">https://wiki.manjaro.org/index.php?title=Using_Compton_for_a_tear-free_experience_in_Xfce</a></p>
+
+<h2 id="切换源镜像">切换源镜像</h2>
+
+<p>参考链接 : <a href="https://wiki.manjaro.org/Pacman-mirrors">https://wiki.manjaro.org/Pacman-mirrors</a></p>
+
+<p><code>sudo pacman-mirrors --country China,United_States &amp;&amp; sudo pacman -Syyu</code></p>
+
+<p>找到中美速度最快的五个源并升级系统.</p>
+
+<h2 id="archlinuxcn源">archlinuxcn源</h2>
+
+<p>参考链接 : <a href="https://github.com/archlinuxcn/repo">https://github.com/archlinuxcn/repo</a></p>
+
+<p>添加repo到 <code>/etc/pacman.conf</code>:</p>
+
+<p>官方源(大陆没有节点, 推荐使用下面的镜像) :</p>
+
+<pre><code>[archlinuxcn]
+Server = https://cdn.repo.archlinuxcn.org/$arch
+</code></pre>
+
+<p>镜像列表: <a href="https://github.com/archlinuxcn/mirrorlist-repo">https://github.com/archlinuxcn/mirrorlist-repo</a></p>
+
+<pre><code class="language-sh">## 浙江大学 (浙江杭州) (ipv4, ipv6, http, https)
+## Added: 2017-06-05
+[archlinuxcn]
+Server = https://mirrors.zju.edu.cn/archlinuxcn/$arch
+## 中国科学技术大学 (ipv4, ipv6, http, https)
+[archlinuxcn]
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+## 清华大学 (ipv4, ipv6, http, https)
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+## xTom (Hong Kong) (ipv4, ipv6, http, https)
+## Added: 2017-09-18
+## xTom Hong Kong Mirror
+[archlinuxcn]
+Server = https://mirror.xtom.com.hk/archlinuxcn/$arch
+## 上海大学开源镜像站 (ipv4, ipv6, http, https)
+## Added: 2018-05-13
+[archlinuxcn]
+Server = https://mirrors.shuosc.org/archlinuxcn/$arch
+## 网易 (ipv4, http, https)
+[archlinuxcn]
+Server = https://mirrors.163.com/archlinux-cn/$arch
+## 莞工 GNU/Linux 协会 开源软件镜像站 (ipv4, http, https)
+## Added: 2018-11-03
+[archlinuxcn]
+Server = https://mirrors.dgut.edu.cn/archlinuxcn/$arch
+## 重庆大学 (ipv4, https)
+[archlinuxcn]
+Server = https://mirrors.cqu.edu.cn/archlinuxcn/$arch
+## SJTUG 软件源镜像服务 (ipv4, https)
+## Added: 2018-05-21
+[archlinuxcn]
+Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/$arch
+## 腾讯云 (ipv4, https)
+## Added: 2018-11-23
+[archlinuxcn]
+Server = https://mirrors.cloud.tencent.com/archlinuxcn/$arch
+</code></pre>
+
+<p>添加PGPKeys :</p>
+
+<pre><code>sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring
+</code></pre>
+
+<h2 id="tim-微信-网易云-安装与缩放">TIM 微信 网易云 安装与缩放</h2>
+
+<p>参考链接 :</p>
+
+<ul>
+<li><a href="https://aur.archlinux.org/packages/deepin-wechat/">https://aur.archlinux.org/packages/deepin-wechat/</a></li>
+<li><a href="https://aur.archlinux.org/packages/deepin.com.qq.office/">https://aur.archlinux.org/packages/deepin.com.qq.office/</a> (实际上是TIM)</li>
+<li><a href="https://www.lulinux.com/archives/4642">https://www.lulinux.com/archives/4642</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/HiDPI#Qt_5">https://wiki.archlinux.org/index.php/HiDPI#Qt_5</a></li>
+</ul>
+
+<p>TIM和微信推荐安装AUR中的deepin版本, 网易云音乐archlinuxcn源有.</p>
+
+<p>高分屏存在缩放问题, deepin版本的应用调winecfg需要使用如下命令:</p>
+
+<p><code>env WINEPREFIX=&quot;$HOME/.deepinwine/Deepin-TIM&quot; winecfg</code></p>
+
+<p><code>env WINEPREFIX=&quot;$HOME/.deepinwine/Deepin-WeChat&quot; winecfg</code></p>
+
+<p>里面调DPI就可以, 调之前先退出应用.</p>
+
+<p>网易云音乐缩放需要添加执行参数:</p>
+
+<p><code>netease-cloud-music --force-device-scale-factor=1.25 (这里换成你需要的缩放级别)</code></p>
+
+<p>另外还有一种修改Qt5环境变量的方法, 我之前都是需要两个都改, 更新过一次之后就只需要上面的Chromium参数了. 如果上面的方法不work的话可以试这种办法.</p>
+
+<p><code>QT_SCALE_FACTOR=1.25 netease-cloud-music --force-device-scale-factor=1.25</code></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
             
+              
+            
+            <div class="post-actions-wrap">
   
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
-          设计分布式系统读书笔记（一）
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-08-23T09:09:45Z">
-        
-  八月 23, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <h1 id="introduction">Introduction</h1>
-
-<h2 id="软件开发模式简史">软件开发模式简史</h2>
-
-<h3 id="算法编程的形式化">算法编程的形式化</h3>
-
-<p>1962年，计算机编程的艺术一书横空出世，揭开了计算机科学发展的新篇章。本书谈论了算法本身，而不是面向某个特定程序的code。</p>
-
-<h3 id="oop">OOP</h3>
-
-<p>随着计算机软件变得复杂，开发软件的人员逐渐增多。为了解决这个问题，OOP思想出现了。</p>
-
-<h3 id="开源软件的崛起">开源软件的崛起</h3>
-
-<p>可能开源软件和分布式系统在开发模式上只有很小的相关，但是值得注意的是，现在所有的container技术都是由开源社区作为主要推动力的。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
+      <nav >
+        <ul class="post-actions post-action-nav">
           
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/" data-tooltip="设计分布式系统读书笔记（五）">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
           
-  <div class="pagination-bar">
-    <ul class="pagination">
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
       
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
         
-          <li class="pagination-next">
-            <a class="btn btn--default btn--small" href="https://cicirori.github.io/page/2/">
-              <span>下一页</span>
-              <i class="fa fa-angle-right text-base icon-ml"></i>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
+              <i class="fa fa-google-plus"></i>
             </a>
           </li>
         
       
-      <li class="pagination-number">第 1 页 共 2 页</li>
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
     </ul>
-  </div>
+  
+</div>
 
-
-        </section>
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2019 Yinghui Liu. All Rights Reserved
@@ -625,6 +659,102 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/" data-tooltip="设计分布式系统读书笔记（五）">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcicirori.github.io%2F2018%2F12%2Fmanjaro%25E5%25AE%2589%25E8%25A3%2585%25E9%2585%258D%25E7%25BD%25AE%25E8%25B8%25A9%25E5%259D%2591%2F">
+          <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fcicirori.github.io%2F2018%2F12%2Fmanjaro%25E5%25AE%2589%25E8%25A3%2585%25E9%2585%258D%25E7%25BD%25AE%25E8%25B8%25A9%25E5%259D%2591%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fcicirori.github.io%2F2018%2F12%2Fmanjaro%25E5%25AE%2589%25E8%25A3%2585%25E9%2585%258D%25E7%25BD%25AE%25E8%25B8%25A9%25E5%259D%2591%2F">
+          <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -967,9 +1097,36 @@ $(document).ready(function() {
 </script>
 
 
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/cicirori.github.io\/2018\/12\/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91\/';
+          
+            this.page.identifier = '\/2018\/12\/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
 
 
 
     
   </body>
 </html>
+

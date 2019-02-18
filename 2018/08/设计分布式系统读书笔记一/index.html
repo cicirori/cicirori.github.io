@@ -8,19 +8,85 @@
 <meta name="generator" content="Hugo 0.53 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Yinghui Liu">
 <meta name="keywords" content="">
-<meta name="description" content="Hugo tranquilpeak theme demo">
+<meta name="description" content="Introduction
+
+软件开发模式简史
+
+算法编程的形式化
+
+1962年，计算机编程的艺术一书横空出世，揭开了计算机科学发展的新篇章。本书谈论了算法本身，而不是面向某个特定程序的code。
+
+OOP
+
+随着计算机软件变得复杂，开发软件的人员逐渐增多。为了解决这个问题，OOP思想出现了。
+
+开源软件的崛起
+
+可能开源软件和分布式系统在开发模式上只有很小的相关，但是值得注意的是，现在所有的container技术都是由开源社区作为主要推动力的。">
 
 
-<meta property="og:description" content="Hugo tranquilpeak theme demo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Noumenon">
-<meta name="twitter:title" content="Noumenon">
-<meta property="og:url" content="https://cicirori.github.io/">
-<meta property="twitter:url" content="https://cicirori.github.io/">
+<meta property="og:description" content="Introduction
+
+软件开发模式简史
+
+算法编程的形式化
+
+1962年，计算机编程的艺术一书横空出世，揭开了计算机科学发展的新篇章。本书谈论了算法本身，而不是面向某个特定程序的code。
+
+OOP
+
+随着计算机软件变得复杂，开发软件的人员逐渐增多。为了解决这个问题，OOP思想出现了。
+
+开源软件的崛起
+
+可能开源软件和分布式系统在开发模式上只有很小的相关，但是值得注意的是，现在所有的container技术都是由开源社区作为主要推动力的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计分布式系统读书笔记（一）">
+<meta name="twitter:title" content="设计分布式系统读书笔记（一）">
+<meta property="og:url" content="https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
+<meta property="twitter:url" content="https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
 <meta property="og:site_name" content="Noumenon">
-<meta property="og:description" content="Hugo tranquilpeak theme demo">
-<meta name="twitter:description" content="Hugo tranquilpeak theme demo">
+<meta property="og:description" content="Introduction
+
+软件开发模式简史
+
+算法编程的形式化
+
+1962年，计算机编程的艺术一书横空出世，揭开了计算机科学发展的新篇章。本书谈论了算法本身，而不是面向某个特定程序的code。
+
+OOP
+
+随着计算机软件变得复杂，开发软件的人员逐渐增多。为了解决这个问题，OOP思想出现了。
+
+开源软件的崛起
+
+可能开源软件和分布式系统在开发模式上只有很小的相关，但是值得注意的是，现在所有的container技术都是由开源社区作为主要推动力的。">
+<meta name="twitter:description" content="Introduction
+
+软件开发模式简史
+
+算法编程的形式化
+
+1962年，计算机编程的艺术一书横空出世，揭开了计算机科学发展的新篇章。本书谈论了算法本身，而不是面向某个特定程序的code。
+
+OOP
+
+随着计算机软件变得复杂，开发软件的人员逐渐增多。为了解决这个问题，OOP思想出现了。
+
+开源软件的崛起
+
+可能开源软件和分布式系统在开发模式上只有很小的相关，但是值得注意的是，现在所有的container技术都是由开源社区作为主要推动力的。">
 <meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2018-08-23T09:09:45">
+  
+  
+    <meta property="article:modified_time" content="2018-08-23T09:09:45">
+  
+  
+  
+  
 
 
 <meta name="twitter:card" content="summary">
@@ -39,16 +105,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/ae723617c5cb9abcd2b4505a2ffdd322?s=640">
 
 
-    <title>Noumenon</title>
+    <title>设计分布式系统读书笔记（一）</title>
 
     <link rel="icon" href="https://cicirori.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://cicirori.github.io/index.xml">
-    
 
     
 
-    <link rel="canonical" href="https://cicirori.github.io/">
+    <link rel="canonical" href="https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -68,7 +132,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="2">
+      <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://cicirori.github.io/">Noumenon</a>
@@ -88,7 +152,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="2">
+      <nav id="sidebar" data-behavior="5">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -188,376 +252,20 @@
 
       
 
-      <div id="main" data-behavior="2"
+      <div id="main" data-behavior="5"
         class="
                hasCoverMetaIn
                ">
-        <section class="postShorten-group main-content-wrap">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-            
+            <div class="post-header main-content-wrap text-left">
   
-    
-      
-        
-      
-    
+    <h1 class="post-title" itemprop="headline">
+      设计分布式系统读书笔记（一）
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
-          Manjaro安装配置踩坑
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-12-06T17:07:14&#43;08:00">
-        
-  十二月 6, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.</p>
-
-<h2 id="制作usb安装器">制作USB安装器</h2>
-
-<p>参考资料 : Manjaro 官方User Guide</p>
-
-<ol>
-<li>官网下载镜像</li>
-<li>Linux下推荐通过命令行制作
-
-<ol>
-<li>插上用于制作安装盘的U盘</li>
-<li>查看U盘盘符. sudo fdisk -l.</li>
-<li>写入镜像:
-sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名字) of=/dev/(这里替换成你上面的查到的盘符) bs=4M</li>
-</ol></li>
-<li>Windows推荐使用Rufus:
-
-<ol>
-<li>选择你要用于制作安装盘的U盘.</li>
-<li>在Boot selection,  点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.</li>
-</ol></li>
-</ol>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/">
-          设计分布式系统读书笔记（五）
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-09-25T19:29:16Z">
-        
-  九月 25, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <h2 id="函数与事件驱动处理">函数与事件驱动处理</h2>
-
-<p>我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。</p>
-
-<p>大多数时FaaS指无服务器（Serverless）计算，这么说也没什么错，但是广义的无服务计算和事件驱动FaaS并不是完全相同的概念。比如一个多用户容器（CaaS）是无服务器的，但是不是事件驱动的。一个开源的FaaS跑在你自己拥有管理的物理机上，这是事件驱动的但不是无服务器的。理解这两者的区别可以让你了解什么时候该使用事件驱动什么时候该使用无服务器，或者什么时候两者并用。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/">
-          设计分布式系统读书笔记(四)
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-09-17T19:02:46Z">
-        
-  九月 17, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <h2 id="分片服务">分片服务</h2>
-
-<p>和副本服务不同的是，副本服务的每个副本都具有完整的功能，可以响应每一个请求，分片服务中每个分片只能服务请求的一个子集，请求由一个负载均衡节点或者叫根节点分配到对应的分片。两种模式的不同如下图所示</p>
-
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180917_191805.png" alt="" /></p>
-
-<p>复制模式通常用来构建无状态服务，分片模式用来构建有状态服务。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/">
-          设计分布式系统读书笔记（三）
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-09-13T11:32:52Z">
-        
-  九月 13, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <h1 id="服务器模式">服务器模式</h1>
-
-<h2 id="微服务">微服务</h2>
-
-<p>最近微服务变成了一个描述多节点分布式软件架构的流行词，微服务描述了一个系统由运行在不同进程上的组件组成，批次之间通过预定义的API进行交流。与微服务相对应的概念是宏系统，把所有的功能紧凑的放在一个应用中。</p>
-
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180913_102535.png" alt="" /></p>
-
-<p>微服务有各种各样的好处，大多数情况下，微服务兼具可靠性和灵活性。微服务把一个应用分解成小片，每个小片专注于提供一种服务。这种模式有利于减小开发团队大小，使得开发更加灵活有方向性。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-          设计分布式系统读书笔记（二）
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-09-12T20:36:10Z">
-        
-  九月 12, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p>## 大使模式</p>
-
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_194022.png" alt="" /></p>
-
-<p>上图显示了一个典型的大使模式架构。大使模式的价值在于两点，首先构建一个模块化可复用的容器本身就具有价值，其次一个大使容器可以供多个应用容器使用，这种复用加快了开发进度也利于保证代码质量。我们接下来会提供大使模式的几个例子。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/08/%E8%BD%AC%E8%87%AAredditanki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/">
-          [转自Reddit]Anki英文卡组搜集
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-08-23T13:44:13Z">
-        
-  八月 23, 2018
-
-      </time>
-    
-    
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <p><a href="https://www.reddit.com/r/Anki/comments/6z57zk/anki_decks_collection_mostly_englishenglish/">https://www.reddit.com/r/Anki/comments/6z57zk/anki_decks_collection_mostly_englishenglish/</a></p>
-
-<h2 id="decks">Decks</h2>
-
-<h4 id="podcasts">Podcasts</h4>
-
-<ul>
-<li><a href="https://ankiweb.net/shared/info/38858607">The English We Speak</a> (345 notes)</li>
-<li><a href="https://ankiweb.net/shared/info/1106074514">6 Minute English</a> (153 notes)</li>
-</ul>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/08/%E8%BD%AC%E8%87%AAredditanki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
-          设计分布式系统读书笔记（一）
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
       <time itemprop="datePublished" datetime="2018-08-23T09:09:45Z">
@@ -569,10 +277,11 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
     
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <h1 id="introduction">Introduction</h1>
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="introduction">Introduction</h1>
 
 <h2 id="软件开发模式简史">软件开发模式简史</h2>
 
@@ -587,37 +296,167 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
 <h3 id="开源软件的崛起">开源软件的崛起</h3>
 
 <p>可能开源软件和分布式系统在开发模式上只有很小的相关，但是值得注意的是，现在所有的container技术都是由开源社区作为主要推动力的。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
 
+<h2 id="模式的价值">模式的价值</h2>
+
+<ul>
+<li><p>站在巨人的肩膀上</p></li>
+
+<li><p>让我们的讨论建立在同样的话语体系上</p></li>
+
+<li><p>易于复用的组件</p></li>
+</ul>
+
+<h1 id="单节点模式">单节点模式</h1>
+
+<p>单节点模式同样具有很多价值与应用，也是多节点的基础。</p>
+
+<ol>
+<li>场景一 对不同需要的app分配不同得资源。并对资源进行调用。</li>
+<li>场景二 不同的team协同工作，划分不同的工作空间。</li>
+<li>场景三 易于测试、更新和部署。</li>
+</ol>
+
+<h1 id="chapter-2-挎斗-sidecar-模式">Chapter 2 挎斗（sidecar）模式</h1>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/0009542_harley-joy-ride-around-melbourne-with-double-sidecar_580.jpeg?token=AfUwoFJDV5Z8n8M0XQAVWnMf6375iyZyks5bh0XAwA%3D%3D" alt="" /></p>
+
+<p>sidecar模式中存在一个应用容器（application container）和挎斗程序（sidecar container），应用容器中跑的是应用的核心逻辑。挎斗容器增加（augment）或者改进（improve）应用容器。</p>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/TIM%E6%88%AA%E5%9B%BE20180822184933.png?token=AfUwoLn5JCiBZf6DkDcwgSrTyLiWHyUNks5bh0YWwA%3D%3D" alt="" /></p>
+
+<h2 id="实例1-给老旧的服务添加https">实例1 给老旧的服务添加HTTPS</h2>
+
+<p>我们现在有一个老旧的web服务，当它编译的时候HTTPS还不流行，现在为了安全性考虑想要添加HTTPS，但是服务是在老版本的系统上build的，所以直接修改源代码是一个很艰难的工作。为此，我们添加一个sidecar容器，是一个SSL的代理，外部流量通过安全的方式连接到这个代理，然后不安全的http流量只在localhost上经过，我们的目标达成。</p>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/TIM%E6%88%AA%E5%9B%BE20180822185242.png?token=AfUwoIkwpm-DKQ-eDU85Z2g8w5m_sEEFks5bh0YHwA%3D%3D" alt="" /></p>
+
+<h2 id="实例2-利用sidecar实现动态配置">实例2 利用sidecar实现动态配置</h2>
+
+<p>另一个sidecar的常见应用是进行配置同步，许多应用利用本地文件来存储配置，譬如XML，JSON或者YANL。但是在云上我们有很强烈的通过API来修改访问这一配置的需求。为了实现这一功能，我们添加一个sidecar容器，和应用容器共享配置文件，我们允许通过API来和sidecar通信修改物理配置文件，修改完成后sidecar通过一定的方式通知应用容器刷新配置。</p>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/TIM%E6%88%AA%E5%9B%BE20180822185733.png?token=AfUwoCXouaRaAJkRDDcOvcPGW6h67eQ4ks5bh0YkwA%3D%3D" alt="" /></p>
+
+<h2 id="实例3-模块化应用容器">实例3 模块化应用容器</h2>
+
+<p>为了实现一个类似top命令的功能，我们可以给每个开发者实现一个HTTP/topz接口提供资源使用情况的读写，为了简化它，你可能想要实现一个基于语言的插件。但是就算这么做，你也不得不考虑多种语言并且，一旦有新的语言，这种方法也不能马上跟进。</p>
+
+<p>我们可以部署一个sidecar容器和应用容器共享PID，这个topz容器可以内省所有的进程并提供一个持续更新的用户界面。</p>
+
+<h2 id="实例4-利用sidecar部署paas应用">实例4 利用sidecar部署PaaS应用</h2>
+
+<p>我们可能想要实现这样一个PaaS，一旦我们把代码提交给git repo就可以自动化的上线新代码。</p>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/TIM%E6%88%AA%E5%9B%BE20180822190650.png?token=AfUwoPbSu2ZzqJgws3Y-abII8JPBTGJwks5bhn8xwA%3D%3D" alt="" /></p>
+
+<p>我们把我们需要更新代码的程序，比如一个Node.js服务器跑在应用容器里，另外开一个sidecar跑几行简单的循环git pull代码，这两个容器共享文件，就实现了我们想要的功能。</p>
+
+<h2 id="模块性-可复用性">模块性 可复用性</h2>
+
+<p>为了实现好的模块性和可复用性。我们在开发的过程中需要关注这三个方面：</p>
+
+<ol>
+<li>参数化你的容器</li>
+<li>为你的容器制定API标准</li>
+<li>为你的容器编写文档</li>
+</ol>
+
+<h3 id="参数化容器">参数化容器</h3>
+
+<p>把你的容器看做一个函数，考虑每个参数的意义。</p>
+
+<h3 id="定义每个容器的api">定义每个容器的API</h3>
+
+<p>当然参数也是容器的一部分，除此之外还有容器对其他容器的调用、传统的HTTP和其它API。但是定义API的工作要提早进行，上线之后对API的更改不仅耗费精力，还可能会造成未知的后果。</p>
+
+<h3 id="为你的容器编写文档">为你的容器编写文档</h3>
+
+<p>不幸的是，现在给容器映像编写文档的工具非常之少。但是编写恰到好处详尽的文档仍然是必要的。有些在Dockerfile中已经定义的注释，比如EXPOSE **** 表示这个映像监听的端口。你还可以李荣LABEL直接添加matadata进你的映像。<a href="http://label-schema.org/rc1/这里介绍了一些LABEL的使用惯例。">http://label-schema.org/rc1/这里介绍了一些LABEL的使用惯例。</a></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
           
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/08/%E8%BD%AC%E8%87%AAredditanki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/" data-tooltip="[转自Reddit]Anki英文卡组搜集">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/" data-tooltip="关于三段论">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
           
-  <div class="pagination-bar">
-    <ul class="pagination">
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
       
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
         
-          <li class="pagination-next">
-            <a class="btn btn--default btn--small" href="https://cicirori.github.io/page/2/">
-              <span>下一页</span>
-              <i class="fa fa-angle-right text-base icon-ml"></i>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
+              <i class="fa fa-google-plus"></i>
             </a>
           </li>
         
       
-      <li class="pagination-number">第 1 页 共 2 页</li>
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
     </ul>
-  </div>
+  
+</div>
 
-
-        </section>
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2019 Yinghui Liu. All Rights Reserved
@@ -625,6 +464,102 @@ sudo dd if=manjaro-xfce-18.0-stable-x86_64.iso(替换成你下载的文件的名
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/08/%E8%BD%AC%E8%87%AAredditanki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/" data-tooltip="[转自Reddit]Anki英文卡组搜集">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/" data-tooltip="关于三段论">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcicirori.github.io%2F2018%2F08%2F%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2588%2586%25E5%25B8%2583%25E5%25BC%258F%25E7%25B3%25BB%25E7%25BB%259F%25E8%25AF%25BB%25E4%25B9%25A6%25E7%25AC%2594%25E8%25AE%25B0%25E4%25B8%2580%2F">
+          <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fcicirori.github.io%2F2018%2F08%2F%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2588%2586%25E5%25B8%2583%25E5%25BC%258F%25E7%25B3%25BB%25E7%25BB%259F%25E8%25AF%25BB%25E4%25B9%25A6%25E7%25AC%2594%25E8%25AE%25B0%25E4%25B8%2580%2F">
+          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fcicirori.github.io%2F2018%2F08%2F%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2588%2586%25E5%25B8%2583%25E5%25BC%258F%25E7%25B3%25BB%25E7%25BB%259F%25E8%25AF%25BB%25E4%25B9%25A6%25E7%25AC%2594%25E8%25AE%25B0%25E4%25B8%2580%2F">
+          <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -967,9 +902,36 @@ $(document).ready(function() {
 </script>
 
 
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/cicirori.github.io\/2018\/08\/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80\/';
+          
+            this.page.identifier = '\/2018\/08\/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
 
 
 
     
   </body>
 </html>
+
