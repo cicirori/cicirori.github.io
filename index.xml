@@ -6,10 +6,35 @@
     <description>Recent content on Noumenon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 19 Feb 2019 14:53:50 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Feb 2019 17:51:12 +0800</lastBuildDate>
     
 	<atom:link href="https://cicirori.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Makefile要点总结(中)</title>
+      <link>https://cicirori.github.io/2019/02/makefile%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93%E4%B8%AD/</link>
+      <pubDate>Tue, 19 Feb 2019 17:51:12 +0800</pubDate>
+      
+      <guid>https://cicirori.github.io/2019/02/makefile%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93%E4%B8%AD/</guid>
+      <description>&lt;!--toc--&gt;
+
+&lt;h1 id=&#34;使用条件判断&#34;&gt;使用条件判断&lt;/h1&gt;
+
+&lt;h2 id=&#34;示例&#34;&gt;示例&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;libs_for_gcc = -lgnu
+normal_libs =
+foo: $(objects)
+ifeq ($(CC),gcc)
+	$(CC) -o foo $(objects) $(libs_for_gcc)
+else
+	$(CC) -o foo $(objects) $(normal_libs)
+endif
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;根据 $(CC) 是不是 gcc 来决定要使用的库.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Makefile要点总结(上)</title>

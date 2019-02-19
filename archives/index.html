@@ -208,6 +208,10 @@ if (!doNotTrack) {
           <h5 class="archive-title" style="text-decoration: none;">二月</h5>
           
             <li class="archive-post archive-day" data-date="20190219">
+              <a class="archive-post-title" href="https://cicirori.github.io/2019/02/makefile%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93%E4%B8%AD/">Makefile要点总结(中)</a>
+            </li>
+          
+            <li class="archive-post archive-day" data-date="20190219">
               <a class="archive-post-title" href="https://cicirori.github.io/2019/02/makefile%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93%E4%B8%8A/">Makefile要点总结(上)</a>
             </li>
           
@@ -329,6 +333,39 @@ if (!doNotTrack) {
       <div class="no-result text-color-light text-center"></div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://cicirori.github.io/2019/02/makefile%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93%E4%B8%AD/">
+                <h3 class="media-heading">Makefile要点总结(中)</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><!--toc-->
+
+<h1 id="使用条件判断">使用条件判断</h1>
+
+<h2 id="示例">示例</h2>
+
+<pre><code class="language-makefile">libs_for_gcc = -lgnu
+normal_libs =
+foo: $(objects)
+ifeq ($(CC),gcc)
+	$(CC) -o foo $(objects) $(libs_for_gcc)
+else
+	$(CC) -o foo $(objects) $(normal_libs)
+endif
+</code></pre>
+
+<p>根据 $(CC) 是不是 gcc 来决定要使用的库.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -586,33 +623,6 @@ if (!doNotTrack) {
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://cicirori.github.io/2018/03/%E5%88%A9%E7%94%A8gcp%E8%B4%9F%E8%BD%BD%E5%B9%B3%E8%A1%A1%E5%AE%9E%E7%8E%B0ipv6%E7%9A%84shadowsocks/">
-                <h3 class="media-heading">利用GCP负载平衡实现IPv6的shadowsocks</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Mar 3, 2018
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><!-- toc -->
-
-<h1 id="shadowsocks-配置">Shadowsocks 配置</h1>
-
-<p>端口设置为GCP TCP负载平衡支持的端口, 比如5222.</p>
-
-<h1 id="gcp的负载平衡">GCP的负载平衡</h1>
-
-<p>先建立一个实例组, 把要用的VM加进去.</p>
-
-<p>使用TCP负载均衡-从互联网到我的VM-多个区域(单个区域貌似会有点问题), 然后基本的配置都是默认, 前端IP选择v6就可以.</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -620,7 +630,7 @@ if (!doNotTrack) {
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         10 posts found
+         11 posts found
       </p>
     </div>
   </div>
