@@ -9,58 +9,128 @@
 <meta name="author" content="cicirori">
 <meta name="keywords" content="">
 <meta name="description" content="
-三段论在传统逻辑中，是在其中一个命题（结论）必然地从另外两个命题（叫做前提）中得出的一种推论。这个定义是传统的，可以宽松地从亚里士多德的《前分析篇》Book I, c. 1中推出来。希腊语“sullogismos”的意思是“演绎”。对传统意义上的三段论的详细描述参见直言三段论。
-
-三段论由三个部分组成：大前提、小前提和结论，它在逻辑上是从大前提和小前提得出来的。大前提是一般性的原则。小前提是一个特殊陈述。在逻辑上，结论是从应用大前提于小前提之上得到的。
+  正在施工中
 
 
-以上是维基百科对三段论的定义。大前提、小前提和结论，在我人生的前二十年一直没有怀疑过这个理论的正确性，甚至没有产生过一丝怀疑，这一切都是那么自然，就如同是不是不是（being is not is-not）一样（这个是黑格尔在他的《逻辑学》里搞辩证法的时候讲到的东西，有机会再和你们扯）。我一直觉得亚里士多德就凭这一个成就，就足以盖过他在各科教科书中干过的所有傻事（其实也都真不傻）。">
+
+
+概览
+
+最直觉的 I/O 模型是, 一个进程在同一时刻对一个文件描述符进行 I/O 操作, 每个 I/O 系统调用阻塞直至数据传输完成. 但是这种简单的阻塞式的 I/O 模型在很多场景下并不适用.
+
+
+尽可能不阻塞地检查一个文件描述符是能进行 I/O.
+监视多个文件描述符.
+
+
+于是乎, 就有了本文要讨论的这三种模型 :
+
+
+I/O 多路复用 (select() 以及 poll() 系统调用)
+信号驱动 I/O
+Linux 特有的 epoll() API
+
+
+这三种方式实际上都是为了实现同一个目标, 同时检查多个文件描述符, 查看他们是否准备好了执行 I/O 操作. 这里的准备好, 实际上指的是在这个文件描述符上执行的 I/O 是非阻塞的(包括返回错误), 因为模型只是对文件描述符检查, 而不进行数据传输.">
 
 
 <meta property="og:description" content="
-三段论在传统逻辑中，是在其中一个命题（结论）必然地从另外两个命题（叫做前提）中得出的一种推论。这个定义是传统的，可以宽松地从亚里士多德的《前分析篇》Book I, c. 1中推出来。希腊语“sullogismos”的意思是“演绎”。对传统意义上的三段论的详细描述参见直言三段论。
-
-三段论由三个部分组成：大前提、小前提和结论，它在逻辑上是从大前提和小前提得出来的。大前提是一般性的原则。小前提是一个特殊陈述。在逻辑上，结论是从应用大前提于小前提之上得到的。
+  正在施工中
 
 
-以上是维基百科对三段论的定义。大前提、小前提和结论，在我人生的前二十年一直没有怀疑过这个理论的正确性，甚至没有产生过一丝怀疑，这一切都是那么自然，就如同是不是不是（being is not is-not）一样（这个是黑格尔在他的《逻辑学》里搞辩证法的时候讲到的东西，有机会再和你们扯）。我一直觉得亚里士多德就凭这一个成就，就足以盖过他在各科教科书中干过的所有傻事（其实也都真不傻）。">
+
+
+概览
+
+最直觉的 I/O 模型是, 一个进程在同一时刻对一个文件描述符进行 I/O 操作, 每个 I/O 系统调用阻塞直至数据传输完成. 但是这种简单的阻塞式的 I/O 模型在很多场景下并不适用.
+
+
+尽可能不阻塞地检查一个文件描述符是能进行 I/O.
+监视多个文件描述符.
+
+
+于是乎, 就有了本文要讨论的这三种模型 :
+
+
+I/O 多路复用 (select() 以及 poll() 系统调用)
+信号驱动 I/O
+Linux 特有的 epoll() API
+
+
+这三种方式实际上都是为了实现同一个目标, 同时检查多个文件描述符, 查看他们是否准备好了执行 I/O 操作. 这里的准备好, 实际上指的是在这个文件描述符上执行的 I/O 是非阻塞的(包括返回错误), 因为模型只是对文件描述符检查, 而不进行数据传输.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于三段论">
-<meta name="twitter:title" content="关于三段论">
-<meta property="og:url" content="https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/">
-<meta property="twitter:url" content="https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/">
+<meta property="og:title" content="I/O模型总结">
+<meta name="twitter:title" content="I/O模型总结">
+<meta property="og:url" content="https://cicirori.github.io/2019/02/i/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93/">
+<meta property="twitter:url" content="https://cicirori.github.io/2019/02/i/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93/">
 <meta property="og:site_name" content="Noumenon">
 <meta property="og:description" content="
-三段论在传统逻辑中，是在其中一个命题（结论）必然地从另外两个命题（叫做前提）中得出的一种推论。这个定义是传统的，可以宽松地从亚里士多德的《前分析篇》Book I, c. 1中推出来。希腊语“sullogismos”的意思是“演绎”。对传统意义上的三段论的详细描述参见直言三段论。
-
-三段论由三个部分组成：大前提、小前提和结论，它在逻辑上是从大前提和小前提得出来的。大前提是一般性的原则。小前提是一个特殊陈述。在逻辑上，结论是从应用大前提于小前提之上得到的。
+  正在施工中
 
 
-以上是维基百科对三段论的定义。大前提、小前提和结论，在我人生的前二十年一直没有怀疑过这个理论的正确性，甚至没有产生过一丝怀疑，这一切都是那么自然，就如同是不是不是（being is not is-not）一样（这个是黑格尔在他的《逻辑学》里搞辩证法的时候讲到的东西，有机会再和你们扯）。我一直觉得亚里士多德就凭这一个成就，就足以盖过他在各科教科书中干过的所有傻事（其实也都真不傻）。">
+
+
+概览
+
+最直觉的 I/O 模型是, 一个进程在同一时刻对一个文件描述符进行 I/O 操作, 每个 I/O 系统调用阻塞直至数据传输完成. 但是这种简单的阻塞式的 I/O 模型在很多场景下并不适用.
+
+
+尽可能不阻塞地检查一个文件描述符是能进行 I/O.
+监视多个文件描述符.
+
+
+于是乎, 就有了本文要讨论的这三种模型 :
+
+
+I/O 多路复用 (select() 以及 poll() 系统调用)
+信号驱动 I/O
+Linux 特有的 epoll() API
+
+
+这三种方式实际上都是为了实现同一个目标, 同时检查多个文件描述符, 查看他们是否准备好了执行 I/O 操作. 这里的准备好, 实际上指的是在这个文件描述符上执行的 I/O 是非阻塞的(包括返回错误), 因为模型只是对文件描述符检查, 而不进行数据传输.">
 <meta name="twitter:description" content="
-三段论在传统逻辑中，是在其中一个命题（结论）必然地从另外两个命题（叫做前提）中得出的一种推论。这个定义是传统的，可以宽松地从亚里士多德的《前分析篇》Book I, c. 1中推出来。希腊语“sullogismos”的意思是“演绎”。对传统意义上的三段论的详细描述参见直言三段论。
-
-三段论由三个部分组成：大前提、小前提和结论，它在逻辑上是从大前提和小前提得出来的。大前提是一般性的原则。小前提是一个特殊陈述。在逻辑上，结论是从应用大前提于小前提之上得到的。
+  正在施工中
 
 
-以上是维基百科对三段论的定义。大前提、小前提和结论，在我人生的前二十年一直没有怀疑过这个理论的正确性，甚至没有产生过一丝怀疑，这一切都是那么自然，就如同是不是不是（being is not is-not）一样（这个是黑格尔在他的《逻辑学》里搞辩证法的时候讲到的东西，有机会再和你们扯）。我一直觉得亚里士多德就凭这一个成就，就足以盖过他在各科教科书中干过的所有傻事（其实也都真不傻）。">
+
+
+概览
+
+最直觉的 I/O 模型是, 一个进程在同一时刻对一个文件描述符进行 I/O 操作, 每个 I/O 系统调用阻塞直至数据传输完成. 但是这种简单的阻塞式的 I/O 模型在很多场景下并不适用.
+
+
+尽可能不阻塞地检查一个文件描述符是能进行 I/O.
+监视多个文件描述符.
+
+
+于是乎, 就有了本文要讨论的这三种模型 :
+
+
+I/O 多路复用 (select() 以及 poll() 系统调用)
+信号驱动 I/O
+Linux 特有的 epoll() API
+
+
+这三种方式实际上都是为了实现同一个目标, 同时检查多个文件描述符, 查看他们是否准备好了执行 I/O 操作. 这里的准备好, 实际上指的是在这个文件描述符上执行的 I/O 是非阻塞的(包括返回错误), 因为模型只是对文件描述符检查, 而不进行数据传输.">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2018-03-18T23:32:44">
+    <meta property="article:published_time" content="2019-02-20T14:11:38">
   
   
-    <meta property="article:modified_time" content="2018-03-18T23:32:44">
+    <meta property="article:modified_time" content="2019-02-20T14:11:38">
   
-  
-  
-    
-      <meta property="article:section" content="Blog">
-    
   
   
     
-      <meta property="article:tag" content="哲学">
+      <meta property="article:section" content="blog">
+    
+  
+  
+    
+      <meta property="article:tag" content="tag1">
+    
+      <meta property="article:tag" content="tag2">
     
   
 
@@ -81,14 +151,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/ae723617c5cb9abcd2b4505a2ffdd322?s=640">
 
 
-    <title>关于三段论</title>
+    <title>I/O模型总结</title>
 
     <link rel="icon" href="https://cicirori.github.io/img/favicon-96x96.png">
     
 
     
 
-    <link rel="canonical" href="https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/">
+    <link rel="canonical" href="https://cicirori.github.io/2019/02/i/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -241,15 +311,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      关于三段论
+      I/O模型总结
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-03-18T23:32:44Z">
+      <time itemprop="datePublished" datetime="2019-02-20T14:11:38&#43;08:00">
         
-  三月 18, 2018
+  二月 20, 2019
 
       </time>
     
@@ -258,7 +328,7 @@ if (!doNotTrack) {
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://cicirori.github.io/categories/blog">Blog</a>
+      <a class="category-link" href="https://cicirori.github.io/categories/blog">blog</a>
     
   
 
@@ -268,19 +338,423 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <blockquote>
-<p><strong>三段论</strong>在<a href="https://zh.wikipedia.org/wiki/%E4%BC%A0%E7%BB%9F%E9%80%BB%E8%BE%91">传统逻辑</a>中，是在其中一个<a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E9%A2%98">命题</a>（<strong>结论</strong>）必然地从另外两个命题（叫做<a href="https://zh.wikipedia.org/wiki/%E5%89%8D%E6%8F%90">前提</a>）中得出的一种<a href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%AE%BA">推论</a>。这个定义是传统的，可以宽松地从<a href="https://zh.wikipedia.org/wiki/%E4%BA%9A%E9%87%8C%E5%A3%AB%E5%A4%9A%E5%BE%B7">亚里士多德</a>的《<a href="https://zh.wikipedia.org/w/index.php?title=%E5%89%8D%E5%88%86%E6%9E%90%E7%AF%87&amp;action=edit&amp;redlink=1">前分析篇</a>》Book I, c. 1中推出来。希腊语“sullogismos”的意思是“演绎”。对传统意义上的三段论的详细描述参见<a href="https://zh.wikipedia.org/wiki/%E7%9B%B4%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA">直言三段论</a>。</p>
+              <div class="alert warning ">
+  <p>正在施工中</p>
+</div>
 
-<p>三段论由三个部分组成：<a href="https://zh.wikipedia.org/w/index.php?title=%E5%A4%A7%E5%89%8D%E6%8F%90&amp;action=edit&amp;redlink=1">大前提</a>、<a href="https://zh.wikipedia.org/w/index.php?title=%E5%B0%8F%E5%89%8D%E6%8F%90&amp;action=edit&amp;redlink=1">小前提</a>和结论，它在逻辑上是从大前提和小前提得出来的。大前提是一般性的原则。小前提是一个特殊陈述。在逻辑上，结论是从应用大前提于小前提之上得到的。</p>
-</blockquote>
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#概览">概览</a></li>
+<li><a href="#i-o-多路复用">I/O 多路复用</a>
+<ul>
+<li><a href="#select-系统调用">select() 系统调用</a></li>
+<li><a href="#poll-系统调用">poll() 系统调用</a></li>
+<li><a href="#文件描述符何时就绪">文件描述符何时就绪</a>
+<ul>
+<li><a href="#普通文件">普通文件</a></li>
+<li><a href="#终端-伪终端">终端, 伪终端</a></li>
+<li><a href="#管道-fifo">管道 FIFO</a></li>
+<li><a href="#sockets">Sockets</a></li>
+</ul></li>
+<li><a href="#select-和-poll-异同点">select 和 poll 异同点</a>
+<ul>
+<li><a href="#实现细节">实现细节</a></li>
+<li><a href="#api-差异">API 差异</a></li>
+<li><a href="#可移植性">可移植性</a></li>
+<li><a href="#性能">性能</a></li>
+</ul></li>
+<li><a href="#存在的问题">存在的问题</a></li>
+</ul></li>
+<li><a href="#信号驱动-i-o">信号驱动 I/O</a>
+<ul>
+<li><a href="#信号驱动-i-o-的优化">信号驱动 I/O 的优化</a></li>
+</ul></li>
+<li><a href="#epoll">epoll</a>
+<ul>
+<li><a href="#api-调用">API 调用</a></li>
+<li><a href="#实现">实现</a>
+<ul>
+<li><a href="#数据结构与布局">数据结构与布局</a></li>
+<li><a href="#回调-事件驱动">回调 事件驱动</a></li>
+</ul></li>
+<li><a href="#epoll-语义的进一步探究">epoll 语义的进一步探究</a></li>
+<li><a href="#性能对比">性能对比</a></li>
+</ul></li>
+</ul>
+</nav>
 
-<p>以上是维基百科对三段论的定义。大前提、小前提和结论，在我人生的前二十年一直没有怀疑过这个理论的正确性，甚至没有产生过一丝怀疑，这一切都是那么自然，就如同是不是不是（being is not is-not）一样（这个是黑格尔在他的《逻辑学》里搞辩证法的时候讲到的东西，有机会再和你们扯）。我一直觉得亚里士多德就凭这一个成就，就足以盖过他在各科教科书中干过的所有傻事（其实也都真不傻）。</p>
+<h1 id="概览">概览</h1>
 
-<h1 id="终极命题">终极命题</h1>
+<p>最直觉的 I/O 模型是, 一个进程在同一时刻对一个文件描述符进行 I/O 操作, 每个 I/O 系统调用阻塞直至数据传输完成. 但是这种简单的阻塞式的 I/O 模型在很多场景下并不适用.</p>
 
-<p>然而这种想法从我接触到哲学史开始改变。大前提-小前提-结论，在有限的范围内这个论证过程固然是没有问题的。但是在看哲学史的过程中，我对这个我曾经以为简洁，完备的颠扑不破的真理产生了怀疑。如果我们把它一直向前推，大前提、小前提都是由他们的大前提、小前提来保证正确性的，所以我们会一直追寻到一个地步，那就是纯粹的绝对真理，我们知性可以把握的绝对真理。绝对真理这样一个东西自然对于一个标榜理性高于一切、从小接受现代教育的人自然是不能接受的。我开始追溯我对理性那么强的信念来自于什么。我虽然可以把握到片面的三段论的正确性，并且以此来作为评判所有事情的底线原则，但是我当注意到上面说的问题时，我感觉自己就像生活在计算机里的虚拟人物，我世界里的一切都那么真实合理，但是它们都有一个我无法解释、不能想象的来源。</p>
+<ul>
+<li>尽可能不阻塞地检查一个文件描述符是能进行 I/O.</li>
+<li>监视多个文件描述符.</li>
+</ul>
 
-<p>（在后来的AI课上我了解到了哥德尔不完备定理，简单来讲对于推演系统我们定义如下两个性质：1、完备性：所有系统产生的命题都可以根据推演系统给定的规则推演出来它的真值。2、一致性：推演系统推演出来的结果都是对的，不存在矛盾，比如不能1&gt;2和2&gt;=1同时为真（这个矛盾在一开始的推演系统中有定义，当然你完全可以定义一个不矛盾的系统）。那么我们有如下定理：任何一个表达力足够强不可能即完备又一致。具体证明我就不是很清楚了，但是这个很重要，让我觉得现代科学真是太好了，重新坚定信念好吧。）</p>
+<p>于是乎, 就有了本文要讨论的这三种模型 :</p>
+
+<ul>
+<li>I/O 多路复用 (select() 以及 poll() 系统调用)</li>
+<li>信号驱动 I/O</li>
+<li>Linux 特有的 epoll() API</li>
+</ul>
+
+<p>这三种方式实际上都是为了实现同一个目标, 同时检查多个文件描述符, 查看他们是否准备好了执行 I/O 操作. 这里的准备好, 实际上指的是在这个文件描述符上执行的 I/O 是非阻塞的(包括返回错误), 因为模型只是对文件描述符检查, 而不进行数据传输.</p>
+
+<h1 id="i-o-多路复用">I/O 多路复用</h1>
+
+<p>这里指的是来自 BSD 系统中的 select(), 和 System V 中的 poll(), 这两个系统调用的功能几乎相同. 这两个系统调用都是阻塞式的, 要么满足终止条件, 要么产生超时.</p>
+
+<h2 id="select-系统调用">select() 系统调用</h2>
+
+<p>select() 原型如下 :</p>
+
+<pre><code class="language-c">#include &lt;sys/time.h&gt;
+#include &lt;sys/select.h&gt;
+
+int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set * exceptfds, struct timeval *timeout);
+</code></pre>
+
+<p>nfds 是select 监控的文件描述符数量, readfds, writefds, exceptfds 是存放感兴趣的文件描述符的集合, 以及返回结果的数据结构. timeout 超时阈值, 可设置为 NULL 一直阻塞.</p>
+
+<p>使用 select() 检查一些文件描述符的操作如下:</p>
+
+<ol>
+<li>初始化 readfds, writefds 和 exceptfds, 把对应的文件描述符加入对应的集合, 设置合适的 nfds 和 timeout 值.</li>
+<li>执行 select().</li>
+<li>阻塞至 select 执行完成.</li>
+<li>检查结果.</li>
+</ol>
+
+<h2 id="poll-系统调用">poll() 系统调用</h2>
+
+<p>poll 和 select 的主要区别是存放文件描述符用的数据结构, 下面是 poll 的原型:</p>
+
+<pre><code class="language-c">#include &lt;poll.h&gt;
+
+int poll(struct pollfd fds[], nfds_t nfds, int timeout);
+</code></pre>
+
+<p>可以看出和 select 的参数相似, struct pollfd 的定义为:</p>
+
+<pre><code class="language-c">struct pollfd {
+	int fd;					/* File descriptor */
+	short events;			/* Requested events bit mask */
+	short revents;			/* Returned events bit mask */
+};
+</code></pre>
+
+<p>这里的 events 代表了 fd 感兴趣的事件, revents 代表了返回的结果.</p>
+
+<p>相比于 select 只支持 write, read 和 exception, poll 支持的事件种类比较多:</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Bit</th>
+<th align="right">in event ?</th>
+<th align="center">in revent ?</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">POLLIN</td>
+<td align="right">•</td>
+<td align="center">•</td>
+<td align="center">可读的非高优先级数据</td>
+</tr>
+
+<tr>
+<td align="center">POLLRDNORM</td>
+<td align="right">•</td>
+<td align="center">•</td>
+<td align="center">等同于POLLIN</td>
+</tr>
+
+<tr>
+<td align="center">POLLRDBAND</td>
+<td align="right">•</td>
+<td align="center">•</td>
+<td align="center">可读取的优先数据(Linux 未使用)</td>
+</tr>
+
+<tr>
+<td align="center">POLLPRI</td>
+<td align="right">•</td>
+<td align="center">•</td>
+<td align="center">可读的高优先级数据</td>
+</tr>
+
+<tr>
+<td align="center">POLLRDHUP</td>
+<td align="right">•</td>
+<td align="center">•</td>
+<td align="center">对端套接字关闭</td>
+</tr>
+
+<tr>
+<td align="center">POLLOUT</td>
+<td align="right">•</td>
+<td align="center">•</td>
+<td align="center">可写普通数据</td>
+</tr>
+
+<tr>
+<td align="center">POLLWRNORM</td>
+<td align="right">•</td>
+<td align="center">•</td>
+<td align="center">等同于POLLOUT</td>
+</tr>
+
+<tr>
+<td align="center">POLLWRBAND</td>
+<td align="right">•</td>
+<td align="center">•</td>
+<td align="center">可写的优先数据</td>
+</tr>
+
+<tr>
+<td align="center">POLLERR</td>
+<td align="right"></td>
+<td align="center">•</td>
+<td align="center">发生错误</td>
+</tr>
+
+<tr>
+<td align="center">POLLHUP</td>
+<td align="right"></td>
+<td align="center">•</td>
+<td align="center">发生挂断</td>
+</tr>
+
+<tr>
+<td align="center">POLLNVAL</td>
+<td align="right"></td>
+<td align="center">•</td>
+<td align="center">文件描述符未打开</td>
+</tr>
+
+<tr>
+<td align="center">POLLMSG</td>
+<td align="right"></td>
+<td align="center"></td>
+<td align="center">Linux 未使用 (SUSv3未定义)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="文件描述符何时就绪">文件描述符何时就绪</h2>
+
+<h3 id="普通文件">普通文件</h3>
+
+<p>指向普通文件的 FD 总会返回 readable / POLLIN 和 writeable / POLLOUT. 因为如前文提到的就绪实际上指的是非阻塞, 对普通文件的 write 和 read 总是可用的或者直接返回异常或错误.</p>
+
+<h3 id="终端-伪终端">终端, 伪终端</h3>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/20190220152831.png" alt="" /></p>
+
+<h3 id="管道-fifo">管道 FIFO</h3>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/20190220153006.png" alt="" /></p>
+
+<h3 id="sockets">Sockets</h3>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/20190220153332.png" alt="" /></p>
+
+<h2 id="select-和-poll-异同点">select 和 poll 异同点</h2>
+
+<h3 id="实现细节">实现细节</h3>
+
+<p>两种调用都使用了一系列相同的 Linux 内核的 poll 例程. 这里的 poll 指的不是 poll() 系统调用. 这里每个 poll 例程返回一个文件描述符的信息, 信息以和系统调用 poll() 相同的 revent 掩码来表示, select 的三种结果来自 revent 的宏定义:</p>
+
+<pre><code class="language-c">#define POLLIN_SET		(POLLRDNORM | POLLRDBAND | POLLIN | POLLHUP | POLLERR)
+						/* Ready for reading */
+#define POLLOUT_SET		(POLLWRBAND | POLLWRNORM | POLLOUT | POLLERR)
+						/* Ready for writing */
+#define POLLEX_SET 		(POLLPRI)
+						/* Exceptional condition */
+</code></pre>
+
+<h3 id="api-差异">API 差异</h3>
+
+<ol>
+<li>select 使用的 fd_set 数据结构有一个上界, 默认为 1024, 需要通过重新编译 Linux 来改变. poll 则没有明确的限制.</li>
+<li>因为 select 的 fd_set 不仅是传入的参数, 还是结果, 所以如果要在循环中使用 select, 每次都需要重新初始化. poll 则不需要.</li>
+<li>select 提供的 timeout 精度是微秒级, 比 poll 提供的毫秒级更为精确.</li>
+<li>如果监控的文件描述符关闭了, poll 会在revent 中告知我们是那一个, 而 select 只是返回 -1 并把 errno 设置为 EBADF.</li>
+</ol>
+
+<h3 id="可移植性">可移植性</h3>
+
+<p>历史上, select 应用更为广泛, 现如今都存在于 SUSv3 标准中, 且广泛存在于现代的 Unix 实现. poll 的实现更为多样一些.</p>
+
+<h3 id="性能">性能</h3>
+
+<p>当下面两条任意一条满足时, poll 和 select 性能相近:</p>
+
+<ol>
+<li>待检查的文件描述符范围较小 (最大文件描述符数值较小)</li>
+<li>大量文件描述符等待检查, 但是分布较为密集.</li>
+</ol>
+
+<p>当被检查的文件描述符较为稀疏的话, poll 的性能会有明显优势. 因为, select 总要检查 0 - nfds-1 之间的文件描述符, 而 poll 只检查存在的 fd.</p>
+
+<h2 id="存在的问题">存在的问题</h2>
+
+<ol>
+<li>每次进行这两个调用都会对需要检测的文件描述符进行检测.</li>
+<li>需要进行用户空间和内核空间的数据结构交换.</li>
+<li>每次程序都要依次检查返回的结果.</li>
+</ol>
+
+<p>所以随着需要检查的文件描述符数量增加, 这些问题会造成不可避免的性能问题.</p>
+
+<h1 id="信号驱动-i-o">信号驱动 I/O</h1>
+
+<p>一个很自然的想法就是我们不去一个一个检查, 而是一旦 I/O就绪, 我们就通知程序. 信号驱动 I/O 就是这样一个模型. 这里的信号就是 Linux Kernel 的 signal. 一个信号驱动 I/O 简单流程如下:</p>
+
+<ol>
+<li><p>配置信号处理函数, 默认的通知信号是 SIGIO.</p></li>
+
+<li><p>设置文件描述符的 owner, owner 会在 I/O 就绪的时候收到收到信号, 通常设置为调用进程.</p></li>
+
+<li><p>通过设置 O_NONBLOCK 启用非阻塞 I/O.</p></li>
+
+<li><p>打开 O_ASYNC 启动信号驱动 I/O. 和前一步可以合并:</p>
+
+<pre><code class="language-c">flags = fcntl(fd, F_GETFL);                  /* Get current flags */
+fcntl(fd, F_SETFL, flags | O_ASYNC | O_NONBLOCK);
+</code></pre></li>
+
+<li><p>调用进程现在可以执行自己的任务, 一旦 I/O 就绪, 内核会向之前设置的 owner 发送信号, 调用第一步中设置的handler.</p></li>
+
+<li><p>信号驱动 I/O 提供了边缘触发通知, 这意味着一旦进程被通知就最好尽可能的进行多的 I/O. 如果 I/O 是非阻塞的话, 尽可能多就意味着进行到出现 EAGAIN 或者 EWOULDBLOCK 为止.</p></li>
+</ol>
+
+<h2 id="信号驱动-i-o-的优化">信号驱动 I/O 的优化</h2>
+
+<p>在需要同时监控大量文件描述符( 几千个) 的时候, 信号方式对比 select 和 poll 会有很大的性能优势. 因为 Linux kernel &ldquo;记住&rdquo; 了需要监控的 文件描述符的一个列表, 并且仅当 I/O 操作发生的时候通知进程. 所以 信号驱动 I/O 的性能与 I/O 事件的数量息息相关, 而不是文件描述符的数量.</p>
+
+<p>为了发挥信号方式的优点, 我们使用专属于 Linux 的 fcntl() F_SETSIG 来指定一个实时信号, 当 I/O 就绪时, 这个信号取代 SIGIO 被发送. 因为 SIGIO 是标准的非排队信号, 一旦多个信号同时发出, 发生阻塞, 后续的 SIGIO 信号会被丢弃. 而我们的实时信号可以挂上队列, 进行处理. 需要注意, 队列长度是有限的, 有发生溢出的可能.</p>
+
+<h1 id="epoll">epoll</h1>
+
+<p>epoll 是一个 Linux 特定的 API, 相比其他方式, 它有两个主要优点:</p>
+
+<ol>
+<li>在文件描述符数量多的情况下拥有比 poll, epoll 更好的性能.</li>
+<li>同时支持水平触发通知和边缘触发通知.</li>
+</ol>
+
+<p>epoll 的性能和信号驱动 I/O 接近, 但是相比信号方式, epoll 有如下优点:</p>
+
+<ol>
+<li>避免了复杂的信号处理.</li>
+<li>在指定我们想要监控的 I/O 类型上有更好的灵活性.</li>
+</ol>
+
+<p>为了解决 poll, select 遇到的问题, epoll 在内核空间维护两种数据结构:</p>
+
+<ol>
+<li>记录进程的文件描述符感兴趣的 I/O 操作的 interest list</li>
+<li>记录 I/O 就绪的文件描述符的 ready list.</li>
+</ol>
+
+<h2 id="api-调用">API 调用</h2>
+
+<ol>
+<li>epoll_create() 建立一个epoll 实例, 返回指向这个实例的文件描述符.</li>
+<li>epoll_ctl() 维护对应实例, 相关的兴趣列表.</li>
+<li>epoll_wait() 返回实例的read list.</li>
+</ol>
+
+<p>具体的声明不再赘述.</p>
+
+<h2 id="实现">实现</h2>
+
+<h3 id="数据结构与布局">数据结构与布局</h3>
+
+<p>实现的核心是存放在 Linux 内核的数据结构, struct eventpoll:</p>
+
+<pre><code class="language-c">struct eventpoll{
+    ....
+    struct rb_root  rbr;				// 双向链表 存放readylist的头结点
+    struct list_head rdlist;			// 红黑树 存放interestlist的根
+    ....
+};
+</code></pre>
+
+<p>每个事件都会由 struct epitem 表示:</p>
+
+<pre><code class="language-c">struct epitem{
+    struct rb_node  rbn;//红黑树节点
+    struct list_head    rdllink;//双向链表节点
+    struct epoll_filefd  ffd;  //事件句柄信息
+    struct eventpoll *ep;    //指向其所属的eventpoll对象
+    struct epoll_event event; //期待发生的事件类型
+
+</code></pre>
+
+<p>最后形成的格局就是, interestlist 是个红黑树, readylist 是个双向链表, readylist 是 interestlist 的子集, 这两个结构的 root/head 都在epoll 实例对应的 eventpoll 中, 由一个文件描述符指向这个eventpoll.</p>
+
+<p>最后形成的效果就是, 这两幅图的结合 (手动滑稽).:</p>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/20190220192912.png" alt="" /></p>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/20190220193007.png" alt="" /></p>
+
+<p>第一张图很好的展示了 readylist 和 interestlist 的数据结构, 实际上readylist 和 interestlist 在空间上又是重合的.</p>
+
+<h3 id="回调-事件驱动">回调 事件驱动</h3>
+
+<p>光有上节的数据结构也不足以让 epoll 性能如此优秀, 如果 kernel 还是不断的 poll 文件描述符, 那么也无非比 poll调用, select调用省了个传递数据结构的时间.</p>
+
+<p>每当 epoll_ctl() 传进来一个新的事件的时候, kernel 会在相应的事件中断注册回调函数, 一旦事件发生, 就把interestlist 中对应的事件挂到readylsit之后. 不必等到epoll_wait 的时候再去挨个poll.</p>
+
+<p>具体的细节待进一步研究.</p>
+
+<h2 id="epoll-语义的进一步探究">epoll 语义的进一步探究</h2>
+
+<p>我们之前提到 epoll_create返回的是文件描述符, 但是与 eventpoll 对应的是系统范围的文件描述而不是文件描述符</p>
+
+<p>文件描述符, 文件描述和i-node 关系如下:
+<img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/20190220194437.png" alt="" /></p>
+
+<p>这就造成了一些微妙的差异:</p>
+
+<ol>
+<li>如果我们使用 dup 复制 epoll 的文件描述符, 那么两个文件描述符指向同一个 epoll. 对两个文件描述符使用 epoll_wait 和 epoll_ctl 是等效的, 会造成同一 epoll 文件的修改.</li>
+<li>这一情形同样发生在 fork 的时候, 子进程继承自父进程的 epoll 指向同一文件.</li>
+</ol>
+
+<pre><code class="language-c">int epfd, fd1, fd2;
+struct epoll_event ev;
+struct epoll_event evlist[MAX_EVENTS];
+
+/* Omitted: code to open 'fd1' and create epoll file descriptor 'epfd' ... */
+
+ev.data.fd = fd1
+ev.events = EPOLLIN;
+if (epoll_ctl(epfd, EPOLL_CTL_ADD, fd1, ev) == -1)
+	errExit(&quot;epoll_ctl&quot;);
+
+/* Suppose that 'fd1' now happens to become ready for input */
+
+fd2 = dup(fd1);
+close(fd1);
+ready = epoll_wait(epfd, evlist, MAX_EVENTS, -1);
+if (ready == -1)
+	errExit(&quot;epoll_wait&quot;);
+</code></pre>
+
+<p>所以上图的代码, 最后一个 ready 依然会返回 fd1 可读, 因为 fd2 还指向同一个文件描述, 所以 epoll 不会删除相应的信息. (应该算是一个 BUG ? 但是只要把它仔细地描述出来就是 FEATURE, 手动滑稽).</p>
+
+<h2 id="性能对比">性能对比</h2>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/20190220201117.png" alt="" /></p>
               
             </div>
           </div>
@@ -292,7 +766,9 @@ if (!doNotTrack) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://cicirori.github.io/tags/%E5%93%B2%E5%AD%A6/">哲学</a>
+  <a class="tag tag--primary tag--small" href="https://cicirori.github.io/tags/tag1/">tag1</a>
+
+  <a class="tag tag--primary tag--small" href="https://cicirori.github.io/tags/tag2/">tag2</a>
 
                   </div>
                 
@@ -305,7 +781,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/" data-tooltip="设计分布式系统读书笔记（一）">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -313,7 +789,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/03/%E5%88%A9%E7%94%A8gcp%E8%B4%9F%E8%BD%BD%E5%B9%B3%E8%A1%A1%E5%AE%9E%E7%8E%B0ipv6%E7%9A%84shadowsocks/" data-tooltip="利用GCP负载平衡实现IPv6的shadowsocks">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2019/02/makefile%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93%E4%B8%8B/" data-tooltip="Makefile要点总结(下)">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -331,19 +807,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2019/02/i/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2019/02/i/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2019/02/i/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -358,7 +834,7 @@ if (!doNotTrack) {
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -391,7 +867,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/08/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%80/" data-tooltip="设计分布式系统读书笔记（一）">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -399,7 +875,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/03/%E5%88%A9%E7%94%A8gcp%E8%B4%9F%E8%BD%BD%E5%B9%B3%E8%A1%A1%E5%AE%9E%E7%8E%B0ipv6%E7%9A%84shadowsocks/" data-tooltip="利用GCP负载平衡实现IPv6的shadowsocks">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2019/02/makefile%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93%E4%B8%8B/" data-tooltip="Makefile要点总结(下)">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -417,19 +893,19 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2019/02/i/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2019/02/i/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2019/02/i/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -444,7 +920,7 @@ if (!doNotTrack) {
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -459,19 +935,19 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcicirori.github.io%2F2018%2F03%2F%25E5%2585%25B3%25E4%25BA%258E%25E4%25B8%2589%25E6%25AE%25B5%25E8%25AE%25BA%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcicirori.github.io%2F2019%2F02%2Fi%2Fo%25E6%25A8%25A1%25E5%259E%258B%25E6%2580%25BB%25E7%25BB%2593%2F">
           <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fcicirori.github.io%2F2018%2F03%2F%25E5%2585%25B3%25E4%25BA%258E%25E4%25B8%2589%25E6%25AE%25B5%25E8%25AE%25BA%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fcicirori.github.io%2F2019%2F02%2Fi%2Fo%25E6%25A8%25A1%25E5%259E%258B%25E6%2580%25BB%25E7%25BB%2593%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fcicirori.github.io%2F2018%2F03%2F%25E5%2585%25B3%25E4%25BA%258E%25E4%25B8%2589%25E6%25AE%25B5%25E8%25AE%25BA%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fcicirori.github.io%2F2019%2F02%2Fi%2Fo%25E6%25A8%25A1%25E5%259E%258B%25E6%2580%25BB%25E7%25BB%2593%2F">
           <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
         </a>
       </li>
@@ -905,9 +1381,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/cicirori.github.io\/2018\/03\/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA\/';
+          this.page.url = 'https:\/\/cicirori.github.io\/2019\/02\/i\/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93\/';
           
-            this.page.identifier = '\/2018\/03\/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA\/'
+            this.page.identifier = '\/2019\/02\/i\/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93\/'
           
         };
         (function() {
