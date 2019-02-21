@@ -9,10 +9,6 @@
 <meta name="author" content="cicirori">
 <meta name="keywords" content="">
 <meta name="description" content="
-  正在施工中
-
-
-
 
 概览
 
@@ -35,10 +31,6 @@ Linux 特有的 epoll() API
 
 
 <meta property="og:description" content="
-  正在施工中
-
-
-
 
 概览
 
@@ -65,10 +57,6 @@ Linux 特有的 epoll() API
 <meta property="twitter:url" content="https://cicirori.github.io/2019/02/i/o%E6%A8%A1%E5%9E%8B%E6%80%BB%E7%BB%93/">
 <meta property="og:site_name" content="Noumenon">
 <meta property="og:description" content="
-  正在施工中
-
-
-
 
 概览
 
@@ -89,10 +77,6 @@ Linux 特有的 epoll() API
 
 这三种方式实际上都是为了实现同一个目标, 同时检查多个文件描述符, 查看他们是否准备好了执行 I/O 操作. 这里的准备好, 实际上指的是在这个文件描述符上执行的 I/O 是非阻塞的(包括返回错误), 因为模型只是对文件描述符检查, 而不进行数据传输.">
 <meta name="twitter:description" content="
-  正在施工中
-
-
-
 
 概览
 
@@ -338,11 +322,7 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <div class="alert warning ">
-  <p>正在施工中</p>
-</div>
-
-<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+              <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
 <li><a href="#概览">概览</a></li>
 <li><a href="#i-o-多路复用">I/O 多路复用</a>
@@ -379,7 +359,9 @@ if (!doNotTrack) {
 </ul></li>
 <li><a href="#epoll-语义的进一步探究">epoll 语义的进一步探究</a></li>
 <li><a href="#性能对比">性能对比</a></li>
+<li><a href="#lt-和-et">LT 和  ET</a></li>
 </ul></li>
+<li><a href="#参考资料">参考资料</a></li>
 </ul>
 </nav>
 
@@ -550,7 +532,7 @@ int poll(struct pollfd fds[], nfds_t nfds, int timeout);
 
 <h3 id="普通文件">普通文件</h3>
 
-<p>指向普通文件的 FD 总会返回 readable / POLLIN 和 writeable / POLLOUT. 因为如前文提到的就绪实际上指的是非阻塞, 对普通文件的 write 和 read 总是可用的或者直接返回异常或错误.</p>
+<p>指向普通文件的 FD 总会返回 readable / POLLIN 和 writeable / POLLOUT. 因为如前文提到的就绪实际上指的是非阻塞, 对普通文件的 write 和 read 总是可用的或者直接返回异常或错   误.</p>
 
 <h3 id="终端-伪终端">终端, 伪终端</h3>
 
@@ -755,6 +737,83 @@ if (ready == -1)
 <h2 id="性能对比">性能对比</h2>
 
 <p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/20190220201117.png" alt="" /></p>
+
+<p>可以看出 epoll 的性能十分优秀, 原因有主要有这两点:</p>
+
+<ol>
+<li>对于 poll 和 select 调用, 内核每次都要检查所有注册的文件描述符,与之相对的 epoll 把感兴趣的事件注册到内核, 一旦事件发生就会通知内核中的 eventpoll 改变 readylist. epoll_wait 只需要把 wait_list 拉回来就行了.</li>
+<li>对于 poll 和 select 调用, 每次都需要完整的传递感兴趣的文件描述符集合到内核, 而 epoll 则是使用 epoll_ctl 通知内核在内核空间建立数据结构. 大大减少了这一部分的时间成本.</li>
+</ol>
+
+<p>因此 poll 和 select 对文件描述符的数量具有很强的敏感性, 所以执行时间近乎线性依赖 N 的大小. 与此对应的是, epoll 线性依赖与 I/O 时间的数量. 这一特性, 使得 epoll 在很多场景有着非常好的应用.</p>
+
+<h2 id="lt-和-et">LT 和  ET</h2>
+
+<p>epoll 支持两种通知模式, level-triggered 和 edge-triggered. 这两个不知所云的概念其实借鉴自其他学科, 有一篇文章很好的解释了这两个概念:</p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/20315482:">https://zhuanlan.zhihu.com/p/20315482:</a></p>
+
+<blockquote>
+<p>在epoll的man文档里，我们会看到一个花费大量篇幅描述的两个概念：</p>
+
+<p>LT（Level Triggered，水平触发） 和 ET（Edge Triggered，边沿触发）</p>
+
+<p>作者当年花费了九牛二虎之力也没能领悟这段“经文”。后来一个偶然的机会， 一个做电子设计的朋友给我讲明白了其中的道道。</p>
+
+<p>为了弄明白LT（Level Triggered，水平触发） 和 ET（Edge Triggered，边沿触发）， 我们先要了解，这个Level和Edge是什么涵义，Level翻译成中文这里准确的涵义应该是电平； Edge是边沿。</p>
+
+<p>这两个词曾经是电子信号领域的一个专有名词。如果，用时序图来标示一个数字电信号“010”， 应该是类似下图所示：</p>
+
+<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/20190221130822.png" alt="" /></p>
+
+<ul>
+<li>低电平表示0。</li>
+<li>高电平表示1。</li>
+<li>0向1变化的竖线就是上升沿。</li>
+<li>1向0变化的竖线就是下降沿。</li>
+<li>在0或者1的情况下触发的信号就是LT（Level Triggered，水平触发）</li>
+<li>在0向1、1向0变化的过程中触发的信号就是 和 ET（Edge Triggered，边沿触发）</li>
+</ul>
+
+<p>0或1都是一个状态，而0向1、1向0变化则只是一个事件。</p>
+
+<p>我们很直观的就可以得出结论，LT是一个持续的状态，ET是个事件性的一次性状态。</p>
+
+<p>二者的差异在于Level Triggered模式下只要某个socket处于readable/writable状态， 无论什么时候进行epoll_wait都会返回该socket；</p>
+
+<p>而Edge Triggered模式下只有某个socket从unreadable变为readable或 从unwritable变为writable时，epoll_wait才会返回该socket。</p>
+
+<p>虽然有很多资料表明ET模式的销量会比LT稍高， 但ET模式的编程由于事件只通知一次，很容易犯错误导致程序假死，我们推荐epoll工作于LT模式。 除非你很清楚你选择的是什么。</p>
+</blockquote>
+
+<p>epoll 模式使用 LT 模式, 我们可以指定 EPOLLET 标志来启用 ET 模式:</p>
+
+<pre><code class="language-c">struct epoll_event ev;
+ev.data.fd = fd
+ev.events = EPOLLIN | EPOLLET;
+if (epoll_ctl(epfd, EPOLL_CTL_ADD, fd, ev) == -1)
+	errExit(&quot;epoll_ctl&quot;);
+</code></pre>
+
+<p>举个例子展示一下 LT 和 ET 之间的差别, 假设我们使用 epoll 监视一个 socket 是否可以输入, 接下来发生的下面的情形:</p>
+
+<ol>
+<li>输入抵达 socket</li>
+<li>执行 epoll_wait. 这时不管是 LT 还是 ET 都会通知我们 socket 已经就绪.</li>
+<li>再次执行 epoll_wait.</li>
+</ol>
+
+<p>这是 LT 模式会告诉我们 socket 就绪, ET 会阻塞.</p>
+
+<h1 id="参考资料">参考资料</h1>
+
+<ul>
+<li>Kerrisk, Michael. <em>The Linux programming interface: a Linux and UNIX system programming handbook</em>. No Starch Press, 2010.</li>
+<li><a href="https://idndx.com/2014/09/01/the-implementation-of-epoll-1/">https://idndx.com/2014/09/01/the-implementation-of-epoll-1/</a></li>
+<li><a href="https://medium.com/@copyconstruct/the-method-to-epolls-madness-d9d2d6378642">https://medium.com/@copyconstruct/the-method-to-epolls-madness-d9d2d6378642</a></li>
+<li><a href="http://www.cnblogs.com/charlesblc/p/6242479.html">http://www.cnblogs.com/charlesblc/p/6242479.html</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/20315482">https://zhuanlan.zhihu.com/p/20315482</a></li>
+</ul>
               
             </div>
           </div>
@@ -1016,11 +1075,7 @@ if (ready == -1)
                   Feb 2, 2019
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><div class="alert warning ">
-  <p>正在施工中</p>
-</div>
-
-<!--toc-->
+              <div class="media-content hide-xs font-merryweather"><!--toc-->
 
 <h1 id="概览">概览</h1>
 
