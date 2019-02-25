@@ -298,14 +298,14 @@ private:
 public:
     // 构造函数
     smart_ptr();
-    explicit smart_ptr(T *ires);
-    smart_ptr(const smart_ptr&lt;T&gt;&amp; inptr);
+    explicit smart_ptr(T *orig_res);
+    smart_ptr(const smart_ptr&lt;T&gt;&amp; orig);
     
     // 析构函数
     virtual ~smart_ptr();
     
     // 重载运算符
-    smart_ptr&lt;T&gt; &amp;operator=(const smart_ptr&lt;T&gt;&amp; inptr);
+    smart_ptr&lt;T&gt; &amp;operator=(const smart_ptr&lt;T&gt;&amp; rhs);
     T&amp; operator*() const;
     T* operator-&gt;() const;
 };
@@ -342,11 +342,16 @@ private:
 public:
     smart_ptr() : res(nullptr), ref(nullptr){};
 
-    explicit smart_ptr(T *ires) :
-    res(ires), ref(new ref_cnt()) {
+    explicit smart_ptr(T *orig_res) :
+    res(orig_res), ref(new ref_cnt()) {
         ref-&gt;inc();
     }
 
+    smart_ptr(const smart_ptr&lt;T&gt;&amp; orig) :
+    res(orig-&gt;res), ref(orig-&gt;ref){
+        ref-&gt;inc();
+    }
+    
     virtual ~smart_ptr(){
         if(ref) {
             if(ref-&gt;dec() &lt;= 0){
@@ -359,19 +364,14 @@ public:
         }
     }
 
-    smart_ptr(const smart_ptr&lt;T&gt;&amp; inptr) :
-    res(inptr-&gt;res), ref(inptr-&gt;ref){
-        ref-&gt;inc();
-    }
-
-    smart_ptr&lt;T&gt; &amp;operator=(const smart_ptr&lt;T&gt;&amp; inptr){
-        if (this != &amp;inptr){
+    smart_ptr&lt;T&gt; &amp;operator=(const smart_ptr&lt;T&gt;&amp; rhs){
+        if (this != &amp;rhs){
             if (ref &amp;&amp; ref-&gt;dec() == 0) {
                 delete res;
                 delete ref;
             }
-            res = inptr.res;
-            ref = inptr.ref;
+            res = rhs.res;
+            ref = rhs.ref;
             ref-&gt;inc();
         }
         return *this;
