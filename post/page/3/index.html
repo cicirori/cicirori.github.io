@@ -8,61 +8,19 @@
 <meta name="generator" content="Hugo 0.54.0 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="cicirori">
 <meta name="keywords" content="">
-<meta name="description" content="
-
-大使模式
+<meta name="description" content="cicirori&#39;s blog">
 
 
-
-上图显示了一个典型的大使模式架构。大使模式的价值在于两点，首先构建一个模块化可复用的容器本身就具有价值，其次一个大使容器可以供多个应用容器使用，这种复用加快了开发进度也利于保证代码质量。我们接下来会提供大使模式的几个例子。">
-
-
-<meta property="og:description" content="
-
-大使模式
-
-
-
-上图显示了一个典型的大使模式架构。大使模式的价值在于两点，首先构建一个模块化可复用的容器本身就具有价值，其次一个大使容器可以供多个应用容器使用，这种复用加快了开发进度也利于保证代码质量。我们接下来会提供大使模式的几个例子。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="设计分布式系统读书笔记（二）">
-<meta name="twitter:title" content="设计分布式系统读书笔记（二）">
-<meta property="og:url" content="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-<meta property="twitter:url" content="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
+<meta property="og:description" content="cicirori&#39;s blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Posts">
+<meta name="twitter:title" content="Posts">
+<meta property="og:url" content="https://cicirori.github.io/post/">
+<meta property="twitter:url" content="https://cicirori.github.io/post/">
 <meta property="og:site_name" content="Noumenon">
-<meta property="og:description" content="
-
-大使模式
-
-
-
-上图显示了一个典型的大使模式架构。大使模式的价值在于两点，首先构建一个模块化可复用的容器本身就具有价值，其次一个大使容器可以供多个应用容器使用，这种复用加快了开发进度也利于保证代码质量。我们接下来会提供大使模式的几个例子。">
-<meta name="twitter:description" content="
-
-大使模式
-
-
-
-上图显示了一个典型的大使模式架构。大使模式的价值在于两点，首先构建一个模块化可复用的容器本身就具有价值，其次一个大使容器可以供多个应用容器使用，这种复用加快了开发进度也利于保证代码质量。我们接下来会提供大使模式的几个例子。">
+<meta property="og:description" content="cicirori&#39;s blog">
+<meta name="twitter:description" content="cicirori&#39;s blog">
 <meta property="og:locale" content="zh-cn">
-
-  
-    <meta property="article:published_time" content="2018-09-12T20:36:10">
-  
-  
-    <meta property="article:modified_time" content="2018-09-12T20:36:10">
-  
-  
-  
-    
-      <meta property="article:section" content="Blog">
-    
-  
-  
-    
-      <meta property="article:tag" content="分布式">
-    
-  
 
 
 <meta name="twitter:card" content="summary">
@@ -81,14 +39,16 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/ae723617c5cb9abcd2b4505a2ffdd322?s=640">
 
 
-    <title>设计分布式系统读书笔记（二）</title>
+    <title>Posts</title>
 
     <link rel="icon" href="https://cicirori.github.io/img/favicon-96x96.png">
     
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://cicirori.github.io/post/index.xml">
+    
 
     
 
-    <link rel="canonical" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
+    <link rel="canonical" href="https://cicirori.github.io/post/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -235,21 +195,36 @@ if (!doNotTrack) {
         class="
                hasCoverMetaIn
                ">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+        <section class="postShorten-group main-content-wrap">
           
           
-            <div class="post-header main-content-wrap text-left">
+            
   
-    <h1 class="post-title" itemprop="headline">
-      设计分布式系统读书笔记（二）
-    </h1>
+    
+      
+        
+      
+    
   
+
+
   
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://cicirori.github.io/2018/03/%E5%88%A9%E7%94%A8gcp%E8%B4%9F%E8%BD%BD%E5%B9%B3%E8%A1%A1%E5%AE%9E%E7%8E%B0ipv6%E7%9A%84shadowsocks/">
+          利用GCP负载平衡实现IPv6的shadowsocks
+        </a>
+      </h1>
+      
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-09-12T20:36:10Z">
+      <time itemprop="datePublished" datetime="2018-03-18T20:11:30Z">
         
-  九月 12, 2018
+  三月 18, 2018
 
       </time>
     
@@ -264,166 +239,51 @@ if (!doNotTrack) {
 
   </div>
 
-</div>
-          
-          <div class="post-content markdown" itemprop="articleBody">
-            <div class="main-content-wrap">
-              <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
-<ul>
-<li><a href="#大使模式">大使模式</a>
-<ul>
-<li><a href="#利用大使模式来做service-brokering">利用大使模式来做Service Brokering</a></li>
-<li><a href="#利用大使做ab测试或者请求分流">利用大使做AB测试或者请求分流</a></li>
-</ul></li>
-<li><a href="#适配器模式">适配器模式</a>
-<ul>
-<li><a href="#监视">监视</a></li>
-<li><a href="#日志-健康">日志/健康</a></li>
-<li><a href="#为什么我们不修改应用程序-而使用适配器">为什么我们不修改应用程序 而使用适配器</a></li>
-</ul></li>
-</ul>
-</nav>
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <!-- toc -->
 
-<h1 id="大使模式">大使模式</h1>
+<h1 id="shadowsocks-配置">Shadowsocks 配置</h1>
 
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_194022.png" alt="" /></p>
+<p>端口设置为GCP TCP负载平衡支持的端口, 比如5222.</p>
 
-<p>上图显示了一个典型的大使模式架构。大使模式的价值在于两点，首先构建一个模块化可复用的容器本身就具有价值，其次一个大使容器可以供多个应用容器使用，这种复用加快了开发进度也利于保证代码质量。我们接下来会提供大使模式的几个例子。</p>
+<h1 id="gcp的负载平衡">GCP的负载平衡</h1>
 
-<p>##　利用大使作服务分片</p>
+<p>先建立一个实例组, 把要用的VM加进去.</p>
 
-<p>有时候数据量太大以至于单机无法完成任务，所以要对数据在存储层进行切片。当我们构建这么一个分片服务时，一个问题是我们怎么把分片上的数据进行整合，特别是在客户端的代码难以修改只能面向一个后端服务时。<img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_195302.png" alt="" /></p>
-
-<p>这时我们就可以使用大使模式，客户端与我们的大使容器通信，将请求进行处理发给分片服务上，将结果途径大使返回给应用。正如其名大使容器就是一个“外交代表”负责与外部的沟通。乍一看大使模式与挎斗模式有相似之处，但是与之不同的是，挎斗模式的挎斗容器像是应用容器的一个附件，有一一对应的关系，大使容器则可以与多个应用容器产生关系。</p>
-
-<h2 id="利用大使模式来做service-brokering">利用大使模式来做Service Brokering</h2>
-
-<p>当你想让一个应用变得在不同环境下可移动的时候，一个主要的挑战就是查找服务和配置。想象一个前端依赖MySQL来存储他的数据，在公有云中这个MySQL可能是以SaaS的形式提供的，因此将这个前端应用移动到私有云的时候我们需要一个新的虚拟机或者容器来运行这个MySQL服务。因此我们需要应用自动发现正确的MySQL服务，用来实现这一过程的系统就叫做Service Broker。</p>
-
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_201242.png" alt="" /></p>
-
-<p>我们此时就可以利用一个大使容器，在应用看来他是一个运行在本地特定端口的SQL服务，所以应用只需要连接到它即可，实际的工作由大使与真正的服务提供程序通信。</p>
-
-<h2 id="利用大使做ab测试或者请求分流">利用大使做AB测试或者请求分流</h2>
-
-<p>在很多线上系统中，新功能的上线都要进行AB测试，大使模式可以很好的利用这一点。用户始终连接到大使容器，大使容器根据设置将这些连接分配给后端稳定的服务或者新上线需要测试的版本。</p>
-
-<h1 id="适配器模式">适配器模式</h1>
-
-<p>这一模式应该比较好理解，这里的适配器模式从理念上非常类似设计模式中的适配器模式。</p>
-
-<p>现实世界中的应用开发是繁杂的，不同的人、不同的团队利用不同的语言、不同的框架来实现，一般都实现了不同的日志、监视等服务接口。</p>
-
-<p>但是为了有效的对这些应用进行管理，你需要一个统一的界面/接口。适配器模式就是用于这种情况。</p>
-
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_202312.png" alt="" /></p>
-
-<h2 id="监视">监视</h2>
-
-<p>实现应用的监视在实际生产中是非常必要的，通过了解应用消耗的CPU资源、内存等我们可以获得很多信息。这种接口有很多种比如syslog、windows上的事件追踪（etw）、Java中的JMX等等等等，这些标准需要统一，幸运地是这些工具商也都理解标准化的重要性，一般都提供了转换为通用监视标准的插件。我们可以利用适配器容器，通过这些不同的插件不同应用的不同标准监视信息统一化，提供给外界。</p>
-
-<h2 id="日志-健康">日志/健康</h2>
-
-<p>日志情况与监视基本类似。健康检查通常以脚本形式运行在容器中对应用容器进行检查并进行相关后续操作。</p>
-
-<h2 id="为什么我们不修改应用程序-而使用适配器">为什么我们不修改应用程序 而使用适配器</h2>
-
-<p>如果你是应用程序开发者，当然你可以在编写程序时使你的程序具有更好的通用性以适应多种情况。但是很多时候我们是使用别人开发的程序，处于技术或者商业的考虑，修改原应用程序远不及适配器模式来的高效与稳定，另外作为容器的好处适配器可以简单地实现复用。</p>
-              
-            </div>
-          </div>
-          <div id="post-footer" class="post-footer main-content-wrap">
-            
-              
-                
-                
-                  <div class="post-footer-tags">
-                    <span class="text-color-light text-small">标签</span><br/>
-                    
-  <a class="tag tag--primary tag--small" href="https://cicirori.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>
-
-                  </div>
-                
-              
-            
-            <div class="post-actions-wrap">
+<p>使用TCP负载均衡-从互联网到我的VM-多个区域(单个区域貌似会有点问题), 然后基本的配置都是默认, 前端IP选择v6就可以.</p>
+      
+      <p>
+        <a href="https://cicirori.github.io/2018/03/%E5%88%A9%E7%94%A8gcp%E8%B4%9F%E8%BD%BD%E5%B9%B3%E8%A1%A1%E5%AE%9E%E7%8E%B0ipv6%E7%9A%84shadowsocks/" class="postShorten-excerpt_link link">阅读全文</a>
+        
+      </p>
+    </div>
+  </div>
   
-      <nav >
-        <ul class="post-actions post-action-nav">
+</article>
+
           
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/" data-tooltip="设计分布式系统读书笔记（三）">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/08/%E8%BD%AC%E8%87%AAredditanki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/" data-tooltip="[转自Reddit]Anki英文卡组搜集">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
           
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
+  <div class="pagination-bar">
+    <ul class="pagination">
       
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
         
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-              <i class="fa fa-facebook-official"></i>
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://cicirori.github.io/post/page/2/">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>上一页</span>
             </a>
           </li>
         
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-              <i class="fa fa-google-plus"></i>
-            </a>
-          </li>
         
       
-      
-        <li class="post-action">
-          <a class="post-action-btn btn btn--default" href="#disqus_thread">
-            <i class="fa fa-comment-o"></i>
-          </a>
-        </li>
-      
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#table-of-contents">
-        
-          <i class="fa fa-list"></i>
-        </a>
-      </li>
+      <li class="pagination-number">第 3 页 共 3 页</li>
     </ul>
-  
-</div>
+  </div>
 
-            
-              
-                <div id="disqus_thread">
-  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-              
-            
-          </div>
-        </article>
+
+        </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2019 cicirori. All Rights Reserved
@@ -431,102 +291,6 @@ if (!doNotTrack) {
 </footer>
 
       </div>
-      <div id="bottom-bar" class="post-bottom-bar" data-behavior="2">
-        <div class="post-actions-wrap">
-  
-      <nav >
-        <ul class="post-actions post-action-nav">
-          
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/" data-tooltip="设计分布式系统读书笔记（三）">
-              
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
-                </a>
-            </li>
-            <li class="post-action">
-              
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2018/08/%E8%BD%AC%E8%87%AAredditanki%E8%8B%B1%E6%96%87%E5%8D%A1%E7%BB%84%E6%90%9C%E9%9B%86/" data-tooltip="[转自Reddit]Anki英文卡组搜集">
-              
-                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          
-        </ul>
-      </nav>
-    <ul class="post-actions post-action-share" >
-      
-        <li class="post-action hide-lg hide-md hide-sm">
-          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
-            <i class="fa fa-share-alt"></i>
-          </a>
-        </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-              <i class="fa fa-facebook-official"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-        
-          <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-              <i class="fa fa-google-plus"></i>
-            </a>
-          </li>
-        
-      
-      
-        <li class="post-action">
-          <a class="post-action-btn btn btn--default" href="#disqus_thread">
-            <i class="fa fa-comment-o"></i>
-          </a>
-        </li>
-      
-      <li class="post-action">
-        
-          <a class="post-action-btn btn btn--default" href="#table-of-contents">
-        
-          <i class="fa fa-list"></i>
-        </a>
-      </li>
-    </ul>
-  
-</div>
-
-      </div>
-      <div id="share-options-bar" class="share-options-bar" data-behavior="2">
-  <i id="btn-close-shareoptions" class="fa fa-close"></i>
-  <ul class="share-options">
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcicirori.github.io%2F2018%2F09%2F%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2588%2586%25E5%25B8%2583%25E5%25BC%258F%25E7%25B3%25BB%25E7%25BB%259F%25E8%25AF%25BB%25E4%25B9%25A6%25E7%25AC%2594%25E8%25AE%25B0%25E4%25BA%258C%2F">
-          <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
-        </a>
-      </li>
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fcicirori.github.io%2F2018%2F09%2F%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2588%2586%25E5%25B8%2583%25E5%25BC%258F%25E7%25B3%25BB%25E7%25BB%259F%25E8%25AF%25BB%25E4%25B9%25A6%25E7%25AC%2594%25E8%25AE%25B0%25E4%25BA%258C%2F">
-          <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
-        </a>
-      </li>
-    
-      <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fcicirori.github.io%2F2018%2F09%2F%25E8%25AE%25BE%25E8%25AE%25A1%25E5%2588%2586%25E5%25B8%2583%25E5%25BC%258F%25E7%25B3%25BB%25E7%25BB%259F%25E8%25AF%25BB%25E4%25B9%25A6%25E7%25AC%2594%25E8%25AE%25B0%25E4%25BA%258C%2F">
-          <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
-        </a>
-      </li>
-    
-  </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -937,32 +701,6 @@ $(document).ready(function() {
 });
 </script>
 
-
-  
-    
-      <script>
-        var disqus_config = function () {
-          this.page.url = 'https:\/\/cicirori.github.io\/2018\/09\/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C\/';
-          
-            this.page.identifier = '\/2018\/09\/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C\/'
-          
-        };
-        (function() {
-          
-          
-          if (window.location.hostname == "localhost") {
-            return;
-          }
-          var d = document, s = d.createElement('script');
-          var disqus_shortname = 'cicirori';
-          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      </script>
-    
-  
 
 
 

@@ -218,6 +218,68 @@ if (!doNotTrack) {
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/">
+          设计分布式系统读书笔记（五）
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-09-25T19:29:16Z">
+        
+  九月 25, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://cicirori.github.io/categories/blog">Blog</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <!-- toc -->
+
+<h1 id="函数与事件驱动处理">函数与事件驱动处理</h1>
+
+<p>我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。</p>
+
+<p>大多数时FaaS指无服务器（Serverless）计算，这么说也没什么错，但是广义的无服务计算和事件驱动FaaS并不是完全相同的概念。比如一个多用户容器（CaaS）是无服务器的，但是不是事件驱动的。一个开源的FaaS跑在你自己拥有管理的物理机上，这是事件驱动的但不是无服务器的。理解这两者的区别可以让你了解什么时候该使用事件驱动什么时候该使用无服务器，或者什么时候两者并用。</p>
+      
+      <p>
+        <a href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/" class="postShorten-excerpt_link link">阅读全文</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%9B%9B/">
           设计分布式系统读书笔记(四)
         </a>
@@ -596,72 +658,6 @@ if (!doNotTrack) {
 </article>
 
             
-              
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/03/%E5%88%A9%E7%94%A8gcp%E8%B4%9F%E8%BD%BD%E5%B9%B3%E8%A1%A1%E5%AE%9E%E7%8E%B0ipv6%E7%9A%84shadowsocks/">
-          利用GCP负载平衡实现IPv6的shadowsocks
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-03-18T20:11:30Z">
-        
-  三月 18, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://cicirori.github.io/categories/blog">Blog</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <!-- toc -->
-
-<h1 id="shadowsocks-配置">Shadowsocks 配置</h1>
-
-<p>端口设置为GCP TCP负载平衡支持的端口, 比如5222.</p>
-
-<h1 id="gcp的负载平衡">GCP的负载平衡</h1>
-
-<p>先建立一个实例组, 把要用的VM加进去.</p>
-
-<p>使用TCP负载均衡-从互联网到我的VM-多个区域(单个区域貌似会有点问题), 然后基本的配置都是默认, 前端IP选择v6就可以.</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/03/%E5%88%A9%E7%94%A8gcp%E8%B4%9F%E8%BD%BD%E5%B9%B3%E8%A1%A1%E5%AE%9E%E7%8E%B0ipv6%E7%9A%84shadowsocks/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-            
             
   <div class="pagination-bar">
     <ul class="pagination">
@@ -675,8 +671,15 @@ if (!doNotTrack) {
           </li>
         
         
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://cicirori.github.io/categories/blog/page/3/">
+              <span>下一页</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
       
-      <li class="pagination-number">第 2 页 共 2 页</li>
+      <li class="pagination-number">第 2 页 共 3 页</li>
     </ul>
   </div>
 
@@ -739,6 +742,33 @@ if (!doNotTrack) {
       <div class="no-result text-color-light text-center"></div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://cicirori.github.io/2019/02/%E8%AF%BB%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/">
+                <h3 class="media-heading">读「如何高效学习」</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Feb 2, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><!--toc-->
+
+<h1 id="作者">作者</h1>
+
+<blockquote>
+<p>　　斯科特·扬（Scott Young）1988年出生在加拿大，从高中开始放学后就几乎不学习，尽管如此，他还是以全班第二名的成绩毕业；读大学时，他每天学习一般不超过2个小时，但他的平均成绩保持在A以上；从加拿大马尼托巴大学商科毕业后，他用了一年时间，通过互联网完成了麻省理工学院计算机专业本科四年33门课程，节省了约合人民币150万元的大学学费，还登上了TED的讲台分享经验。</p>
+
+<p>　　这还不是最酷的。斯科特·扬还曾花一年时间去了4个国家，学习了4门外语，用30天学习肖像画。</p>
+</blockquote>
+
+<p>作者斯科特杨的履历着实吸引人，直接让我有了读「如何高效学习」这本书的欲望。总结一下看下来的感觉，其实类比、比喻这种方法我有一段是非常厌恶，特别是有人用它来论证自己的观点时，只要出现类比的手法，逻辑链条直接断掉，让人直接没了想进一步交流的兴趣。对这一方法的绝对排斥，可能是我既对唯理论深信不疑，又难以摆脱经验论影响的产生的虚无主义救赎，简而言之就是哲学理论太初级。后来读康德，解决了我很多疑惑，而斯科特杨的获取、理解、拓展、纠错和应用正好和康德对自然立法的理念相似，当然省略了绝大多数的细节，这也是一个理论想要得到合适的应用性而不得不妥协的。</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -1016,29 +1046,6 @@ endif
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-                <h3 class="media-heading">设计分布式系统读书笔记（二）</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2018
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><!-- toc -->
-
-<h1 id="大使模式">大使模式</h1>
-
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180912_194022.png" alt="" /></p>
-
-<p>上图显示了一个典型的大使模式架构。大使模式的价值在于两点，首先构建一个模块化可复用的容器本身就具有价值，其次一个大使容器可以供多个应用容器使用，这种复用加快了开发进度也利于保证代码质量。我们接下来会提供大使模式的几个例子。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -1046,7 +1053,7 @@ endif
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         14 posts found
+         15 posts found
       </p>
     </div>
   </div>

@@ -6,10 +6,29 @@
     <description>Recent content in Blog on Noumenon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Feb 2019 16:11:31 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Feb 2019 13:08:47 +0800</lastBuildDate>
     
 	<atom:link href="https://cicirori.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>读「如何高效学习」</title>
+      <link>https://cicirori.github.io/2019/02/%E8%AF%BB%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 26 Feb 2019 13:08:47 +0800</pubDate>
+      
+      <guid>https://cicirori.github.io/2019/02/%E8%AF%BB%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/</guid>
+      <description>&lt;!--toc--&gt;
+
+&lt;h1 id=&#34;作者&#34;&gt;作者&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;　　斯科特·扬（Scott Young）1988年出生在加拿大，从高中开始放学后就几乎不学习，尽管如此，他还是以全班第二名的成绩毕业；读大学时，他每天学习一般不超过2个小时，但他的平均成绩保持在A以上；从加拿大马尼托巴大学商科毕业后，他用了一年时间，通过互联网完成了麻省理工学院计算机专业本科四年33门课程，节省了约合人民币150万元的大学学费，还登上了TED的讲台分享经验。&lt;/p&gt;
+
+&lt;p&gt;　　这还不是最酷的。斯科特·扬还曾花一年时间去了4个国家，学习了4门外语，用30天学习肖像画。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;作者斯科特杨的履历着实吸引人，直接让我有了读「如何高效学习」这本书的欲望。总结一下看下来的感觉，其实类比、比喻这种方法我有一段是非常厌恶，特别是有人用它来论证自己的观点时，只要出现类比的手法，逻辑链条直接断掉，让人直接没了想进一步交流的兴趣。对这一方法的绝对排斥，可能是我既对唯理论深信不疑，又难以摆脱经验论影响的产生的虚无主义救赎，简而言之就是哲学理论太初级。后来读康德，解决了我很多疑惑，而斯科特杨的获取、理解、拓展、纠错和应用正好和康德对自然立法的理念相似，当然省略了绝大多数的细节，这也是一个理论想要得到合适的应用性而不得不妥协的。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>实现智能指针</title>
