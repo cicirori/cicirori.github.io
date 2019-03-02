@@ -218,6 +218,86 @@ if (!doNotTrack) {
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
+          Manjaro安装配置踩坑
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-12-06T17:07:14&#43;08:00">
+        
+  十二月 6, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://cicirori.github.io/categories/blog">Blog</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      
+        <p>其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.</p>
+
+<!-- toc -->
+
+<h1 id="制作usb安装器">制作USB安装器</h1>
+
+<p>参考资料 : Manjaro 官方User Guide</p>
+
+<ol>
+<li>官网下载镜像</li>
+<li>Linux下推荐通过命令行制作
+
+<ol>
+<li>插上用于制作安装盘的U盘</li>
+<li>查看U盘盘符. <code>sudo fdisk -l</code>.</li>
+<li>写入镜像:
+<code>sudo dd if=manjaro-*.iso of=/dev/(替换成你查到的盘符) bs=4M</code></li>
+</ol></li>
+<li>Windows推荐使用Rufus:
+
+<ol>
+<li>选择你要用于制作安装盘的U盘.</li>
+<li>在Boot selection,  点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.</li>
+</ol></li>
+</ol>
+      
+      <p>
+        <a href="https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/" class="postShorten-excerpt_link link">阅读全文</a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
         <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/">
           设计分布式系统读书笔记（五）
         </a>
@@ -596,68 +676,6 @@ if (!doNotTrack) {
 </article>
 
             
-              
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/">
-          关于三段论
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-03-18T23:32:44Z">
-        
-  三月 18, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://cicirori.github.io/categories/blog">Blog</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        <blockquote>
-<p><strong>三段论</strong>在<a href="https://zh.wikipedia.org/wiki/%E4%BC%A0%E7%BB%9F%E9%80%BB%E8%BE%91">传统逻辑</a>中，是在其中一个<a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E9%A2%98">命题</a>（<strong>结论</strong>）必然地从另外两个命题（叫做<a href="https://zh.wikipedia.org/wiki/%E5%89%8D%E6%8F%90">前提</a>）中得出的一种<a href="https://zh.wikipedia.org/wiki/%E6%8E%A8%E8%AE%BA">推论</a>。这个定义是传统的，可以宽松地从<a href="https://zh.wikipedia.org/wiki/%E4%BA%9A%E9%87%8C%E5%A3%AB%E5%A4%9A%E5%BE%B7">亚里士多德</a>的《<a href="https://zh.wikipedia.org/w/index.php?title=%E5%89%8D%E5%88%86%E6%9E%90%E7%AF%87&amp;action=edit&amp;redlink=1">前分析篇</a>》Book I, c. 1中推出来。希腊语“sullogismos”的意思是“演绎”。对传统意义上的三段论的详细描述参见<a href="https://zh.wikipedia.org/wiki/%E7%9B%B4%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA">直言三段论</a>。</p>
-
-<p>三段论由三个部分组成：<a href="https://zh.wikipedia.org/w/index.php?title=%E5%A4%A7%E5%89%8D%E6%8F%90&amp;action=edit&amp;redlink=1">大前提</a>、<a href="https://zh.wikipedia.org/w/index.php?title=%E5%B0%8F%E5%89%8D%E6%8F%90&amp;action=edit&amp;redlink=1">小前提</a>和结论，它在逻辑上是从大前提和小前提得出来的。大前提是一般性的原则。小前提是一个特殊陈述。在逻辑上，结论是从应用大前提于小前提之上得到的。</p>
-</blockquote>
-
-<p>以上是维基百科对三段论的定义。大前提、小前提和结论，在我人生的前二十年一直没有怀疑过这个理论的正确性，甚至没有产生过一丝怀疑，这一切都是那么自然，就如同是不是不是（being is not is-not）一样（这个是黑格尔在他的《逻辑学》里搞辩证法的时候讲到的东西，有机会再和你们扯）。我一直觉得亚里士多德就凭这一个成就，就足以盖过他在各科教科书中干过的所有傻事（其实也都真不傻）。</p>
-      
-      <p>
-        <a href="https://cicirori.github.io/2018/03/%E5%85%B3%E4%BA%8E%E4%B8%89%E6%AE%B5%E8%AE%BA/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-            
             
   <div class="pagination-bar">
     <ul class="pagination">
@@ -742,6 +760,27 @@ if (!doNotTrack) {
       <div class="no-result text-color-light text-center"></div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://cicirori.github.io/2019/03/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8Cstdmove/">
+                <h3 class="media-heading">右值引用和std::move</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><!--toc-->
+
+<h1 id="移动语义">移动语义</h1>
+
+<p>移动语义也是比较直觉的概念, 我们常见复制构造函数和复制赋值函数, 但是很多时候资源是独享的, 比如 I/O, 或者资源需要传递而不是复制. 这时候我们就需要工具, 实现使用源对象的资源来新建一个对象. 右值引用和 std::move 因此被引入.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -1019,33 +1058,6 @@ endif
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%B8%89/">
-                <h3 class="media-heading">设计分布式系统读书笔记（三）</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2018
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><!-- toc -->
-
-<h1 id="服务器模式">服务器模式</h1>
-
-<h2 id="微服务">微服务</h2>
-
-<p>最近微服务变成了一个描述多节点分布式软件架构的流行词，微服务描述了一个系统由运行在不同进程上的组件组成，批次之间通过预定义的API进行交流。与微服务相对应的概念是宏系统，把所有的功能紧凑的放在一个应用中。</p>
-
-<p><img src="https://raw.githubusercontent.com/cicirori/my_pic_for_markdown/master/Screenshot_20180913_102535.png" alt="" /></p>
-
-<p>微服务有各种各样的好处，大多数情况下，微服务兼具可靠性和灵活性。微服务把一个应用分解成小片，每个小片专注于提供一种服务。这种模式有利于减小开发团队大小，使得开发更加灵活有方向性。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -1053,7 +1065,7 @@ endif
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         15 posts found
+         16 posts found
       </p>
     </div>
   </div>
