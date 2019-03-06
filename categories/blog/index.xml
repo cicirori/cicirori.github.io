@@ -6,10 +6,29 @@
     <description>Recent content in Blog on Noumenon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Mar 2019 22:50:39 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 06 Mar 2019 14:21:22 +0800</lastBuildDate>
     
 	<atom:link href="https://cicirori.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>变量初始化</title>
+      <link>https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/</link>
+      <pubDate>Wed, 06 Mar 2019 14:21:22 +0800</pubDate>
+      
+      <guid>https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/</guid>
+      <description>&lt;!--toc--&gt;
+
+&lt;h1 id=&#34;初始化&#34;&gt;初始化&lt;/h1&gt;
+
+&lt;p&gt;总结一下, 就是非局部变量和线程局部变量先进行常量初始化, 没有的话进行零初始化. 分别发生在 main 执行前和 线程函数执行前.&lt;/p&gt;
+
+&lt;p&gt;非局部变量, 进行默认初始化, 除了非POD会调用默认构造函数, 和数组递归默认初始化一下元素, 其他的都是 do nothing, 结果上来看就是变量值是随机的.&lt;/p&gt;
+
+&lt;p&gt;另外构造函数列表初始化的时候, 初始化顺序和列表顺序无关,  处在同一个类内的变量和定义顺序有关, 处在不同类中的变量先基类.&lt;/p&gt;
+
+&lt;p&gt;另外, const变量必须在构造函数初始化列表中初始化. static 成员变量必须在类外初始化.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>右值引用和std::move</title>

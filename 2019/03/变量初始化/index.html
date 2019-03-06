@@ -10,39 +10,63 @@
 <meta name="keywords" content="">
 <meta name="description" content="
 
-思路
+初始化
 
-核心是引用计数, 使用一个自定义的类来保存和管理引用计数. 需要实现指针类型的赋值构造函数, 拷贝构造函数, 析构函数,  =,*,-&gt;运算符, 为了管理不同的类型, 使用模板技术.">
+总结一下, 就是非局部变量和线程局部变量先进行常量初始化, 没有的话进行零初始化. 分别发生在 main 执行前和 线程函数执行前.
+
+非局部变量, 进行默认初始化, 除了非POD会调用默认构造函数, 和数组递归默认初始化一下元素, 其他的都是 do nothing, 结果上来看就是变量值是随机的.
+
+另外构造函数列表初始化的时候, 初始化顺序和列表顺序无关,  处在同一个类内的变量和定义顺序有关, 处在不同类中的变量先基类.
+
+另外, const变量必须在构造函数初始化列表中初始化. static 成员变量必须在类外初始化.">
 
 
 <meta property="og:description" content="
 
-思路
+初始化
 
-核心是引用计数, 使用一个自定义的类来保存和管理引用计数. 需要实现指针类型的赋值构造函数, 拷贝构造函数, 析构函数,  =,*,-&gt;运算符, 为了管理不同的类型, 使用模板技术.">
+总结一下, 就是非局部变量和线程局部变量先进行常量初始化, 没有的话进行零初始化. 分别发生在 main 执行前和 线程函数执行前.
+
+非局部变量, 进行默认初始化, 除了非POD会调用默认构造函数, 和数组递归默认初始化一下元素, 其他的都是 do nothing, 结果上来看就是变量值是随机的.
+
+另外构造函数列表初始化的时候, 初始化顺序和列表顺序无关,  处在同一个类内的变量和定义顺序有关, 处在不同类中的变量先基类.
+
+另外, const变量必须在构造函数初始化列表中初始化. static 成员变量必须在类外初始化.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实现智能指针">
-<meta name="twitter:title" content="实现智能指针">
-<meta property="og:url" content="https://cicirori.github.io/2019/02/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
-<meta property="twitter:url" content="https://cicirori.github.io/2019/02/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
+<meta property="og:title" content="变量初始化">
+<meta name="twitter:title" content="变量初始化">
+<meta property="og:url" content="https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
+<meta property="twitter:url" content="https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
 <meta property="og:site_name" content="Noumenon">
 <meta property="og:description" content="
 
-思路
+初始化
 
-核心是引用计数, 使用一个自定义的类来保存和管理引用计数. 需要实现指针类型的赋值构造函数, 拷贝构造函数, 析构函数,  =,*,-&gt;运算符, 为了管理不同的类型, 使用模板技术.">
+总结一下, 就是非局部变量和线程局部变量先进行常量初始化, 没有的话进行零初始化. 分别发生在 main 执行前和 线程函数执行前.
+
+非局部变量, 进行默认初始化, 除了非POD会调用默认构造函数, 和数组递归默认初始化一下元素, 其他的都是 do nothing, 结果上来看就是变量值是随机的.
+
+另外构造函数列表初始化的时候, 初始化顺序和列表顺序无关,  处在同一个类内的变量和定义顺序有关, 处在不同类中的变量先基类.
+
+另外, const变量必须在构造函数初始化列表中初始化. static 成员变量必须在类外初始化.">
 <meta name="twitter:description" content="
 
-思路
+初始化
 
-核心是引用计数, 使用一个自定义的类来保存和管理引用计数. 需要实现指针类型的赋值构造函数, 拷贝构造函数, 析构函数,  =,*,-&gt;运算符, 为了管理不同的类型, 使用模板技术.">
+总结一下, 就是非局部变量和线程局部变量先进行常量初始化, 没有的话进行零初始化. 分别发生在 main 执行前和 线程函数执行前.
+
+非局部变量, 进行默认初始化, 除了非POD会调用默认构造函数, 和数组递归默认初始化一下元素, 其他的都是 do nothing, 结果上来看就是变量值是随机的.
+
+另外构造函数列表初始化的时候, 初始化顺序和列表顺序无关,  处在同一个类内的变量和定义顺序有关, 处在不同类中的变量先基类.
+
+另外, const变量必须在构造函数初始化列表中初始化. static 成员变量必须在类外初始化.">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-02-25T16:11:31">
+    <meta property="article:published_time" content="2019-03-06T14:21:22">
   
   
-    <meta property="article:modified_time" content="2019-02-25T16:11:31">
+    <meta property="article:modified_time" content="2019-03-06T14:21:22">
   
   
   
@@ -52,7 +76,7 @@
   
   
     
-      <meta property="article:tag" content="C&#43;&#43;">
+      <meta property="article:tag" content="c&#43;&#43;">
     
   
 
@@ -73,14 +97,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/ae723617c5cb9abcd2b4505a2ffdd322?s=640">
 
 
-    <title>实现智能指针</title>
+    <title>变量初始化</title>
 
     <link rel="icon" href="https://cicirori.github.io/img/favicon-96x96.png">
     
 
     
 
-    <link rel="canonical" href="https://cicirori.github.io/2019/02/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
+    <link rel="canonical" href="https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -243,15 +267,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      实现智能指针
+      变量初始化
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-02-25T16:11:31&#43;08:00">
+      <time itemprop="datePublished" datetime="2019-03-06T14:21:22&#43;08:00">
         
-  二月 25, 2019
+  三月 6, 2019
 
       </time>
     
@@ -272,193 +296,112 @@ if (!doNotTrack) {
             <div class="main-content-wrap">
               <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><a href="#思路">思路</a></li>
-<li><a href="#原型">原型</a></li>
-<li><a href="#实现">实现</a></li>
-<li><a href="#测试">测试</a></li>
-<li><a href="#to-do">To Do</a></li>
+<li><a href="#初始化">初始化</a></li>
+<li><a href="#默认初始化">默认初始化</a>
+<ul>
+<li><a href="#trivial-classes">Trivial classes:</a></li>
+<li><a href="#standard-layouts">Standard-layouts</a></li>
+<li><a href="#warning">Warning</a></li>
+</ul></li>
+<li><a href="#非局部变量">非局部变量</a></li>
+<li><a href="#成员变量的初始化">成员变量的初始化</a></li>
 <li><a href="#参考资料">参考资料</a></li>
 </ul>
 </nav>
 
-<h1 id="思路">思路</h1>
+<h1 id="初始化">初始化</h1>
 
-<p>核心是引用计数, 使用一个自定义的类来保存和管理引用计数. 需要实现指针类型的赋值构造函数, 拷贝构造函数, 析构函数,  <code>=,*,-&gt;</code>运算符, 为了管理不同的类型, 使用模板技术.</p>
+<p>总结一下, 就是非局部变量和线程局部变量先进行常量初始化, 没有的话进行零初始化. 分别发生在 main 执行前和 线程函数执行前.</p>
 
-<h1 id="原型">原型</h1>
+<p>非局部变量, 进行默认初始化, 除了非POD会调用默认构造函数, 和数组递归默认初始化一下元素, 其他的都是 do nothing, 结果上来看就是变量值是随机的.</p>
 
-<pre><code class="language-cpp">// 引用计数类
-class ref_cnt{
-private:
-    int cnt = 0;
-public:
-    int get() const;
-    void operator++();
-    void operator--();
-};
+<p>另外构造函数列表初始化的时候, 初始化顺序和列表顺序无关,  处在同一个类内的变量和定义顺序有关, 处在不同类中的变量先基类.</p>
 
+<p>另外, const变量必须在构造函数初始化列表中初始化. static 成员变量必须在类外初始化.</p>
 
-// 模板智能指针类
-template &lt;typename T&gt;
-class smart_ptr{
-private:
-    T* res;
-    ref_cnt* ref;
-    
-public:
-    // 构造函数
-    smart_ptr();
-    explicit smart_ptr(T *orig_res);
-    smart_ptr(const smart_ptr&lt;T&gt;&amp; orig);
-    
-    // 析构函数
-    virtual ~smart_ptr();
-    
-    // 重载运算符
-    smart_ptr&lt;T&gt; &amp;operator=(const smart_ptr&lt;T&gt;&amp; rhs);
-    T&amp; operator*() const;
-    T* operator-&gt;() const;
-};
-</code></pre>
+<p>初始化有如下方式:</p>
 
-<h1 id="实现">实现</h1>
+<ul>
+<li>值初始化，例如 <code>std::string s{};</code></li>
+<li>直接初始化，例如 <code>std::string s(&quot;hello&quot;);</code></li>
+<li>复制初始化，例如 <code>std::string s = &quot;hello&quot;;</code></li>
+<li>列表初始化，例如 <code>std::string s{'a', 'b', 'c'};</code></li>
+<li>聚合初始化，例如 <code>char a[3] = {'a', 'b'};</code></li>
+<li>引用初始化，例如 <code>char&amp; c = a[0];</code></li>
+</ul>
 
-<pre><code class="language-cpp">class ref_cnt{
-private:
-    int cnt = 0;
+<h1 id="默认初始化">默认初始化</h1>
 
-public:
-    int get() const {
-        return cnt;
-    }
+<p>如果不显式初始化,那么则使用默认初始化.</p>
 
-    void inc() {
-        ++cnt;
-    };
+<ul>
+<li>如果T是非POD类型* , 调用默认构造函数.</li>
+<li>若T是数组, 每个元素都被默认初始化.</li>
+<li>否则, 不做任何事.</li>
+</ul>
 
-    int dec(){
-        --cnt;
-        return cnt;
-    }
-};
+<p>* POD 类型:</p>
 
-template &lt;typename T&gt;
-class smart_ptr{
+<blockquote>
+<p>POD stands for Plain Old Data - that is, a class (whether defined with the keyword struct or the keyword class) without constructors, destructors and virtual members functions. Wikipedia&rsquo;s article on POD goes into a bit more detail and defines it as:</p>
 
-private:
-    T* res;
-    ref_cnt* ref;
+<blockquote>
+<p>A Plain Old Data Structure in C++ is an aggregate class that contains only PODS as members, has no user-defined destructor, no user-defined copy assignment operator, and no nonstatic members of pointer-to-member type.</p>
+</blockquote>
+</blockquote>
 
-public:
-    smart_ptr() : res(nullptr), ref(nullptr){};
+<p>在 C++ 11 的标准里, POD 被定义为同时具有 trivial class 和 standard-layout class 属性.</p>
 
-    explicit smart_ptr(T *orig_res) :
-    res(orig_res), ref(new ref_cnt()) {
-        ref-&gt;inc();
-    }
+<h2 id="trivial-classes">Trivial classes:</h2>
 
-    smart_ptr(const smart_ptr&lt;T&gt;&amp; orig) :
-    res(orig-&gt;res), ref(orig-&gt;ref){
-        ref-&gt;inc();
-    }
-    
-    virtual ~smart_ptr(){
-        if(ref) {
-            if(ref-&gt;dec() &lt;= 0){
-                delete res;
-                delete ref;
+<blockquote>
+<p>trivial classes support static initialization. If a class is trivially copyable (a superset of trivial classes), it is ok to copy its representation over the place with things like <code>memcpy</code> and expect the result to be the same.</p>
+</blockquote>
 
-                res = nullptr;
-                ref = nullptr;
-            }
-        }
-    }
+<h2 id="standard-layouts">Standard-layouts</h2>
 
-    smart_ptr&lt;T&gt; &amp;operator=(const smart_ptr&lt;T&gt;&amp; rhs){
-        if (this != &amp;rhs){
-            if (ref &amp;&amp; ref-&gt;dec() == 0) {
-                delete res;
-                delete ref;
-            }
-            res = rhs.res;
-            ref = rhs.ref;
-            ref-&gt;inc();
-        }
-        return *this;
-    }
+<blockquote>
+<p>The standard mentions that these are useful for communicating with other languages, and that&rsquo;s because a standard-layout class has the same memory layout of the equivalent C struct or union.</p>
+</blockquote>
 
-    T&amp; operator*() const {
-        return *res;
-    }
+<p>关于 POD 的内容可以写一篇比初始化更长的笔记了, sad.</p>
 
-    T* operator-&gt;(){
-        return res;
-    }
-};
-</code></pre>
+<h2 id="warning">Warning</h2>
 
-<h1 id="测试">测试</h1>
+<p>自动和动态存储期的非类变量默认初始化产生拥有不确定值的对象（<a href="https://zh.cppreference.com/w/cpp/language/zero_initialization">零初始化</a>静态和线程局域对象）。</p>
 
-<p>测试代码:</p>
+<p>若 <code>T</code> 是 <code>const</code> 限定类型，则它必须是拥有用户提供的默认构造函数的类类型。</p>
 
-<pre><code class="language-cpp">class AirCraft
-{
-private:
-    std::string m_Model;
-public:
-    AirCraft() :m_Model(&quot;Generic Model&quot;)
-    {
-        cout &lt;&lt; &quot;Generic model aircraft created&quot; &lt;&lt; endl;
-    }
-    AirCraft(const string&amp; modelName) :m_Model(modelName)
-    {
-        cout &lt;&lt; &quot;Aircraft type&quot; &lt;&lt; m_Model &lt;&lt; &quot;is created!&quot; &lt;&lt; endl;
-    }
-    void SetAirCraftModel(const string&amp; modelName)
-    {
-        cout &lt;&lt; &quot;Aircraft model changed from  &quot; &lt;&lt; m_Model &lt;&lt; &quot; to &quot; &lt;&lt; modelName &lt;&lt; endl;
-        m_Model = modelName;
-    }
-    ~AirCraft()
-    {
-        cout &lt;&lt; &quot;Destroying Aircraft of model:&quot; &lt;&lt; m_Model &lt;&lt; &quot;!&quot; &lt;&lt; endl;
-    }
-};
+<p>不能默认初始化引用。</p>
 
+<h1 id="非局部变量">非局部变量</h1>
 
-int main()
-{
-    // Create two aircraft objects.
-    smart_ptr&lt;AirCraft&gt; raptorPointer(new AirCraft(&quot;F-22 Raptor&quot;)); // Ref Count for raptorPointer = 1
-    raptorPointer-&gt;SetAirCraftModel(&quot;B2 Bomber&quot;);   // rename the model using pointer access operator
-    (*raptorPointer).SetAirCraftModel(&quot;B2 Spirit&quot;); // rename the model using the pointer dereference operator
-    smart_ptr&lt;AirCraft&gt; hornettPointer(new AirCraft(&quot;F-14 Hornett&quot;)); // Ref count for hornettPointer = 1
-    raptorPointer = hornettPointer; // raptorPointer now points to &quot;F14-Hornett&quot;.Ref count for hornett is 2. &quot;F-22 Raptor&quot; is destroyed. Ref count for hornett is 2
-    return 0;
-}
-</code></pre>
+<p>静态存储期(static 为代表)的变量在 main 执行之前初始化</p>
 
-<p>Output :</p>
+<p>线程局部存储期(thread_local为代表)的变量 在线程函数的执行之前被初始化.</p>
 
-<pre><code class="language-cpp">Aircraft typeF-22 Raptoris created!
-Aircraft model changed from  F-22 Raptor to B2 Bomber
-Aircraft model changed from  B2 Bomber to B2 Spirit
-Aircraft typeF-14 Hornettis created!
-Destroying Aircraft of model:B2 Spirit!
-Destroying Aircraft of model:F-14 Hornett!
-</code></pre>
+<ul>
+<li>首先发生常量初始化, 实践上通常在编译期进行.</li>
+<li>然后是零初始化.</li>
+</ul>
 
-<h1 id="to-do">To Do</h1>
+<h1 id="成员变量的初始化">成员变量的初始化</h1>
 
-<p>实现无锁且线程安全性的引用计数</p>
+<p>成员变量的初始化, 和对象的存储类型有关, 和变量的默认初始化行为有关.</p>
+
+<p>另外关于构造函数列表初始化顺序取决与变量定义顺序和变量所在的是基类还是派生类, 顺序符合从左到有的dfs规则.</p>
 
 <h1 id="参考资料">参考资料</h1>
 
-<ul>
-<li><p>C++ Primer, 5th Edition. Stanley B. Lippman, Josée Lajoie, Barbara E. Moo.</p></li>
+<p><a href="https://en.cppreference.com/w/cpp/language/initialization">https://en.cppreference.com/w/cpp/language/initialization</a></p>
 
-<li><p><a href="https://www.codeproject.com/Articles/15351/Implementing-a-simple-smart-pointer-in-c">https://www.codeproject.com/Articles/15351/Implementing-a-simple-smart-pointer-in-c</a></p></li>
-</ul>
+<p><a href="https://en.cppreference.com/w/cpp/language/default_initialization">https://en.cppreference.com/w/cpp/language/default_initialization</a></p>
+
+<p><a href="https://stackoverflow.com/questions/146452/what-are-pod-types-in-c">https://stackoverflow.com/questions/146452/what-are-pod-types-in-c</a></p>
+
+<p><a href="https://stackoverflow.com/questions/4178175/what-are-aggregates-and-pods-and-how-why-are-they-special/7189821#7189821">https://stackoverflow.com/questions/4178175/what-are-aggregates-and-pods-and-how-why-are-they-special/7189821#7189821</a></p>
+
+<p><a href="https://harttle.land/2015/10/05/cpp-variable-init.html">https://harttle.land/2015/10/05/cpp-variable-init.html</a></p>
               
             </div>
           </div>
@@ -470,7 +413,7 @@ Destroying Aircraft of model:F-14 Hornett!
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://cicirori.github.io/tags/c&#43;&#43;/">C&#43;&#43;</a>
+  <a class="tag tag--primary tag--small" href="https://cicirori.github.io/tags/c&#43;&#43;/">c&#43;&#43;</a>
 
                   </div>
                 
@@ -483,7 +426,7 @@ Destroying Aircraft of model:F-14 Hornett!
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2019/02/%E8%AF%BB%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/" data-tooltip="读「如何高效学习」">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -491,7 +434,7 @@ Destroying Aircraft of model:F-14 Hornett!
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2019/02/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98raii%E5%92%8C%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" data-tooltip="动态内存、RAII和智能指针">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2019/03/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8Cstdmove/" data-tooltip="右值引用和std::move">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -509,19 +452,19 @@ Destroying Aircraft of model:F-14 Hornett!
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2019/02/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2019/02/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2019/02/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -569,7 +512,7 @@ Destroying Aircraft of model:F-14 Hornett!
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2019/02/%E8%AF%BB%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0/" data-tooltip="读「如何高效学习」">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -577,7 +520,7 @@ Destroying Aircraft of model:F-14 Hornett!
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2019/02/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98raii%E5%92%8C%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" data-tooltip="动态内存、RAII和智能指针">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://cicirori.github.io/2019/03/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8Cstdmove/" data-tooltip="右值引用和std::move">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -595,19 +538,19 @@ Destroying Aircraft of model:F-14 Hornett!
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2019/02/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2019/02/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2019/02/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -637,19 +580,19 @@ Destroying Aircraft of model:F-14 Hornett!
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcicirori.github.io%2F2019%2F02%2F%25E5%25AE%259E%25E7%258E%25B0%25E6%2599%25BA%25E8%2583%25BD%25E6%258C%2587%25E9%2592%2588%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcicirori.github.io%2F2019%2F03%2F%25E5%258F%2598%25E9%2587%258F%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%2F">
           <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fcicirori.github.io%2F2019%2F02%2F%25E5%25AE%259E%25E7%258E%25B0%25E6%2599%25BA%25E8%2583%25BD%25E6%258C%2587%25E9%2592%2588%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fcicirori.github.io%2F2019%2F03%2F%25E5%258F%2598%25E9%2587%258F%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%2F">
           <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fcicirori.github.io%2F2019%2F02%2F%25E5%25AE%259E%25E7%258E%25B0%25E6%2599%25BA%25E8%2583%25BD%25E6%258C%2587%25E9%2592%2588%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fcicirori.github.io%2F2019%2F03%2F%25E5%258F%2598%25E9%2587%258F%25E5%2588%259D%25E5%25A7%258B%25E5%258C%2596%2F">
           <i class="fa fa-google-plus"></i><span>分享到 Google&#43;</span>
         </a>
       </li>
@@ -1066,9 +1009,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/cicirori.github.io\/2019\/02\/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88\/';
+          this.page.url = 'https:\/\/cicirori.github.io\/2019\/03\/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96\/';
           
-            this.page.identifier = '\/2019\/02\/%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88\/'
+            this.page.identifier = '\/2019\/03\/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96\/'
           
         };
         (function() {
