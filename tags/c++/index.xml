@@ -6,10 +6,21 @@
     <description>Recent content in C&#43;&#43; on Noumenon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Mar 2019 14:21:22 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Mar 2019 15:06:51 +0800</lastBuildDate>
     
 	<atom:link href="https://cicirori.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mod 运算总结</title>
+      <link>https://cicirori.github.io/2019/03/mod-%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 10 Mar 2019 15:06:51 +0800</pubDate>
+      
+      <guid>https://cicirori.github.io/2019/03/mod-%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/</guid>
+      <description>&lt;!--toc--&gt;
+
+&lt;p&gt;做一场笔试题的时候 case 只 pass 了 90%, 反复检查算法应该没有错, 但是题目要求对1000000007取余, 最后结果是&lt;code&gt;( a * 2^n) % 1000000007&lt;/code&gt;, 我直觉是&lt;code&gt;(a * (2^n % 1000000007) ) % 1000000007 != ( a * 2^n) % 1000000007&lt;/code&gt;的, 但是改了一下 pass 了. 做完和同学交流被告知&lt;code&gt;(a * (b % c) ) % c = (a * b) % c&lt;/code&gt;, 讲道理这个抽代学过的(同学说他们高中就学过 :)  但是现在忘了, shame on me, 正好最近看了一下负数参与模运算的一些规则, 就想总结一下.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>变量初始化</title>

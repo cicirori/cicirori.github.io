@@ -217,6 +217,10 @@ if (!doNotTrack) {
         <ul class="archive-posts archive-month" data-date="201903">
           <h5 class="archive-title" style="text-decoration: none;">三月</h5>
           
+            <li class="archive-post archive-day" data-date="20190310">
+              <a class="archive-post-title" href="https://cicirori.github.io/2019/03/mod-%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/">Mod 运算总结</a>
+            </li>
+          
             <li class="archive-post archive-day" data-date="20190306">
               <a class="archive-post-title" href="https://cicirori.github.io/2019/03/%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96/">变量初始化</a>
             </li>
@@ -372,6 +376,25 @@ if (!doNotTrack) {
       <div class="no-result text-color-light text-center"></div>
       <div class="results">
         
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://cicirori.github.io/2019/03/mod-%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/">
+                <h3 class="media-heading">Mod 运算总结</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><!--toc-->
+
+<p>做一场笔试题的时候 case 只 pass 了 90%, 反复检查算法应该没有错, 但是题目要求对1000000007取余, 最后结果是<code>( a * 2^n) % 1000000007</code>, 我直觉是<code>(a * (2^n % 1000000007) ) % 1000000007 != ( a * 2^n) % 1000000007</code>的, 但是改了一下 pass 了. 做完和同学交流被告知<code>(a * (b % c) ) % c = (a * b) % c</code>, 讲道理这个抽代学过的(同学说他们高中就学过 :)  但是现在忘了, shame on me, 正好最近看了一下负数参与模运算的一些规则, 就想总结一下.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
         
           <div class="media">
             
@@ -647,29 +670,6 @@ endif
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://cicirori.github.io/2018/09/%E8%AE%BE%E8%AE%A1%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E4%BA%94/">
-                <h3 class="media-heading">设计分布式系统读书笔记（五）</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Sep 9, 2018
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><!-- toc -->
-
-<h1 id="函数与事件驱动处理">函数与事件驱动处理</h1>
-
-<p>我们之前看到的系统设计都是为了长期运行的功能，服务器总是在线，这些模式对于那些处于高负载，占据大量内存和磁盘的服务来说是合适的。但是还有一类应用，可能需要在线的时间很短，或者只需要处理单一请求，或者只需要对每个时间响应。这种类型的请求或者叫事件驱动应用设计最近在大规模公有云上非常流行，厂家为此提出了FaaS（函数/功能即服务）。时间再往后推一点的最近，FaaS在私有云或者物理机器上也开始流行。</p>
-
-<p>大多数时FaaS指无服务器（Serverless）计算，这么说也没什么错，但是广义的无服务计算和事件驱动FaaS并不是完全相同的概念。比如一个多用户容器（CaaS）是无服务器的，但是不是事件驱动的。一个开源的FaaS跑在你自己拥有管理的物理机上，这是事件驱动的但不是无服务器的。理解这两者的区别可以让你了解什么时候该使用事件驱动什么时候该使用无服务器，或者什么时候两者并用。</p></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -677,7 +677,7 @@ endif
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         17 posts found
+         18 posts found
       </p>
     </div>
   </div>
