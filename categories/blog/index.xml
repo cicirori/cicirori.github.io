@@ -6,10 +6,23 @@
     <description>Recent content in Blog on Noumenon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Mar 2019 15:06:51 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Mar 2019 22:22:09 +0800</lastBuildDate>
     
 	<atom:link href="https://cicirori.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>虚拟化方法对比</title>
+      <link>https://cicirori.github.io/2019/03/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/</link>
+      <pubDate>Sat, 16 Mar 2019 22:22:09 +0800</pubDate>
+      
+      <guid>https://cicirori.github.io/2019/03/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/</guid>
+      <description>&lt;!--toc--&gt;
+
+&lt;p&gt;虽然经常和 KVM 打交道, 但是对 KVM 的印象仅限于 kvm.ko 和 kvm-intel.ko 这两个 kernel module 和 VMExit 指令还有 QEMU 和 virt-manager. 对 KVM, OpenVZ 和 Xen 区别的了解也仅限于, OpenVZ 容易超售, KVM 能跑 BBR, Xen么&amp;hellip; 好像不怎么常见.&lt;/p&gt;
+
+&lt;p&gt;今天大概了解了一下三种虚拟化的实现方式, 真的是大吃一惊, 没有想到看起来最老旧的, 选购 VPS 的时候避而远之的OpenVZ, 居然和当下火热的 Docker 一样都是基于 Linux 的container 机制, 瞬间有种失敬的感觉.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Mod 运算总结</title>

@@ -136,6 +136,27 @@ if (!doNotTrack) {
           <div class="media">
             
             <div class="media-body">
+              <a class="link-unstyled" href="https://cicirori.github.io/2019/03/%E8%99%9A%E6%8B%9F%E5%8C%96%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/">
+                <h3 class="media-heading">虚拟化方法对比</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2019
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><!--toc-->
+
+<p>虽然经常和 KVM 打交道, 但是对 KVM 的印象仅限于 kvm.ko 和 kvm-intel.ko 这两个 kernel module 和 VMExit 指令还有 QEMU 和 virt-manager. 对 KVM, OpenVZ 和 Xen 区别的了解也仅限于, OpenVZ 容易超售, KVM 能跑 BBR, Xen么&hellip; 好像不怎么常见.</p>
+
+<p>今天大概了解了一下三种虚拟化的实现方式, 真的是大吃一惊, 没有想到看起来最老旧的, 选购 VPS 的时候避而远之的OpenVZ, 居然和当下火热的 Docker 一样都是基于 Linux 的container 机制, 瞬间有种失敬的感觉.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
               <a class="link-unstyled" href="https://cicirori.github.io/2019/03/mod-%E8%BF%90%E7%AE%97%E6%80%BB%E7%BB%93/">
                 <h3 class="media-heading">Mod 运算总结</h3>
               </a>
@@ -385,47 +406,6 @@ endif
             <hr>
           </div>
         
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://cicirori.github.io/2018/12/manjaro%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/">
-                <h3 class="media-heading">Manjaro安装配置踩坑</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Dec 12, 2018
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather"><p>其实manjaro和arch的英文社区上都讲的很清楚, 推荐看英文原版资料.</p>
-
-<!-- toc -->
-
-<h1 id="制作usb安装器">制作USB安装器</h1>
-
-<p>参考资料 : Manjaro 官方User Guide</p>
-
-<ol>
-<li>官网下载镜像</li>
-<li>Linux下推荐通过命令行制作
-
-<ol>
-<li>插上用于制作安装盘的U盘</li>
-<li>查看U盘盘符. <code>sudo fdisk -l</code>.</li>
-<li>写入镜像:
-<code>sudo dd if=manjaro-*.iso of=/dev/(替换成你查到的盘符) bs=4M</code></li>
-</ol></li>
-<li>Windows推荐使用Rufus:
-
-<ol>
-<li>选择你要用于制作安装盘的U盘.</li>
-<li>在Boot selection,  点击Select选择下载的Manjaro镜像, 点击Start, 然后在出现的窗口中选择DD Image 方式.</li>
-</ol></li>
-</ol></div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
       </div>
     </div>
     <div class="modal-footer">
@@ -433,7 +413,7 @@ endif
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         18 posts found
+         19 posts found
       </p>
     </div>
   </div>
