@@ -6,10 +6,21 @@
     <description>Recent content on Noumenon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Mar 2019 22:22:09 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 May 2019 14:13:37 +0800</lastBuildDate>
     
 	<atom:link href="https://cicirori.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>每个程序员都该知道的数字 -- 如果 CPU 频率变成 1 Hz</title>
+      <link>https://cicirori.github.io/2019/05/%E6%AF%8F%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%91%98%E9%83%BD%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E6%95%B0%E5%AD%97-%E5%A6%82%E6%9E%9C-cpu-%E9%A2%91%E7%8E%87%E5%8F%98%E6%88%90-1-hz/</link>
+      <pubDate>Sun, 05 May 2019 14:13:37 +0800</pubDate>
+      
+      <guid>https://cicirori.github.io/2019/05/%E6%AF%8F%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%91%98%E9%83%BD%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E6%95%B0%E5%AD%97-%E5%A6%82%E6%9E%9C-cpu-%E9%A2%91%E7%8E%87%E5%8F%98%E6%88%90-1-hz/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;译自图片：&lt;a href=&#34;https://imgur.com/8LIwV4C&#34;&gt;https://imgur.com/8LIwV4C&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
     
     <item>
       <title>虚拟化方法对比</title>
